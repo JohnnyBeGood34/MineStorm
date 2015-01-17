@@ -7,6 +7,7 @@
 QT       += core gui
 QMAKE_CXXFLAGS += -std=c++0x
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = TD6
@@ -18,12 +19,22 @@ SOURCES += main.cpp\
     controller.cpp \
     gameboard.cpp \
     game.cpp \
-    dummygame.cpp
+    dummygame.cpp \
+    ship.cpp \
+    mindstormgame.cpp \
+    lifecounter.cpp \
+    pointscounter.cpp
 
 HEADERS  += mainwindow.h \
     controller.h \
     gameboard.h \
     game.h \
-    dummygame.h
+    dummygame.h \
+    ship.h \
+    mindstormgame.h \
+    lifecounter.h \
+    pointscounter.h
 
 FORMS    +=
+
+
