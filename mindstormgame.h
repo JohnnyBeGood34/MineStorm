@@ -1,5 +1,6 @@
 #ifndef TESTGAME_H
 #define TESTGAME_H
+#include "mine.h"
 #include "game.h"
 #include "ship.h"
 #include "vector"
@@ -22,6 +23,7 @@ private:
     virtual void step();
     void initialize();
 Ship *_userShip;
+Mine *_conputerMine;
 //vector<unique_ptr<QPoint>> _mines;
 vector<QPoint> _mines;
 LifeCounter *_lifecounter;

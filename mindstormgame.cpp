@@ -30,8 +30,12 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 
      //Affichage de toutes les mines
      for(auto i=0;i<_mines.size();++i){
-                painter.drawPoint(_mines.at(i));
+        //initialisation de la mine
+         _conputerMine=new Mine(_mines.at(i));
+         QPolygon polygonMine=_conputerMine->getPolygon();
+         painter.drawPolygon(polygonMine);
      }
+
 }
 
 
@@ -48,12 +52,16 @@ void MindStormGame::keyReleased( int key ){
 }
 
 void MindStormGame::step(){
-//Ici => pour toutes les mines les faire bouger aléatoirement
-    //appliquer un QTransform ?
-    for(auto i=0;i<_mines.size();++i){
-        int x=_mines.at(i).x();
+    //Fais bouger les mines dans des directions aléatoire mais un résultat pourris qui tremble .....
 
-              _mines.at(i).setX(x+10);
+    const int min = -10;
+    const int max = 10;
+    for(auto i=0;i<_mines.size();++i){
+        int direction = min + (rand()%(max-min));
+        int x=_mines.at(i).x();
+              _mines.at(i).setX(x+direction);
+              int y=_mines.at(i).y();
+                    _mines.at(i).setY(y+direction);
     }
 }
 

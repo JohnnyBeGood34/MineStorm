@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     pointscounter.cpp \
     ennemyspaceship.cpp \
     weapon.cpp \
-    shot.cpp
+    shot.cpp \
+    mine.cpp
 
 HEADERS  += mainwindow.h \
     controller.h \
@@ -39,7 +40,8 @@ HEADERS  += mainwindow.h \
     pointscounter.h \
     ennemyspaceship.h \
     weapon.h \
-    shot.h
+    shot.h \
+    mine.h
 
 FORMS    +=
 
