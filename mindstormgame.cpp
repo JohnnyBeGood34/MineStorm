@@ -3,7 +3,7 @@
 #include <QRect>
 #include <QColor>
 
-
+using namespace std;
 
 
 MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent) {

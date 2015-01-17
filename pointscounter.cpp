@@ -6,5 +6,5 @@ PointsCounter::PointsCounter()
 
 
 void PointsCounter::increment(){
-    --_points;
+    _points += 10;
 }

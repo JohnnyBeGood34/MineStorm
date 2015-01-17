@@ -23,7 +23,10 @@ SOURCES += main.cpp\
     ship.cpp \
     mindstormgame.cpp \
     lifecounter.cpp \
-    pointscounter.cpp
+    pointscounter.cpp \
+    ennemyspaceship.cpp \
+    weapon.cpp \
+    shot.cpp
 
 HEADERS  += mainwindow.h \
     controller.h \
@@ -33,7 +36,10 @@ HEADERS  += mainwindow.h \
     ship.h \
     mindstormgame.h \
     lifecounter.h \
-    pointscounter.h
+    pointscounter.h \
+    ennemyspaceship.h \
+    weapon.h \
+    shot.h
 
 FORMS    +=
 
