@@ -2,11 +2,11 @@
 
 LifeCounter::LifeCounter()
 {
-    lifes = 4;
+    _lifes = 4;
 }
 
-LifeCounter::decrement(){
-    if(lifes > 0){
-        --lifes;
+void LifeCounter::decrement(){
+    if(_lifes > 0){
+        --_lifes;
     }
 }
