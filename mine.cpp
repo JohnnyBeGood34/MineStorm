@@ -2,8 +2,7 @@
 
 Mine::Mine(QPoint qPointRand)
 {
-    //Qpoint central donné par le rand() du mindstormgame
-    //QPoint qPointRand = QPoint(100,100);
+    //qPointRand point central donné par le rand() du mindstormgame
 
     //Création des sommet de la mine en fonction du Qpoint central
     QPoint qPointSommetMine = QPoint(qPointRand.x(),qPointRand.y()+30);

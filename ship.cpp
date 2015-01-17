@@ -2,11 +2,17 @@
 using namespace std;
 Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
 {
-    //A mon avis il faudrait mettre un attribut du vaisseau qui serait le centre de ce dernier
-    //Le centre du vaisseau à cet instant est 235,235, mais comment avoir ce point sans que la ligne soit tracée?
-    //Rajout ici du point 231,235 et 239,235 pour voir comment ça fait
-    _points << QPoint(235,220) << QPoint(231,237) << QPoint(220,250) << QPoint(250,250) << QPoint(239,237) ;
+    //Centre du vaisseau
+    QPoint qPointCenterShip = QPoint(235,235);
 
+    //Création des sommet ddu vaisseau en fonction du Qpoint central
+    QPoint qPointSommetShip = QPoint(qPointCenterShip.x(),qPointCenterShip.y()-20);
+    QPoint qPointSommetShip2 = QPoint(qPointCenterShip.x()-10,qPointCenterShip.y()+20);
+    QPoint qPointSommetShip3 = QPoint(qPointCenterShip.x(),qPointCenterShip.y()+10);
+    QPoint qPointSommetShip4 = QPoint(qPointCenterShip.x()+10,qPointCenterShip.y()+20);
+
+    //Création du QPolygon du vaisseau
+    _points << qPointSommetShip << qPointSommetShip2 << qPointSommetShip3 << qPointSommetShip4 ;
 }
 
 Ship::~Ship(){
