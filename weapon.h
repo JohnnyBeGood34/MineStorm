@@ -14,6 +14,7 @@ public:
      * @brief fire tire des missile
      */
     void fire();
+
 private:
     int speed;
     vector<Shot> shots;

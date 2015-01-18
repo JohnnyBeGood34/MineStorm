@@ -22,10 +22,11 @@ public:
 private:
     virtual void step();
     void initialize();
+    void disposeMines(QPainter &painter);
 Ship *_userShip;
 Mine *_conputerMine;
-//vector<unique_ptr<QPoint>> _mines;
 vector<QPoint> _mines;
+//vector<Mine*> _mines;
 LifeCounter *_lifecounter;
 PointsCounter *_pointcounter;
 

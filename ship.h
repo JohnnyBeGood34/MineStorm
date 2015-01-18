@@ -15,7 +15,7 @@ public:
     /**
      * @brief accelerate permet au vaisseau user d'accélerer
      */
-    void accelerate();
+    void accelerate(int acceleration);
     /**
      * @brief rotate effectue une rotation du vaisseau
      */
@@ -29,10 +29,19 @@ public:
      */
     void slowDown();
 
+    QPoint getSommet();
+
+    QPoint getCenter();
+
+    Weapon* getWeapon();
+
+
 private:
     QPolygon _points;
     int _speed;
-    Weapon *shipWeapon;
+    Weapon *_shipWeapon;
+    QPoint _sommet;
+    QPoint _centerShip;
 };
 
 #endif // SHIP_H
