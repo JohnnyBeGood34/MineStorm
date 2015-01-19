@@ -9,11 +9,11 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
     //Centre du vaisseau
    _centerShip= QPoint(235,235);
 
-    //Création des sommet ddu vaisseau en fonction du Qpoint central
+    //Création des sommet du vaisseau en fonction du Qpoint central
     _sommet = QPoint(_centerShip.x(),_centerShip.y()-20);
     QPoint qPointSommetShip2 = QPoint(_centerShip.x()-10,_centerShip.y()+20);
     QPoint qPointSommetShip3 = QPoint(_centerShip.x(),_centerShip.y()+10);
-     QPoint qPointSommetShip = QPoint(_centerShip.x()+10,_centerShip.y()+20);
+    QPoint qPointSommetShip = QPoint(_centerShip.x()+10,_centerShip.y()+20);
 
     //Création du QPolygon du vaisseau
     _points << _sommet << qPointSommetShip2 << qPointSommetShip3 << qPointSommetShip ;

@@ -66,8 +66,8 @@ void MindStormGame::disposeMines(QPainter &painter){
 
     for(auto i=0;i<_mines.size();++i){
             //initialisation de la mine
-             _conputerMine=new Mine(_mines.at(i));
-             QPolygon polygonMine=_conputerMine->getPolygon();
+             _computerMine=new Mine(_mines.at(i));
+             QPolygon polygonMine=_computerMine->getPolygon();
              painter.drawPolygon(polygonMine);
 
          }
@@ -91,18 +91,17 @@ void MindStormGame::step(){
     const int max = 10;
 
     for(auto i=0;i<_mines.size();++i){
-int direction = min + (rand()%(max-min));
 
-        int x=_mines.at(i).x();
-              _mines.at(i).setX(x+direction);
-              int y=_mines.at(i).y();
-                    _mines.at(i).setY(y+direction);
+        int direction = min + (rand()%(max-min));
 
-                    //Test Collision entre vaisseau et mines
-                    if(_userShip->getPolygon().containsPoint(QPoint(x+direction,y+direction),Qt::OddEvenFill)){
-                        _userShip->destroy();//pour l'instant disparition du vaisseau
-                        //Rajouter la destruction de la mine
-                    }
+        int x=(_mines.at(i).x())+direction;
+              _mines.at(i).setX(x);
+        int y=(_mines.at(i).y())+direction;
+              _mines.at(i).setY(y);
+        if(collision(x,y)== true){
+            //LifeCounter.decrement();
+        }
+
     }
 
 //version vector de Mines
@@ -118,6 +117,21 @@ int direction = min + (rand()%(max-min));
     }
     */
 }
+bool MindStormGame::collision(int x, int y)
+{
+    bool retour = false;
+    //Test Collision entre vaisseau et mines
+    if(_userShip->getPolygon().containsPoint(QPoint(x,y),Qt::OddEvenFill)){
+        _userShip->destroy();//pour l'instant disparition du vaisseau
+        //Rajouter la destruction de la mine
+
+        retour = true;
+    }
+    return retour;
+}
+
+
+
 
 void MindStormGame::initialize(){
 _mines.clear();

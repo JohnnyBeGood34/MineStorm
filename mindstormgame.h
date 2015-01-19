@@ -18,13 +18,14 @@ public:
     void mousePressed( int x, int y);
     void keyPressed( int key );
     void keyReleased( int key );
+    bool collision(int x, int y);
 
 private:
     virtual void step();
     void initialize();
     void disposeMines(QPainter &painter);
 Ship *_userShip;
-Mine *_conputerMine;
+Mine *_computerMine;
 vector<QPoint> _mines;
 //vector<Mine*> _mines;
 LifeCounter *_lifecounter;

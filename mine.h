@@ -25,6 +25,13 @@ private:
     int _x;
     int _y;
     int _direction;
+    //mise en place d'une enum pour la taille des mines
+    enum _mineType {
+        small,
+        meduim,
+        large,
+        Num_Count
+       };
 };
 
 #endif // MINE_H
