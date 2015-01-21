@@ -18,16 +18,20 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
         // _mines.push_back(new Mine(QPoint(x,y)));
     }
 
+
 }
 
+
+
 void MindStormGame::draw(QPainter &painter, QRect &rect){
+
      painter.fillRect(rect, QColor(0,0,0));
      QPen pen(Qt::blue, 2, Qt::SolidLine);
       painter.setPen(pen);
      /*TESTS VAISSEAU*/
      QPolygon polygon=_userShip->getPolygon();
-     painter.drawPolygon(polygon);
 
+     painter.drawPolygon(polygon);
 
     disposeMines(painter);
 
@@ -38,6 +42,8 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
      painter.drawLine(x,y,x,y-10);
 */
 }
+
+
 
 
 void MindStormGame::mousePressed( int x, int y){
@@ -64,7 +70,7 @@ void MindStormGame::keyPressed( int key ){
 
 void MindStormGame::disposeMines(QPainter &painter){
 
-    for(auto i=0;i<_mines.size();++i){
+   for(auto i=0;i<_mines.size();++i){
             //initialisation de la mine
              _computerMine=new Mine(_mines.at(i));
              QPolygon polygonMine=_computerMine->getPolygon();
@@ -74,7 +80,9 @@ void MindStormGame::disposeMines(QPainter &painter){
 
 
 //version vecteur de Mines
-/*for(auto i=0;i<_mines.size();++i){
+    /*
+for(auto i=0;i<_mines.size();++i){
+
   painter.drawPolygon(_mines.at(i)->getPolygon());
 }
 */
@@ -92,11 +100,14 @@ void MindStormGame::step(){
 
     for(auto i=0;i<_mines.size();++i){
 
-        int direction = min + (rand()%(max-min));
+        //int direction = min + (rand()%(max-min));
 
-        int x=(_mines.at(i).x())+direction;
+        //Il faut utiliser un vecteur de mines
+        // initialiser chaque mine avec une direction constante (QPoint) au hasard
+        //et l'appliquer ici
+        int x=(_mines.at(i).x())+1;
               _mines.at(i).setX(x);
-        int y=(_mines.at(i).y())+direction;
+        int y=(_mines.at(i).y())+1;
               _mines.at(i).setY(y);
         if(collision(x,y)== true){
             //LifeCounter.decrement();
@@ -107,15 +118,16 @@ void MindStormGame::step(){
 //version vector de Mines
 /*
     for(auto i=0;i<_mines.size();++i){
-        int direction = min + (rand()%(max-min));
+
         QPoint* center=_mines.at(i)->getCenter();
                 int x=center->x();
-                      _mines.at(i)->getCenter()->setX(x+direction);
+                      //_mines.at(i)->getCenter()->setX(x+1);
                       int y=center->y();
-                           _mines.at(i)->getCenter()->setY(y+direction);
+                        //   _mines.at(i)->getCenter()->setY(y+1);
+                      _mines.at(i)->setCenter(QPoint(x,y));
 
     }
-    */
+*/
 }
 bool MindStormGame::collision(int x, int y)
 {

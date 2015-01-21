@@ -24,7 +24,7 @@ private:
     QPoint _center;
     int _x;
     int _y;
-    int _direction;
+QPoint _direction;
     //mise en place d'une enum pour la taille des mines
     enum _mineType {
         small,

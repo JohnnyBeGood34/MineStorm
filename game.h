@@ -86,6 +86,8 @@ public:
      * @return
      */
     bool isRunning() const;
+
+    QTimer* getTimer();
 protected:
     /**
      * @brief step fait avancer le jeu d'une itération

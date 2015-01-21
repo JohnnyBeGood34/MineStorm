@@ -46,3 +46,7 @@ bool Game::isRunning() const {
 int Game::speed() const {
     return _speed;
 }
+
+QTimer* Game::getTimer(){
+    return &_timer;
+}

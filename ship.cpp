@@ -1,6 +1,7 @@
 #include "ship.h"
 #include "QTransform"
 #include "math.h"
+#include "iostream"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
 
     //Création du QPolygon du vaisseau
     _points << _sommet << qPointSommetShip2 << qPointSommetShip3 << qPointSommetShip ;
+
 }
 
 Ship::~Ship(){
@@ -30,7 +32,7 @@ void Ship::accelerate(int acceleration){
     QTransform transform;
         transform=transform.translate(0,-5*acceleration);
         _points=transform.map(_points);
-acceleration++;
+
 }
 
 void Ship::rotate(){
@@ -54,7 +56,9 @@ void Ship::rotate(){
        point.setX(x);
        point.setY(y);
 
+
     }
+
 //_points=transform.map(_points);
 
 }
