@@ -50,3 +50,7 @@ int Game::speed() const {
 QTimer* Game::getTimer(){
     return &_timer;
 }
+
+int Game::getSpeed(){
+    return _speed;
+}

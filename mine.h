@@ -18,13 +18,13 @@ public:
     void move();
     QPoint* getCenter();
     void setCenter(QPoint center);
-
+QPoint _direction;
 private:
     QPolygon _points;
     QPoint _center;
     int _x;
     int _y;
-QPoint _direction;
+
     //mise en place d'une enum pour la taille des mines
     enum _mineType {
         small,

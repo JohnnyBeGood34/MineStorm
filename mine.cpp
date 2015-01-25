@@ -37,7 +37,7 @@ Mine::Mine(QPoint qPointRand)
     //Création du QPolygon de la mine
     _points << qPointSommetMine << qPointSommetMine2 << qPointSommetMine3 << qPointSommetMine4 << qPointSommetMine5 << qPointSommetMine6 << qPointSommetMine7 << qPointSommetMine8;
 
-
+_direction=QPoint(1,1);
 }
 
 Mine::~Mine(){

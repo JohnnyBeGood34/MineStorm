@@ -2,6 +2,7 @@
 #include <QPainter>
 #include <QRect>
 #include <QColor>
+#include <QDebug>
 
 using namespace std;
 
@@ -14,8 +15,8 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
 
         auto x = rand() %600;//remplacer par taille du jeu : size().width()
         auto y = rand() %600;
-        _mines.push_back(QPoint(x,y));
-        // _mines.push_back(new Mine(QPoint(x,y)));
+        //_mines.push_back(QPoint(x,y));
+         _mines.push_back(new Mine(QPoint(x,y)));
     }
 
 
@@ -26,15 +27,9 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
 void MindStormGame::draw(QPainter &painter, QRect &rect){
 
      painter.fillRect(rect, QColor(0,0,0));
-     QPen pen(Qt::blue, 2, Qt::SolidLine);
-      painter.setPen(pen);
-     /*TESTS VAISSEAU*/
-     QPolygon polygon=_userShip->getPolygon();
 
-     painter.drawPolygon(polygon);
-
-    disposeMines(painter);
-
+disposeUserShip(painter);
+disposeMines(painter);
 
      //TESTS TIRS
    /* auto x=_userShip->getSommet().x();
@@ -44,6 +39,17 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 }
 
 
+void MindStormGame::disposeUserShip(QPainter &painter){
+
+    QPen pen(Qt::blue, 2, Qt::SolidLine);
+
+     painter.setPen(pen);
+
+    QPolygon polygon=_userShip->getPolygon();
+
+    painter.drawPolygon(polygon);
+
+}
 
 
 void MindStormGame::mousePressed( int x, int y){
@@ -52,6 +58,35 @@ void MindStormGame::mousePressed( int x, int y){
 
 void MindStormGame::keyPressed( int key ){
 
+
+}
+
+void MindStormGame::disposeMines(QPainter &painter){
+
+
+/*
+   for(auto i=0;i<_mines.size();++i){
+
+
+            //initialisation de la mine
+             _computerMine=new Mine(_mines.at(i));
+             QPolygon polygonMine=_computerMine->getPolygon();
+             painter.drawPolygon(polygonMine);
+
+         }
+*/
+
+//version vecteur de Mines
+
+for(auto i=0;i<_mines.size();++i){
+
+  painter.drawPolygon(_mines.at(i)->getPolygon());
+}
+
+}
+
+
+void MindStormGame::keyReleased( int key ){
     int acceleration= 1;
 
     switch(key) {
@@ -68,37 +103,13 @@ void MindStormGame::keyPressed( int key ){
     }
 }
 
-void MindStormGame::disposeMines(QPainter &painter){
-
-   for(auto i=0;i<_mines.size();++i){
-            //initialisation de la mine
-             _computerMine=new Mine(_mines.at(i));
-             QPolygon polygonMine=_computerMine->getPolygon();
-             painter.drawPolygon(polygonMine);
-
-         }
-
-
-//version vecteur de Mines
-    /*
-for(auto i=0;i<_mines.size();++i){
-
-  painter.drawPolygon(_mines.at(i)->getPolygon());
-}
-*/
-}
-
-void MindStormGame::keyReleased( int key ){
-
-}
-
 void MindStormGame::step(){
     //Fais bouger les mines dans des directions aléatoire mais un résultat pourris qui tremble .....
 
     const int min = -10;
     const int max = 10;
 
-    for(auto i=0;i<_mines.size();++i){
+ /*   for(auto i=0;i<_mines.size();++i){
 
         //int direction = min + (rand()%(max-min));
 
@@ -114,21 +125,24 @@ void MindStormGame::step(){
         }
 
     }
-
-//version vector de Mines
-/*
-    for(auto i=0;i<_mines.size();++i){
-
-        QPoint* center=_mines.at(i)->getCenter();
-                int x=center->x();
-                      //_mines.at(i)->getCenter()->setX(x+1);
-                      int y=center->y();
-                        //   _mines.at(i)->getCenter()->setY(y+1);
-                      _mines.at(i)->setCenter(QPoint(x,y));
-
-    }
 */
+//version vector de Mines
+QTransform transform;
+
+    for(auto i=0;i<_mines.size();++i){
+            int xD=_mines.at(i)->_direction.x();
+            int yD=_mines.at(i)->_direction.y();
+
+            //transform.translate(x,y);
+QPolygon poly=_mines.at(i)->getPolygon();
+for(auto j=0;j<poly.size();++j){
+int x=poly.at(j).x();
+int y=poly.at(j).y();
+_mines.at(i)->getPolygon().setPoint(j,x+xD,y+yD);
+    }
+    }
 }
+
 bool MindStormGame::collision(int x, int y)
 {
     bool retour = false;
@@ -147,5 +161,6 @@ bool MindStormGame::collision(int x, int y)
 
 void MindStormGame::initialize(){
 _mines.clear();
+_userShip->destroy();
 
 }

@@ -2,7 +2,7 @@
 #include "QTransform"
 #include "math.h"
 #include "iostream"
-
+#include <QDebug>
 using namespace std;
 
 Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
@@ -37,29 +37,25 @@ void Ship::accelerate(int acceleration){
 
 void Ship::rotate(){
 
-  /* QTransform transform;
-   transform=transform.rotate(5);
- _points=transform.map(_points);//Rotation appliquée ici mais pas ce que l'on veut
- */
+  //Rotation appliquée ici mais pas ce que l'on veut
 
+
+    qDebug() << "Rotate ...";
 
 //Ici la bonne rotation ..mais ne s'applique pas
-  const int angle =10;
+  const int angle =-5;
   int xCenter=_centerShip.x();
   int yCenter=_centerShip.y();
 
     for(int i =0;i<_points.size();++i){
+
         QPoint point=_points.at(i);
 
     int    x = cos(angle) *(point.x()-xCenter)-sin(angle)*(point.y()-yCenter)+xCenter;
         int y = sin(angle) *(point.x()-xCenter)+cos(angle)*(point.y()-yCenter)+yCenter;
-       point.setX(x);
-       point.setY(y);
-
+      _points.setPoint(i,x,y);
 
     }
-
-//_points=transform.map(_points);
 
 }
 
@@ -71,7 +67,6 @@ void Ship::slowDown(){
     QTransform transform;
     transform=transform.translate(0,10);
     _points=transform.map(_points);
-
 
 }
 

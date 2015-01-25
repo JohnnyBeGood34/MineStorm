@@ -7,6 +7,7 @@
 #include "lifecounter.h"
 #include "pointscounter.h"
 #include "memory"
+#include <QPaintEvent>
 using namespace std;
 
 class MindStormGame:public Game
@@ -24,10 +25,11 @@ private:
     virtual void step();
     void initialize();
     void disposeMines(QPainter &painter);
+    void disposeUserShip(QPainter &painter);
 Ship *_userShip;
 Mine *_computerMine;
-vector<QPoint> _mines;
-//vector<Mine*> _mines;
+//vector<QPoint> _mines;
+vector<Mine*> _mines;
 LifeCounter *_lifecounter;
 PointsCounter *_pointcounter;
 

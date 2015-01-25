@@ -88,6 +88,7 @@ public:
     bool isRunning() const;
 
     QTimer* getTimer();
+    int getSpeed();
 protected:
     /**
      * @brief step fait avancer le jeu d'une itération
