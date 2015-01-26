@@ -8,6 +8,8 @@
 #include "pointscounter.h"
 #include "memory"
 #include <QPaintEvent>
+#include <QTimer>
+
 using namespace std;
 
 class MindStormGame:public Game
@@ -21,6 +23,9 @@ public:
     void keyReleased( int key );
     bool collision(int x, int y);
 
+private slots:
+void test();
+
 private:
     virtual void step();
     void initialize();
@@ -32,6 +37,8 @@ Mine *_computerMine;
 vector<Mine*> _mines;
 LifeCounter *_lifecounter;
 PointsCounter *_pointcounter;
+QTimer _timerMines;
+
 
 };
 

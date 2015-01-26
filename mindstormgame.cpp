@@ -18,11 +18,13 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
         //_mines.push_back(QPoint(x,y));
          _mines.push_back(new Mine(QPoint(x,y)));
     }
-
-
+_timerMines.start(1000);
+ QObject::connect(&_timerMines,SIGNAL(timeout()),this,SLOT(test()));
 }
 
-
+void MindStormGame::test(){
+    qDebug() << "test connect ....";
+}
 
 void MindStormGame::draw(QPainter &painter, QRect &rect){
 
@@ -63,16 +65,12 @@ void MindStormGame::keyPressed( int key ){
 
 void MindStormGame::disposeMines(QPainter &painter){
 
-
 /*
    for(auto i=0;i<_mines.size();++i){
-
-
             //initialisation de la mine
              _computerMine=new Mine(_mines.at(i));
              QPolygon polygonMine=_computerMine->getPolygon();
              painter.drawPolygon(polygonMine);
-
          }
 */
 
@@ -87,16 +85,16 @@ for(auto i=0;i<_mines.size();++i){
 
 
 void MindStormGame::keyReleased( int key ){
-    int acceleration= 1;
+
 
     switch(key) {
-    case Qt::Key_Up: _userShip->accelerate(acceleration);
+    case Qt::Key_Up: _userShip->accelerate();
         break;
     case Qt::Key_Down: _userShip->slowDown();
         break;
-    case Qt::Key_Left: _userShip->rotate();
+    case Qt::Key_Left: _userShip->rotate("left");
         break;
-    case Qt::Key_Right: _userShip->rotate();
+    case Qt::Key_Right: _userShip->rotate("right");
         break;
     case Qt::Key_Space:_userShip->getWeapon()->fire();//Tirs du vaisseau
         break;

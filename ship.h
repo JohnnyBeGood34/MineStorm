@@ -2,6 +2,8 @@
 #define SHIP_H
 #include "weapon.h"
 #include <QPolygon>
+
+
 using namespace std;
 
 class Ship
@@ -15,11 +17,11 @@ public:
     /**
      * @brief accelerate permet au vaisseau user d'accélerer
      */
-    void accelerate(int acceleration);
+    void accelerate();
     /**
      * @brief rotate effectue une rotation du vaisseau
      */
-    void rotate();
+    void rotate(string direction);
     /**
      * @brief destroy détruit le vaisseau en tracant des lignes partant de son centre
      */

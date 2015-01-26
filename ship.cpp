@@ -3,6 +3,7 @@
 #include "math.h"
 #include "iostream"
 #include <QDebug>
+#include <QPainter>
 using namespace std;
 
 Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
@@ -27,23 +28,29 @@ Ship::~Ship(){
 
 
 
-void Ship::accelerate(int acceleration){
+void Ship::accelerate(){
 
-    QTransform transform;
-        transform=transform.translate(0,-5*acceleration);
+         QTransform transform;
+         int xSommet=_sommet.x();
+         int ySommet=_sommet.y();
+         int xCenter=_centerShip.x();
+         int yCenter=_centerShip.y();
+         qDebug() << "X center : " << xCenter << "  Ycenter : " <<yCenter;
+
+        transform=transform.translate(xSommet/xCenter,(ySommet/yCenter));
+
+
         _points=transform.map(_points);
+        _centerShip=transform.map(_centerShip);
 
 }
 
-void Ship::rotate(){
-
-  //Rotation appliquée ici mais pas ce que l'on veut
-
+void Ship::rotate(string direction){
 
     qDebug() << "Rotate ...";
 
-//Ici la bonne rotation ..mais ne s'applique pas
-  const int angle =-5;
+  const int angle = (direction == "right") ? -5 : 5;
+
   int xCenter=_centerShip.x();
   int yCenter=_centerShip.y();
 
@@ -64,10 +71,11 @@ _points.clear();
 }
 
 void Ship::slowDown(){
+
     QTransform transform;
     transform=transform.translate(0,10);
     _points=transform.map(_points);
-
+_centerShip=transform.map(_centerShip);
 }
 
 Weapon* Ship::getWeapon(){
