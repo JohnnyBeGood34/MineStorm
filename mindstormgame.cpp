@@ -28,16 +28,21 @@ void MindStormGame::test(){
 
 void MindStormGame::draw(QPainter &painter, QRect &rect){
 
-     painter.fillRect(rect, QColor(0,0,0));
-
+painter.fillRect(rect, QColor(0,0,0));
 disposeUserShip(painter);
 disposeMines(painter);
 
      //TESTS TIRS
-   /* auto x=_userShip->getSommet().x();
-      auto y=_userShip->getSommet().y();
-     painter.drawLine(x,y,x,y-10);
-*/
+if(_userShip->_isShooting){
+        auto xSommet=_userShip->getSommet()->x();
+       auto ySommet=_userShip->getSommet()->y();
+       auto center=_userShip->getCenter();
+      painter.drawLine(xSommet,ySommet,xSommet+(xSommet-center.x()),ySommet+(ySommet-center.y()));
+       qDebug() << "Shooting...";
+       qDebug() << "x Center :"<< center.x() << "  y Center : " <<center.y();
+}
+
+
 }
 
 
@@ -60,6 +65,18 @@ void MindStormGame::mousePressed( int x, int y){
 
 void MindStormGame::keyPressed( int key ){
 
+    switch(key) {
+    case Qt::Key_Up: _userShip->accelerate();
+        break;
+    case Qt::Key_Down: _userShip->slowDown();
+        break;
+    case Qt::Key_Left: _userShip->rotate("left");
+        break;
+    case Qt::Key_Right: _userShip->rotate("right");
+        break;
+    case Qt::Key_Space:_userShip->_isShooting=true;//Tirs du vaisseau
+        break;
+    }
 
 }
 
@@ -88,15 +105,8 @@ void MindStormGame::keyReleased( int key ){
 
 
     switch(key) {
-    case Qt::Key_Up: _userShip->accelerate();
-        break;
-    case Qt::Key_Down: _userShip->slowDown();
-        break;
-    case Qt::Key_Left: _userShip->rotate("left");
-        break;
-    case Qt::Key_Right: _userShip->rotate("right");
-        break;
-    case Qt::Key_Space:_userShip->getWeapon()->fire();//Tirs du vaisseau
+
+    case Qt::Key_Space:_userShip->_isShooting=false;//Tirs du vaisseau
         break;
     }
 }

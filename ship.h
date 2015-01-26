@@ -31,13 +31,13 @@ public:
      */
     void slowDown();
 
-    QPoint getSommet();
+    QPoint* getSommet();
 
     QPoint getCenter();
 
     Weapon* getWeapon();
 
-
+    bool _isShooting;
 private:
     QPolygon _points;
     int _speed;
