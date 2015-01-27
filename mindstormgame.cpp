@@ -18,24 +18,25 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
         //_mines.push_back(QPoint(x,y));
         _mines.push_back(new Mine(QPoint(x,y)));
     }
-
-
+_timerMines.start(1000);
+ QObject::connect(&_timerMines,SIGNAL(timeout()),this,SLOT(test()));
 }
 
-
+void MindStormGame::test(){
+    qDebug() << "test connect ....";
+}
 
 void MindStormGame::draw(QPainter &painter, QRect &rect){
+     //TESTS TIRS
+if(_userShip->_isShooting){
+        auto xSommet=_userShip->getSommet()->x();
+       auto ySommet=_userShip->getSommet()->y();
+       auto center=_userShip->getCenter();
+      painter.drawLine(xSommet,ySommet,xSommet+(xSommet-center.x()),ySommet+(ySommet-center.y()));
+       qDebug() << "Shooting...";
+       qDebug() << "x Center :"<< center.x() << "  y Center : " <<center.y();
+}
 
-    painter.fillRect(rect, QColor(0,0,0));
-
-    disposeUserShip(painter);
-    disposeMines(painter);
-
-    //TESTS TIRS
-    /* auto x=_userShip->getSommet().x();
-      auto y=_userShip->getSommet().y();
-     painter.drawLine(x,y,x,y-10);
-*/
 }
 
 
@@ -58,21 +59,29 @@ void MindStormGame::mousePressed( int x, int y){
 
 void MindStormGame::keyPressed( int key ){
 
+    switch(key) {
+    case Qt::Key_Up: _userShip->accelerate();
+        break;
+    case Qt::Key_Down: _userShip->slowDown();
+        break;
+    case Qt::Key_Left: _userShip->rotate("left");
+        break;
+    case Qt::Key_Right: _userShip->rotate("right");
+        break;
+    case Qt::Key_Space:_userShip->_isShooting=true;//Tirs du vaisseau
+        break;
+    }
 
 }
 
 void MindStormGame::disposeMines(QPainter &painter){
-
-
-    /*
+/*
+>>>>>>> 364b8a3109a2a707289fde8411f97748bbff803b
    for(auto i=0;i<_mines.size();++i){
-
-
             //initialisation de la mine
              _computerMine=new Mine(_mines.at(i));
              QPolygon polygonMine=_computerMine->getPolygon();
              painter.drawPolygon(polygonMine);
-
          }
 */
 
@@ -87,18 +96,11 @@ void MindStormGame::disposeMines(QPainter &painter){
 
 
 void MindStormGame::keyReleased( int key ){
-    int acceleration= 1;
+
 
     switch(key) {
-    case Qt::Key_Up: _userShip->accelerate(acceleration);
-        break;
-    case Qt::Key_Down: _userShip->slowDown();
-        break;
-    case Qt::Key_Left: _userShip->rotate();
-        break;
-    case Qt::Key_Right: _userShip->rotate();
-        break;
-    case Qt::Key_Space:_userShip->getWeapon()->fire();//Tirs du vaisseau
+
+    case Qt::Key_Space:_userShip->_isShooting=false;//Tirs du vaisseau
         break;
     }
 }

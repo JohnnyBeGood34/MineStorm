@@ -3,6 +3,7 @@
 #include "math.h"
 #include "iostream"
 #include <QDebug>
+#include <QPainter>
 using namespace std;
 
 Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
@@ -18,7 +19,7 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
 
     //Création du QPolygon du vaisseau
     _points << _sommet << qPointSommetShip2 << qPointSommetShip3 << qPointSommetShip ;
-
+    _isShooting=false;
 }
 
 Ship::~Ship(){
@@ -27,27 +28,43 @@ Ship::~Ship(){
 
 
 
-void Ship::accelerate(int acceleration){
+void Ship::accelerate(){
 
-    QTransform transform;
-        transform=transform.translate(0,-5*acceleration);
+         QTransform transform;
+         int xSommet=_sommet.x();
+         int ySommet=_sommet.y();
+         int xCenter=_centerShip.x();
+         int yCenter=_centerShip.y();
+         qDebug() << "X center : " << xCenter << "  Ycenter : " <<yCenter;
+         qDebug() << "X Sommet : " << xSommet << "  Y Sommet : " <<ySommet;
+
+        transform=transform.translate((xSommet-xCenter)*0.2,(ySommet-yCenter)*0.2);
+
         _points=transform.map(_points);
+        _centerShip=transform.map(_centerShip);
+        _sommet=transform.map(_sommet);
+
 
 }
 
-void Ship::rotate(){
-
-  //Rotation appliquée ici mais pas ce que l'on veut
-
+void Ship::rotate(string direction){
 
     qDebug() << "Rotate ...";
 
-//Ici la bonne rotation ..mais ne s'applique pas
-  const int angle =-5;
+  const int angle = (direction == "right") ? 5 : -5;
+
+
   int xCenter=_centerShip.x();
   int yCenter=_centerShip.y();
 
-    for(int i =0;i<_points.size();++i){
+  QTransform trans;
+  trans.translate(xCenter,yCenter);
+  trans.rotate(angle);
+  trans.translate(-xCenter,-yCenter);
+
+  _points=trans.map(_points);
+   _sommet=trans.map(_sommet);
+  /*  for(int i =0;i<_points.size();++i){
 
         QPoint point=_points.at(i);
 
@@ -56,6 +73,7 @@ void Ship::rotate(){
       _points.setPoint(i,x,y);
 
     }
+*/
 
 }
 
@@ -64,10 +82,12 @@ _points.clear();
 }
 
 void Ship::slowDown(){
-    QTransform transform;
-    transform=transform.translate(0,10);
-    _points=transform.map(_points);
 
+    QTransform transform;
+    transform=transform.translate(0,5);
+    _points=transform.map(_points);
+_centerShip=transform.map(_centerShip);
+ _sommet=transform.map(_sommet);
 }
 
 Weapon* Ship::getWeapon(){
@@ -78,8 +98,8 @@ QPolygon Ship::getPolygon(){
     return _points;
 }
 
-QPoint Ship::getSommet(){
-    return _sommet;
+QPoint* Ship::getSommet(){
+    return &_sommet;
 }
 
 QPoint Ship::getCenter(){
