@@ -76,7 +76,6 @@ void MindStormGame::keyPressed( int key ){
 
 void MindStormGame::disposeMines(QPainter &painter){
 /*
->>>>>>> 364b8a3109a2a707289fde8411f97748bbff803b
    for(auto i=0;i<_mines.size();++i){
             //initialisation de la mine
              _computerMine=new Mine(_mines.at(i));
