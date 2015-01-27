@@ -23,10 +23,8 @@ public:
     void keyReleased( int key );
     bool collision(int x, int y);
 
-private slots:
-void test();
-
 private:
+    void hatchMines(QPainter &painter);
     virtual void step();
     void initialize();
     void disposeMines(QPainter &painter);
@@ -37,8 +35,8 @@ Mine *_computerMine;
 vector<Mine*> _mines;
 LifeCounter *_lifecounter;
 PointsCounter *_pointcounter;
-QTimer _timerMines;
 
+int loopCounter;
 
 };
 

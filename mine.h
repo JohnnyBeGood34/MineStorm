@@ -5,17 +5,24 @@
 
 using namespace std;
 
-
-
 class Mine
 {
 public:
-    Mine(QPoint qPointRand);
+    /**
+     * @brief Mine Constructor
+     * @param qPointRand an x,y random point
+     * @param compteur, a loop counter
+     */
+    Mine(QPoint qPointRand,int &compteur);
     ~Mine();
     QPolygon getPolygon();
+    /**
+     * @brief hatch, make the mines hatchs
+     */
     void hatch();
     void destroy();
     void move();
+    int getType();
     QPoint* getCenter();
     void setCenter(QPoint center);
 QPoint _direction;
@@ -24,8 +31,13 @@ private:
     QPoint _center;
     int _x;
     int _y;
-
-    //mise en place d'une enum pour la taille des mines
+    /**
+     * @brief mineType, 1 : little, 2 : middle, 3 great
+     */
+    int mineType;
+    /**
+     * @brief The _mineType enum, mine type
+     */
     enum _mineType {
         small,
         meduim,

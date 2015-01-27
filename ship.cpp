@@ -9,40 +9,40 @@ using namespace std;
 Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
 {
     //Centre du vaisseau
-   _centerShip= QPoint(235,235);
+    _centerShip= QPoint(235,235);
 
-    //Création des sommet du vaisseau en fonction du Qpoint central
+    //Create tops of ship according to its center
     _sommet = QPoint(_centerShip.x(),_centerShip.y()-20);
     QPoint qPointSommetShip2 = QPoint(_centerShip.x()-10,_centerShip.y()+20);
     QPoint qPointSommetShip3 = QPoint(_centerShip.x(),_centerShip.y()+10);
     QPoint qPointSommetShip = QPoint(_centerShip.x()+10,_centerShip.y()+20);
 
-    //Création du QPolygon du vaisseau
+    //Create ship Qpolygon
     _points << _sommet << qPointSommetShip2 << qPointSommetShip3 << qPointSommetShip ;
     _isShooting=false;
 }
 
 Ship::~Ship(){
-   _points.clear();//On détruit le polygone à la destruction du vaisseau
+    _points.clear();//Destroy the polygon of space ship
 }
 
 
 
 void Ship::accelerate(){
 
-         QTransform transform;
-         int xSommet=_sommet.x();
-         int ySommet=_sommet.y();
-         int xCenter=_centerShip.x();
-         int yCenter=_centerShip.y();
-         qDebug() << "X center : " << xCenter << "  Ycenter : " <<yCenter;
-         qDebug() << "X Sommet : " << xSommet << "  Y Sommet : " <<ySommet;
+    QTransform transform;
+    int xSommet=_sommet.x();
+    int ySommet=_sommet.y();
+    int xCenter=_centerShip.x();
+    int yCenter=_centerShip.y();
+    qDebug() << "X center : " << xCenter << "  Ycenter : " <<yCenter;
+    qDebug() << "X Sommet : " << xSommet << "  Y Sommet : " <<ySommet;
 
-        transform=transform.translate((xSommet-xCenter)*0.2,(ySommet-yCenter)*0.2);
+    transform=transform.translate((xSommet-xCenter)*0.2,(ySommet-yCenter)*0.2);
 
-        _points=transform.map(_points);
-        _centerShip=transform.map(_centerShip);
-        _sommet=transform.map(_sommet);
+    _points=transform.map(_points);
+    _centerShip=transform.map(_centerShip);
+    _sommet=transform.map(_sommet);
 
 
 }
@@ -51,20 +51,20 @@ void Ship::rotate(string direction){
 
     qDebug() << "Rotate ...";
 
-  const int angle = (direction == "right") ? 5 : -5;
+    const int angle = (direction == "right") ? 5 : -5;
 
 
-  int xCenter=_centerShip.x();
-  int yCenter=_centerShip.y();
+    int xCenter=_centerShip.x();
+    int yCenter=_centerShip.y();
 
-  QTransform trans;
-  trans.translate(xCenter,yCenter);
-  trans.rotate(angle);
-  trans.translate(-xCenter,-yCenter);
+    QTransform trans;
+    trans.translate(xCenter,yCenter);
+    trans.rotate(angle);
+    trans.translate(-xCenter,-yCenter);
 
-  _points=trans.map(_points);
-   _sommet=trans.map(_sommet);
-  /*  for(int i =0;i<_points.size();++i){
+    _points=trans.map(_points);
+    _sommet=trans.map(_sommet);
+    /*  for(int i =0;i<_points.size();++i){
 
         QPoint point=_points.at(i);
 
@@ -78,7 +78,7 @@ void Ship::rotate(string direction){
 }
 
 void Ship::destroy(){
-_points.clear();
+    _points.clear();
 }
 
 void Ship::slowDown(){
@@ -86,8 +86,8 @@ void Ship::slowDown(){
     QTransform transform;
     transform=transform.translate(0,5);
     _points=transform.map(_points);
-_centerShip=transform.map(_centerShip);
- _sommet=transform.map(_sommet);
+    _centerShip=transform.map(_centerShip);
+    _sommet=transform.map(_sommet);
 }
 
 Weapon* Ship::getWeapon(){

@@ -15,19 +15,19 @@ public:
     ~Ship();
     QPolygon getPolygon();
     /**
-     * @brief accelerate permet au vaisseau user d'accélerer
+     * @brief accelerate
      */
     void accelerate();
     /**
-     * @brief rotate effectue une rotation du vaisseau
+     * @brief rotate make a rotation
      */
     void rotate(string direction);
     /**
-     * @brief destroy détruit le vaisseau en tracant des lignes partant de son centre
+     * @brief destroy destroy the user space ship
      */
     void destroy();
     /**
-     * @brief slowDown ralentit le vaisseau
+     * @brief slowDown slow down the space ship
      */
     void slowDown();
 

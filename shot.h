@@ -9,8 +9,6 @@ public:
     Shot();
     void draw();
 private:
-    //Comment matérialiser une direction?
-    //je pense que c un vecteur
 
 };
 

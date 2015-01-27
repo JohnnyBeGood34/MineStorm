@@ -4,14 +4,14 @@
 #include "vector"
 using namespace std;
 /**
- * @brief The Weapon class est la classe représentant l'arme du vaisseau user
+ *
  */
 class Weapon
 {
 public:
     Weapon();
     /**
-     * @brief fire tire des missile
+     *
      */
     void fire();
 
