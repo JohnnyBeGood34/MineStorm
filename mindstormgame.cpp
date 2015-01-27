@@ -16,7 +16,7 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
         auto x = rand() %600;//remplacer par taille du jeu : size().width()
         auto y = rand() %600;
         //_mines.push_back(QPoint(x,y));
-         _mines.push_back(new Mine(QPoint(x,y)));
+        _mines.push_back(new Mine(QPoint(x,y)));
     }
 
 
@@ -26,13 +26,13 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
 
 void MindStormGame::draw(QPainter &painter, QRect &rect){
 
-     painter.fillRect(rect, QColor(0,0,0));
+    painter.fillRect(rect, QColor(0,0,0));
 
-disposeUserShip(painter);
-disposeMines(painter);
+    disposeUserShip(painter);
+    disposeMines(painter);
 
-     //TESTS TIRS
-   /* auto x=_userShip->getSommet().x();
+    //TESTS TIRS
+    /* auto x=_userShip->getSommet().x();
       auto y=_userShip->getSommet().y();
      painter.drawLine(x,y,x,y-10);
 */
@@ -43,7 +43,7 @@ void MindStormGame::disposeUserShip(QPainter &painter){
 
     QPen pen(Qt::blue, 2, Qt::SolidLine);
 
-     painter.setPen(pen);
+    painter.setPen(pen);
 
     QPolygon polygon=_userShip->getPolygon();
 
@@ -64,7 +64,7 @@ void MindStormGame::keyPressed( int key ){
 void MindStormGame::disposeMines(QPainter &painter){
 
 
-/*
+    /*
    for(auto i=0;i<_mines.size();++i){
 
 
@@ -76,12 +76,12 @@ void MindStormGame::disposeMines(QPainter &painter){
          }
 */
 
-//version vecteur de Mines
+    //version vecteur de Mines
 
-for(auto i=0;i<_mines.size();++i){
+    for(auto i=0;i<_mines.size();++i){
 
-  painter.drawPolygon(_mines.at(i)->getPolygon());
-}
+        painter.drawPolygon(_mines.at(i)->getPolygon());
+    }
 
 }
 
@@ -109,7 +109,7 @@ void MindStormGame::step(){
     const int min = -10;
     const int max = 10;
 
- /*   for(auto i=0;i<_mines.size();++i){
+    /*   for(auto i=0;i<_mines.size();++i){
 
         //int direction = min + (rand()%(max-min));
 
@@ -126,20 +126,20 @@ void MindStormGame::step(){
 
     }
 */
-//version vector de Mines
-QTransform transform;
+    //version vector de Mines
+    QTransform transform;
 
     for(auto i=0;i<_mines.size();++i){
-            int xD=_mines.at(i)->_direction.x();
-            int yD=_mines.at(i)->_direction.y();
+        int xD=_mines.at(i)->_direction.x();
+        int yD=_mines.at(i)->_direction.y();
 
-            //transform.translate(x,y);
-QPolygon poly=_mines.at(i)->getPolygon();
-for(auto j=0;j<poly.size();++j){
-int x=poly.at(j).x();
-int y=poly.at(j).y();
-_mines.at(i)->getPolygon().setPoint(j,x+xD,y+yD);
-    }
+        //transform.translate(x,y);
+        QPolygon poly=_mines.at(i)->getPolygon();
+        for(auto j=0;j<poly.size();++j){
+            int x=poly.at(j).x();
+            int y=poly.at(j).y();
+            _mines.at(i)->getPolygon().setPoint(j,x+xD,y+yD);
+        }
     }
 }
 
@@ -160,7 +160,7 @@ bool MindStormGame::collision(int x, int y)
 
 
 void MindStormGame::initialize(){
-_mines.clear();
-_userShip->destroy();
+    _mines.clear();
+    _userShip->destroy();
 
 }
