@@ -4,6 +4,8 @@
 #include <QColor>
 #include <QDebug>
 #include <stdlib.h>
+#include <memory>
+
 using namespace std;
 //Define the pen used to draw all elements in the game
 QPen thePen;
@@ -23,6 +25,7 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
         auto y = rand() %size.height();
         //Add a mine in mines vector
         _mines.push_back(new Mine(QPoint(x,y),i));
+        //_mines.push_back(make_unique<Mine>(QPoint(x,y),i));
     }
     //QObject::connect(&_timerMines,SIGNAL(timeout()),this,SLOT(test()));
 }
@@ -53,23 +56,25 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     //Hatch each mines at 5 seconds (100 loops)
     if(loopCounter == 100){
         hatchMines(painter);
-    }
-
+        }
 }
 
 void MindStormGame::hatchMines(QPainter &painter){
     //Hatch each mine
     for(auto i=0;i<_mines.size();++i){
-        //"Remove" the center point by drawing the point in black
-        thePen.setColor(Qt::black);
-        painter.setPen(thePen);
-        QPointF point(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
-        painter.drawPoint(point);
-        //Then hatch mines in blue
-        thePen.setColor(Qt::blue);
-        painter.setPen(thePen);
-        _mines.at(i)->hatch();
-        painter.drawPolygon(_mines.at(i)->getPolygon());
+
+            //"Remove" the center point by drawing the point in black
+            thePen.setColor(Qt::black);
+            painter.setPen(thePen);
+            QPointF point(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
+            painter.drawPoint(point);
+            //Then hatch mines in blue
+            thePen.setColor(Qt::blue);
+            painter.setPen(thePen);
+            _mines.at(i)->hatch();
+            painter.drawPolygon(_mines.at(i)->getPolygon());
+
+
     }
 }
 
@@ -119,16 +124,16 @@ void MindStormGame::keyReleased( int key ){
 
     switch(key) {
 
-    case Qt::Key_Space:_userShip->_isShooting=false;//Tirs du vaisseau
+    case Qt::Key_Space:_userShip->_isShooting=false;//End of shots
         break;
     }
 }
 
 void MindStormGame::step(){
-    const int min = -10;
+  /*   const int min = -10;
     const int max = 10;
 
-    /*   for(auto i=0;i<_mines.size();++i){
+      for(auto i=0;i<_mines.size();++i){
 
         //int direction = min + (rand()%(max-min));
 
@@ -146,18 +151,17 @@ void MindStormGame::step(){
     }
 */
     //version vector de Mines
-    QTransform transform;
 
     for(auto i=0;i<_mines.size();++i){
         int xD=_mines.at(i)->_direction.x();
         int yD=_mines.at(i)->_direction.y();
 
-        //transform.translate(x,y);
+
         QPolygon poly=_mines.at(i)->getPolygon();
         for(auto j=0;j<poly.size();++j){
             int x=poly.at(j).x();
             int y=poly.at(j).y();
-            _mines.at(i)->getPolygon().setPoint(j,x+xD,y+yD);
+            poly.setPoint(j,x+xD,y+yD);
         }
     }
 }

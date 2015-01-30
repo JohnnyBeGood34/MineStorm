@@ -25,6 +25,8 @@ public:
     int getType();
     QPoint* getCenter();
     void setCenter(QPoint center);
+    string state;
+
 QPoint _direction;
 private:
     QPolygon _points;

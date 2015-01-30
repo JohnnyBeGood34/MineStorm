@@ -38,12 +38,11 @@ void Ship::accelerate(){
     qDebug() << "X center : " << xCenter << "  Ycenter : " <<yCenter;
     qDebug() << "X Sommet : " << xSommet << "  Y Sommet : " <<ySommet;
 
-    transform=transform.translate((xSommet-xCenter)*0.2,(ySommet-yCenter)*0.2);
+       // transform=transform.translate((xSommet-xCenter)*0.2,(ySommet-yCenter)*0.2);
 
-    _points=transform.map(_points);
-    _centerShip=transform.map(_centerShip);
-    _sommet=transform.map(_sommet);
-
+        _points=transform.map(_points);
+        _centerShip=transform.map(_centerShip);
+        _sommet=transform.map(_sommet);
 
 }
 
