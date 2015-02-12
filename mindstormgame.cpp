@@ -120,11 +120,16 @@ void MindStormGame::disposeMines(QPainter &painter){
 }
 
 
-void MindStormGame::keyReleased( int key ){
+void MindStormGame::keyReleased( QKeyEvent * event){
 
-
-    switch(key) {
+    switch(event->key()) {
     case Qt::Key_Up:
+        qDebug() << "KEY UP...";
+        //If the event handled isn't an autorepeat event
+        //Decelerate the ship
+        if(!event->isAutoRepeat()){
+            _userShip->slowDown();
+        }
         break;
     case Qt::Key_Space:_userShip->_isShooting=false;//End of shots
         break;

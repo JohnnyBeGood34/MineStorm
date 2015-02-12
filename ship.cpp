@@ -92,9 +92,10 @@ void Ship::destroy(){
 
 void Ship::slowDown(){
 
-    if(this->speed >= 0.2){
-        this->speed = this->speed - 0.2;
-    }
+    this->speed = 0;
+   /*if(this->speed >= 0.2){
+    this->speed = this->speed - 0.2;
+    }*/
 }
 
 Weapon* Ship::getWeapon(){
