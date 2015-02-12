@@ -60,6 +60,7 @@ int Mine::getType(){
 
 void Mine::destroy(){
 _points.clear();
+qDebug() << "destruction mine ! ";
 }
 
 QPolygon Mine::getPolygon(){

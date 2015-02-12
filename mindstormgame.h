@@ -21,7 +21,7 @@ public:
     void mousePressed( int x, int y);
     void keyPressed( int key );
     void keyReleased( QKeyEvent * event);
-    bool collision(int x, int y);
+    bool hasCollision(QPolygon mine);
 
 private:
     void hatchMines(QPainter &painter);

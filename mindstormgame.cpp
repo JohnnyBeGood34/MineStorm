@@ -170,20 +170,33 @@ void MindStormGame::step(){
             int y=poly.at(j).y();
             poly.setPoint(j,x+xD,y+yD);
         }
+        if(hasCollision(poly)){
+            qDebug() << "Collision";
+             _userShip->destroy();
+            _mines.at(i)->destroy();
+        }
+
+
     }
 
     _userShip->accelerate();
 }
 
-bool MindStormGame::collision(int x, int y)
+bool MindStormGame::hasCollision(QPolygon mine)
 {
     bool retour = false;
     //Collision test between ship and mines
-    if(_userShip->getPolygon().containsPoint(QPoint(x,y),Qt::OddEvenFill)){
+  /*  if(_userShip->getPolygon().containsPoint(QPoint(x,y),Qt::OddEvenFill)){
         _userShip->destroy();//At this time the space ship disapear
         //Plz add the mine destruction
 
         retour = true;
+    }
+    */
+    QPolygon intersection=_userShip->getPolygon().intersected(QPolygon(mine));
+    if(!intersection.isEmpty()){
+
+         retour = true;
     }
     return retour;
 }
