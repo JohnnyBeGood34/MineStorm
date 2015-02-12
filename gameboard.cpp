@@ -32,5 +32,5 @@ void GameBoard::keyPressEvent ( QKeyEvent * event ) {
     _game->keyPressed(event->key());
 }
 void GameBoard::keyReleaseEvent ( QKeyEvent * event ) {
-    _game->keyReleased(event->key());
+    _game->keyReleased(event);
 }

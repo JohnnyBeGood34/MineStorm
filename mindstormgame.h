@@ -20,7 +20,7 @@ public:
     virtual void draw(QPainter &painter, QRect &rect);
     void mousePressed( int x, int y);
     void keyPressed( int key );
-    void keyReleased( int key );
+    void keyReleased( QKeyEvent * event);
     bool collision(int x, int y);
 
 private:

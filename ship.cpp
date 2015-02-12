@@ -11,6 +11,8 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
     //Centre du vaisseau
     _centerShip= QPoint(235,235);
 
+    //Initialize speed
+    speed = 0;
     //Create tops of ship according to its center
     _sommet = QPoint(_centerShip.x(),_centerShip.y()-20);
     QPoint qPointSommetShip2 = QPoint(_centerShip.x()-10,_centerShip.y()+20);
@@ -35,16 +37,24 @@ void Ship::accelerate(){
     int ySommet=_sommet.y();
     int xCenter=_centerShip.x();
     int yCenter=_centerShip.y();
-    qDebug() << "X center : " << xCenter << "  Ycenter : " <<yCenter;
-    qDebug() << "X Sommet : " << xSommet << "  Y Sommet : " <<ySommet;
+    //qDebug() << "X center : " << xCenter << "  Ycenter : " <<yCenter;
+    //qDebug() << "X Sommet : " << xSommet << "  Y Sommet : " <<ySommet;
 
-       // transform=transform.translate((xSommet-xCenter)*0.2,(ySommet-yCenter)*0.2);
+    transform=transform.translate((xSommet-xCenter)*this->speed,(ySommet-yCenter)*this->speed);
 
-        _points=transform.map(_points);
-        _centerShip=transform.map(_centerShip);
-        _sommet=transform.map(_sommet);
+    _points=transform.map(_points);
+    _centerShip=transform.map(_centerShip);
+    _sommet=transform.map(_sommet);
 
 }
+
+void Ship::incrementSpeed(){
+    if(this->speed < 2){
+        this->speed = this->speed + 0.1;
+    }
+}
+
+
 
 void Ship::rotate(string direction){
 
@@ -82,11 +92,10 @@ void Ship::destroy(){
 
 void Ship::slowDown(){
 
-    QTransform transform;
-    transform=transform.translate(0,5);
-    _points=transform.map(_points);
-    _centerShip=transform.map(_centerShip);
-    _sommet=transform.map(_sommet);
+    this->speed = 0;
+   /*if(this->speed >= 0.2){
+    this->speed = this->speed - 0.2;
+    }*/
 }
 
 Weapon* Ship::getWeapon(){

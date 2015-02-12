@@ -15,6 +15,10 @@ public:
     ~Ship();
     QPolygon getPolygon();
     /**
+     * @brief connectSommet
+     */
+    void connectSommet(QPoint centerShip);
+    /**
      * @brief accelerate
      */
     void accelerate();
@@ -36,14 +40,14 @@ public:
     QPoint getCenter();
 
     Weapon* getWeapon();
-
+    void incrementSpeed();
     bool _isShooting;
 private:
     QPolygon _points;
-    int _speed;
     Weapon *_shipWeapon;
     QPoint _sommet;
     QPoint _centerShip;
+    double speed;
 };
 
 #endif // SHIP_H

@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QSize>
+#include <QMouseEvent>
 class QPainter;
 class QRect;
 
@@ -79,7 +80,7 @@ public:
      * @param key code de la touche. Tous les codes sont disponible dans [la documentation Qt](http://doc.qt.io/qt-5/qt.html#Key-enum)
      *
      */
-    virtual void keyReleased( int key ) = 0;
+    virtual void keyReleased( QKeyEvent * event) = 0;
 
     /**
      * @brief isRunning retourne true si le jeu est lancé

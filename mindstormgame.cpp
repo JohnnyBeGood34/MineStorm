@@ -50,13 +50,14 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
         auto center=_userShip->getCenter();
         painter.drawLine(xSommet,ySommet,xSommet+(xSommet-center.x()),ySommet+(ySommet-center.y()));
         qDebug() << "Shooting...";
-        qDebug() << "x Center :"<< center.x() << "  y Center : " <<center.y();
+        //qDebug() << "x Center :"<< center.x() << "  y Center : " <<center.y();
     }
 
     //Hatch each mines at 5 seconds (100 loops)
     if(loopCounter == 100){
         hatchMines(painter);
         }
+
 }
 
 void MindStormGame::hatchMines(QPainter &painter){
@@ -92,7 +93,7 @@ void MindStormGame::mousePressed( int x, int y){
 void MindStormGame::keyPressed( int key ){
     qDebug() << "KEY PRESSED " << key;
     switch(key) {
-        case Qt::Key_Up: _userShip->accelerate();
+        case Qt::Key_Up: _userShip->incrementSpeed();
             break;
         case Qt::Key_Down: _userShip->slowDown();
             break;
@@ -119,11 +120,17 @@ void MindStormGame::disposeMines(QPainter &painter){
 }
 
 
-void MindStormGame::keyReleased( int key ){
+void MindStormGame::keyReleased( QKeyEvent * event){
 
-
-    switch(key) {
-
+    switch(event->key()) {
+    case Qt::Key_Up:
+        qDebug() << "KEY UP...";
+        //If the event handled isn't an autorepeat event
+        //Decelerate the ship
+        if(!event->isAutoRepeat()){
+            _userShip->slowDown();
+        }
+        break;
     case Qt::Key_Space:_userShip->_isShooting=false;//End of shots
         break;
     }
@@ -164,6 +171,8 @@ void MindStormGame::step(){
             poly.setPoint(j,x+xD,y+yD);
         }
     }
+
+    _userShip->accelerate();
 }
 
 bool MindStormGame::collision(int x, int y)
