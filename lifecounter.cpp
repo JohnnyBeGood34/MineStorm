@@ -31,3 +31,11 @@ void LifeCounter::drawLifeOnGameBoard(QPainter &painter,const QSize &size){
     //Then draw it into the gameboard
     painter.drawText(QPoint(size.width() - 70,size.height() - 20),qLifes);
 }
+
+int LifeCounter::getLifes(){
+    return _lifes;
+}
+
+void LifeCounter::setLifes(int nbLives){
+    _lifes=nbLives;
+}

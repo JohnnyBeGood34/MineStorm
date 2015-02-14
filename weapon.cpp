@@ -2,8 +2,9 @@
 
 Weapon::Weapon()
 {
+
 }
 
-void Weapon::fire(){
+void Weapon::fire(QPainter &painter){
 
 }

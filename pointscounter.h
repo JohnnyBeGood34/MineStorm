@@ -9,6 +9,7 @@ public:
     PointsCounter();
     void increment();
     void drawPointsIntoGameBoard(QPainter &painter,const QSize &size);
+    void setPoint(int points);
 private:
     int _points;
     //Attribut zone de texte ou autre?

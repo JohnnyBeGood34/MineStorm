@@ -38,9 +38,12 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
                qPoint3 << qPoint4 << qPoint5 << qPoint6 << qPoint7 << qPoint3;
     //_points << QPoint(0, 10) << QPoint(10, 10) << QPoint(0, 0) << QPoint(3, 3) << QPoint(20, 0) << QPoint(3, -3) << QPoint(0, 0) << QPoint(-10, 10) << QPoint(0, 10);
     _isShooting=false;
+
+
 }
 
 Ship::~Ship(){
+    qDebug()<< "destructeur vaisseau";
     _points.clear();//Destroy the polygon of space ship
 }
 
@@ -53,8 +56,7 @@ void Ship::accelerate(){
     int ySommet=_sommet.y();
     int xCenter=_centerShip.x();
     int yCenter=_centerShip.y();
-    //qDebug() << "X center : " << xCenter << "  Ycenter : " <<yCenter;
-    //qDebug() << "X Sommet : " << xSommet << "  Y Sommet : " <<ySommet;
+
 
     transform=transform.translate((xSommet-xCenter)*this->speed,(ySommet-yCenter)*this->speed);
 
@@ -126,6 +128,26 @@ void Ship::rotate(string direction){
 */
 
 }
+
+void Ship::shoot(QPainter &painter){
+
+
+            auto center=_centerShip;
+            QPoint shotStart=QPoint(_sommet.x(),_sommet.y());
+            QPoint shotEnd(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
+
+          painter.drawLine(shotStart.x(),shotStart.y(),shotEnd.x(),shotEnd.y());
+           /* QTransform trans;
+            trans.translate(0,-3);
+
+                    shotStart=trans.map(shotStart);
+                     shotEnd=trans.map(shotEnd);
+                     painter.drawLine(shotStart.x(),shotStart.y(),shotEnd.x(),shotEnd.y());
+*/
+
+
+
+ }
 
 void Ship::destroy(){
     _points.clear();

@@ -18,6 +18,8 @@ public:
      * @param size used to know where to put the text into the gameboard
      */
     void drawLifeOnGameBoard(QPainter &painter,const QSize &size);
+    int getLifes();
+    void setLifes(int nbLives);
 private:
     int _lifes;
 };

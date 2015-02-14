@@ -2,7 +2,7 @@
 #define SHIP_H
 #include "weapon.h"
 #include <QPolygon>
-
+#include <QPainter>
 
 using namespace std;
 
@@ -41,6 +41,9 @@ public:
 
     Weapon* getWeapon();
     void incrementSpeed();
+
+    void shoot(QPainter &painter);
+
     bool _isShooting;
     /**
      * @brief reDrawShip used to re-draw the ship whan it's out of screen

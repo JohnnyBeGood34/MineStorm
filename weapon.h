@@ -2,6 +2,8 @@
 #define WEAPON_H
 #include "shot.h"
 #include "vector"
+#include <QPainter>
+
 using namespace std;
 /**
  *
@@ -13,11 +15,11 @@ public:
     /**
      *
      */
-    void fire();
+    void fire(QPainter &painter);
 
 private:
     int speed;
-    vector<Shot> shots;
+    vector<Shot*> shots;
 };
 
 #endif // WEAPON_H
