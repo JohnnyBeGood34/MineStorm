@@ -13,3 +13,15 @@ PointsCounter::PointsCounter()
 void PointsCounter::increment(){
     _points += 10;
 }
+
+void PointsCounter::drawPointsIntoGameBoard(QPainter &painter,const QSize &size){
+    //Set font
+    QFont font=painter.font() ;
+    font.setPointSize (12);
+    painter.setFont(font);
+    //Convert int to Qstring
+    QString qPoints = QString("Points : %1").arg(_points);
+
+    //Then draw it into the gameboard
+    painter.drawText(QPoint(10,(size.height() - 20)),qPoints);
+}

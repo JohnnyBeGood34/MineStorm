@@ -42,6 +42,10 @@ public:
     Weapon* getWeapon();
     void incrementSpeed();
     bool _isShooting;
+    /**
+     * @brief reDrawShip used to re-draw the ship whan it's out of screen
+     */
+    void reDrawShip(const QSize &size);
 private:
     QPolygon _points;
     Weapon *_shipWeapon;

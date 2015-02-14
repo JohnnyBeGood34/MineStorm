@@ -70,7 +70,33 @@ void Ship::incrementSpeed(){
     }
 }
 
+void Ship::reDrawShip(const QSize &size){
 
+    QTransform transform;
+
+    //Detect if center of user ship is out of screen
+    //Right side
+    if(_centerShip.x() > size.width()){
+        qDebug() << "RIGHT OUT";
+        transform=transform.translate(235,235);
+    }
+    //Left side
+    else if(_centerShip.x() < 0){
+        qDebug() << "LEFT OUT";
+    }
+    //Top side
+    else if(_centerShip.y() > size.height()){
+
+    }
+    //Bottom side
+    else if(_centerShip.y() < 0){
+
+    }
+    //Map the polygon
+    _points=transform.map(_points);
+    _centerShip=transform.map(_centerShip);
+    _sommet=transform.map(_sommet);
+}
 
 void Ship::rotate(string direction){
 

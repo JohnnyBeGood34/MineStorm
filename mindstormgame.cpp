@@ -28,13 +28,17 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
         //_mines.push_back(make_unique<Mine>(QPoint(x,y),i));
     }
     //QObject::connect(&_timerMines,SIGNAL(timeout()),this,SLOT(test()));
+    _lifecounter = new LifeCounter();
+    _pointcounter = new PointsCounter();
 }
 
 void MindStormGame::draw(QPainter &painter, QRect &rect){
-    //Increment the loop counter to have a 5 seconds
+    //Increment the loop counter to have a 5 seconds to hatch mines
     if(loopCounter <100){
         ++loopCounter;
     }
+    //Antialiasing on painter
+    painter.setRenderHint(QPainter::Antialiasing);
     //Set the painter pen
     painter.setPen(thePen);
     //Fill the background of the game board
@@ -43,6 +47,11 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     disposeMines(painter);
     //Fille user space ship
     disposeUserShip(painter);
+    //Used to display lifes of user
+    _lifecounter->drawLifeOnGameBoard(painter,size());
+    //Used to display the score of the user
+    _pointcounter->drawPointsIntoGameBoard(painter,size());
+
     //Shoot tests
     if(_userShip->_isShooting){
         auto xSommet=_userShip->getSommet()->x();
@@ -82,23 +91,7 @@ void MindStormGame::hatchMines(QPainter &painter){
 void MindStormGame::disposeUserShip(QPainter &painter){
     QPolygon polygon=_userShip->getPolygon();
     painter.drawPolygon(polygon);
-    //Detect if center of user ship is out of screen
-    //Right side
-    if(_userShip->getCenter().x() > size().width()){
-
-    }
-    //Left side
-    else if(_userShip->getCenter().x() < size().width()){
-
-    }
-    //Top side
-    else if(_userShip->getCenter().y() > size().height()){
-
-    }
-    //Bottom side
-    else if(_userShip->getCenter().y() < size().height()){
-
-    }
+    _userShip->reDrawShip(size());
 }
 
 
@@ -170,9 +163,9 @@ void MindStormGame::step(){
             qDebug() << "Collision";
             _userShip->destroy();
             _mines.at(i)->destroy();
+            //Decrement the life number
+            _lifecounter->decrement();
         }
-
-
     }
 
     _userShip->accelerate();
