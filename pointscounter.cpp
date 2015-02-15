@@ -25,3 +25,8 @@ void PointsCounter::drawPointsIntoGameBoard(QPainter &painter,const QSize &size)
     //Then draw it into the gameboard
     painter.drawText(QPoint(10,(size.height() - 20)),qPoints);
 }
+
+
+void PointsCounter::setPoint(int points){
+    _points=points;
+}

@@ -34,6 +34,9 @@ private:
     void initialize();
     void disposeMines(QPainter &painter);
     void disposeUserShip(QPainter &painter);
+    void showEndofGame(QPainter &painter);
+    void resetPlace();
+    void buildMines();
 Ship *_userShip;
 Mine *_computerMine;
 //vector<QPoint> _mines;
