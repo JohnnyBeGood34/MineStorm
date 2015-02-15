@@ -8,8 +8,18 @@ using namespace std;
 
 Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
 {
+    initShip();
+    _isShooting=false;
+}
+
+Ship::~Ship(){
+    _points.clear();//Destroy the polygon of space ship
+}
+
+void Ship::initShip(){
+
     //Ship center;
-    _centerShip= QPoint(235,235);
+    _centerShip= QPoint(300,300);
     //Initialize speed 0 by default
     speed = 0;
     //Create top of ship according to its center
@@ -36,15 +46,7 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
     //Create ship Qpolygon
     _points << _sommet << qPoint1 << qPoint8 << qPoint9 << qPoint10 << qPoint11 << qPoint1 << qPoint2 <<
                qPoint3 << qPoint4 << qPoint5 << qPoint6 << qPoint7 << qPoint3;
-    //_points << QPoint(0, 10) << QPoint(10, 10) << QPoint(0, 0) << QPoint(3, 3) << QPoint(20, 0) << QPoint(3, -3) << QPoint(0, 0) << QPoint(-10, 10) << QPoint(0, 10);
-    _isShooting=false;
 }
-
-Ship::~Ship(){
-    _points.clear();//Destroy the polygon of space ship
-}
-
-
 
 void Ship::accelerate(){
 

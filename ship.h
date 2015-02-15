@@ -46,6 +46,10 @@ public:
      * @brief reDrawShip used to re-draw the ship whan it's out of screen
      */
     void reDrawShip(const QSize &size);
+    /**
+     * @brief initShip init the ship position
+     */
+    void initShip();
 private:
     QPolygon _points;
     Weapon *_shipWeapon;

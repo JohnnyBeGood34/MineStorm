@@ -165,6 +165,8 @@ void MindStormGame::step(){
             _mines.at(i)->destroy();
             //Decrement the life number
             _lifecounter->decrement();
+            //Init the ship
+            _userShip->initShip();
         }
     }
 
@@ -177,7 +179,6 @@ bool MindStormGame::hasCollision(QPolygon mine)
     //Collision test between ship and mines
     QPolygon intersection=_userShip->getPolygon().intersected(QPolygon(mine));
     if(!intersection.isEmpty()){
-
         retour = true;
     }
     return retour;
