@@ -37,6 +37,12 @@ private:
     void showEndofGame(QPainter &painter);
     void resetPlace();
     void buildMines();
+    void moveMines();
+    /**
+     * @brief blastPolygon used to blast the ship or a mine
+     * @param polygon
+     */
+    void blastPolygon(QPolygon polygon);
 Ship *_userShip;
 Mine *_computerMine;
 //vector<QPoint> _mines;
@@ -45,7 +51,10 @@ LifeCounter *_lifecounter;
 PointsCounter *_pointcounter;
 
 int loopCounter;
+QTimer *minesTimer;
 
+private slots:
+void test();
 };
 
 #endif // TESTGAME_H

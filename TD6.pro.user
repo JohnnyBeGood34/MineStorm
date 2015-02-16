@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 3.0.1, 2015-02-16T20:14:21. -->
+=======
+<<<<<<< HEAD
+<!-- Written by QtCreator 3.0.1, 2015-02-16T18:26:37. -->
+=======
+<!-- Written by QtCreator 3.0.1, 2015-02-15T17:55:59. -->
+>>>>>>> 4d50b03aafd57dea4631680445f8daed3fec74b6
+>>>>>>> a169a10baddebc78b8b4eebfd0cbb2a8add82fe5
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -229,7 +237,11 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">TD6</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/guest/Documents/MineStorm/TD6.pro</value>
+<<<<<<< HEAD
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/guest/Desktop/Game/MineStorm/TD6.pro</value>
+=======
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/guest/Desktop/MineStorm/TD6.pro</value>
+>>>>>>> 4d50b03aafd57dea4631680445f8daed3fec74b6
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">TD6.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
