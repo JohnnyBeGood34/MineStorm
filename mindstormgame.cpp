@@ -55,14 +55,10 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     //Fill the background of the game board
     painter.fillRect(rect, QColor(0,0,0));
     //Hatch each mines at 5 seconds (100 loops)
-    /*if(loopCounter == 100){
+    if(loopCounter == 100){
         hatchMines(painter);
-<<<<<<< HEAD
-    }*/
-=======
         moveMines();
     }
->>>>>>> 4d50b03aafd57dea4631680445f8daed3fec74b6
     //Fill mines
     disposeMines(painter);
     //Fille user space ship
@@ -101,7 +97,7 @@ void MindStormGame::hatchMines(QPainter &painter){
         painter.setPen(thePen);
         _mines.at(i)->hatch();
         painter.drawPolygon(_mines.at(i)->getPolygon());
-        _mines.at(i)->reDrawShip(size());
+        _mines.at(i)->reDrawMine(size());
 
 
     }

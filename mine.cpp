@@ -77,16 +77,16 @@ void Mine::reDrawMine(const QSize &size){
         transform=transform.translate(xSommet-xCenter-600,ySommet-yCenter);
     }
     //Left side
-    else if(_centerShip.x() < 0){
+    else if(_center.x() < 0){
         //qDebug() << "LEFT OUT";
         transform=transform.translate(xSommet-xCenter+600,ySommet-yCenter);
     }
     //Top side
-    else if(_centerShip.y() > size.height()){
+    else if(_center.y() > size.height()){
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter-600);
     }
     //Bottom side
-    else if(_centerShip.y() < 0){
+    else if(_center.y() < 0){
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter+600);
     }
     //Map the polygon
@@ -123,7 +123,7 @@ QPolygon Mine::getPolygon(){
 void Mine::move(){
     qDebug() << "move mine";
     QTransform transform;
-    transform = transform.translate(this->direction_x*0.2,this->direction_y*0.2);
+    transform = transform.translate(this->direction_x*0.05,this->direction_y*0.05);
     _points=transform.map(_points);
     _center=transform.map(_center);
 }

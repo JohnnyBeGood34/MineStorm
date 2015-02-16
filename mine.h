@@ -19,6 +19,10 @@ public:
     /**
      * @brief hatch, make the mines hatchs
      */
+    /**
+     * @brief reDrawMine used to re-draw the mine whan it's out of screen
+     */
+    void reDrawMine(const QSize &size);
     void hatch();
     void destroy();
     void move();
