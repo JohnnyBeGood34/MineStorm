@@ -31,6 +31,7 @@ QPoint _direction;
 private:
     QPolygon _points;
     QPoint _center;
+    QPoint _sommet;
     int _x;
     int _y;
     /**

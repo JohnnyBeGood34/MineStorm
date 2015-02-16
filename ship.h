@@ -40,6 +40,7 @@ public:
     QPoint getCenter();
 
     Weapon* getWeapon();
+
     void incrementSpeed();
 
     void shoot(QPainter &painter);

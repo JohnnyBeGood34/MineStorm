@@ -75,24 +75,30 @@ void Ship::incrementSpeed(){
 void Ship::reDrawShip(const QSize &size){
 
     QTransform transform;
+    int xSommet=_sommet.x();
+    int ySommet=_sommet.y();
+    int xCenter=_centerShip.x();
+    int yCenter=_centerShip.y();
+
 
     //Detect if center of user ship is out of screen
     //Right side
     if(_centerShip.x() > size.width()){
-        qDebug() << "RIGHT OUT";
-        transform=transform.translate(235,235);
+        //qDebug() << "RIGHT OUT";
+        transform=transform.translate(xSommet-xCenter-600,ySommet-yCenter);
     }
     //Left side
     else if(_centerShip.x() < 0){
-        qDebug() << "LEFT OUT";
+        //qDebug() << "LEFT OUT";
+        transform=transform.translate(xSommet-xCenter+600,ySommet-yCenter);
     }
     //Top side
     else if(_centerShip.y() > size.height()){
-
+        transform=transform.translate(xSommet-xCenter,ySommet-yCenter-600);
     }
     //Bottom side
     else if(_centerShip.y() < 0){
-
+        transform=transform.translate(xSommet-xCenter,ySommet-yCenter+600);
     }
     //Map the polygon
     _points=transform.map(_points);
