@@ -10,7 +10,6 @@ using namespace std;
 //Define the pen used to draw all elements in the game
 QPen thePen;
 MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent) {
-
     //Initialize the pen
     thePen.setColor(Qt::blue);
     thePen.setStyle(Qt::SolidLine);
@@ -25,6 +24,11 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
     _pointcounter = new PointsCounter();
 }
 
+void MindStormGame::moveMines(){
+    for(auto i=0;i<_mines.size();++i){
+        _mines.at(i)->move();
+    }
+}
 
 void MindStormGame::buildMines(){
 
@@ -53,7 +57,12 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     //Hatch each mines at 5 seconds (100 loops)
     /*if(loopCounter == 100){
         hatchMines(painter);
+<<<<<<< HEAD
     }*/
+=======
+        moveMines();
+    }
+>>>>>>> 4d50b03aafd57dea4631680445f8daed3fec74b6
     //Fill mines
     disposeMines(painter);
     //Fille user space ship
@@ -105,6 +114,10 @@ void MindStormGame::disposeUserShip(QPainter &painter){
     _userShip->reDrawShip(size());
 }
 
+
+void MindStormGame::blastPolygon(QPolygon polygon){
+
+}
 
 void MindStormGame::mousePressed( int x, int y){
 
@@ -183,6 +196,7 @@ void MindStormGame::step(){
         }
         if(hasCollision(poly)){
             qDebug() << "Collision";
+            //blastPolygon(_userShip->getPolygon());
             _userShip->destroy();
             _mines.at(i)->destroy();
             //Decrement the life number

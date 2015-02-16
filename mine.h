@@ -47,6 +47,11 @@ private:
         large,
         Num_Count
        };
+    /**
+     * @brief direction, direction of mine
+     */
+    int direction_x;
+    int direction_y;
 };
 
 #endif // MINE_H

@@ -1,7 +1,18 @@
 #include "mine.h"
 #include <QDebug>
+#include <QPainter>
+#include <QDebug>
 Mine::Mine(QPoint qPointRand, int &compteur)
 {
+    //Get a random direction
+    int min = -30;
+    int max = 30;
+    int newDirection = min + (rand() % (int)(max - min + 1)) +1;
+    //Set default direction on x and y for mine
+    this->direction_x = newDirection;
+    newDirection = min + (rand() % (int)(max - min + 1));
+    this->direction_y = newDirection;
+
     //qPointRand central point of a mine
     _center =qPointRand;
     //Determine the mine type (little, middle, great)
@@ -99,14 +110,23 @@ int Mine::getType(){
 }
 
 void Mine::destroy(){
-_points.clear();
-qDebug() << "destruction mine ! ";
+    _points.clear();
+    qDebug() << "destruction mine ! ";
 }
 
 QPolygon Mine::getPolygon(){
     return _points;
 }
-
+/**
+ * @brief Mine::move A refaire avec une direction différent pour chaque mine
+ */
+void Mine::move(){
+    qDebug() << "move mine";
+    QTransform transform;
+    transform = transform.translate(this->direction_x*0.2,this->direction_y*0.2);
+    _points=transform.map(_points);
+    _center=transform.map(_center);
+}
 
 QPoint* Mine::getCenter(){
     return &_center;
