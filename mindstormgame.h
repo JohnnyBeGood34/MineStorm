@@ -37,6 +37,12 @@ private:
     void showEndofGame(QPainter &painter);
     void resetPlace();
     void buildMines();
+    void moveMines();
+    /**
+     * @brief blastPolygon used to blast the ship or a mine
+     * @param polygon
+     */
+    void blastPolygon(QPolygon polygon);
 Ship *_userShip;
 Mine *_computerMine;
 //vector<QPoint> _mines;

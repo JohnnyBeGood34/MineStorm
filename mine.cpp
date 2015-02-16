@@ -1,5 +1,6 @@
 #include "mine.h"
 #include <QDebug>
+#include <QPainter>
 Mine::Mine(QPoint qPointRand, int &compteur)
 {
     //qPointRand central point of a mine
@@ -59,14 +60,21 @@ int Mine::getType(){
 }
 
 void Mine::destroy(){
-_points.clear();
-qDebug() << "destruction mine ! ";
+    _points.clear();
+    qDebug() << "destruction mine ! ";
 }
 
 QPolygon Mine::getPolygon(){
     return _points;
 }
-
+/**
+ * @brief Mine::move A refaire avec une boucle ou quoi pour leurs donner un mouvement constant
+ */
+void Mine::move(){
+    QTransform transform;
+    transform = transform.translate(5*0.2,5*0.2);
+    _points=transform.map(_points);
+}
 
 QPoint* Mine::getCenter(){
     return &_center;

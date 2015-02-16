@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game(const QSize &size,QObject *parent):QObject(parent), _isRunning(false),_speed(50), _size(size){
+Game::Game(const QSize &size,QObject *parent):QObject(parent), _isRunning(false),_speed(70), _size(size){
     _timer.setSingleShot(false);
     connect(&_timer,SIGNAL(timeout()),this,SLOT(update()));
 }
