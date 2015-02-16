@@ -69,7 +69,7 @@ QPolygon Mine::getPolygon(){
     return _points;
 }
 /**
- * @brief Mine::move A refaire avec une boucle ou quoi pour leurs donner un mouvement constant
+ * @brief Mine::move A refaire avec une direction différent pour chaque mine
  */
 void Mine::move(){
     qDebug() << "move mine";
