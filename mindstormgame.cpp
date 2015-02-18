@@ -110,8 +110,6 @@ void MindStormGame::hatchMines(QPainter &painter){
         _mines.at(i)->hatch();
         painter.drawPolygon(_mines.at(i)->getPolygon());
         _mines.at(i)->reDrawMine(size());
-
-
     }
 }
 

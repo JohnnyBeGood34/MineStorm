@@ -147,7 +147,7 @@ void Ship::shoot(QPainter &painter){
     aShot << shotStart << shotEnd;
     painter.drawPolygon(aShot);
     transform = transform.translate(shotStart.x()-shotEnd.x()*0.2,shotStart.y()-shotEnd.y()*0.2);
-    aShot=transform.map(aShot);
+    aShot = transform.map(aShot);
 
 }
 
