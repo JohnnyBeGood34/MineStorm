@@ -15,7 +15,7 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
 void Ship::initShip(){
 
     //Ship center;
-    _centerShip= QPoint(300,300);
+    _centerShip= QPoint(450,450);
     //Initialize speed 0 by default
     speed = 0;
     //Create top of ship according to its center
@@ -85,20 +85,20 @@ void Ship::reDrawShip(const QSize &size){
     //Right side
     if(_centerShip.x() > size.width()){
         //qDebug() << "RIGHT OUT";
-        transform=transform.translate(xSommet-xCenter-600,ySommet-yCenter);
+        transform=transform.translate(xSommet-xCenter-size.width(),ySommet-yCenter);
     }
     //Left side
     else if(_centerShip.x() < 0){
         //qDebug() << "LEFT OUT";
-        transform=transform.translate(xSommet-xCenter+600,ySommet-yCenter);
+        transform=transform.translate(xSommet-xCenter+size.width(),ySommet-yCenter);
     }
     //Top side
     else if(_centerShip.y() > size.height()){
-        transform=transform.translate(xSommet-xCenter,ySommet-yCenter-600);
+        transform=transform.translate(xSommet-xCenter,ySommet-yCenter-size.height());
     }
     //Bottom side
     else if(_centerShip.y() < 0){
-        transform=transform.translate(xSommet-xCenter,ySommet-yCenter+600);
+        transform=transform.translate(xSommet-xCenter,ySommet-yCenter+size.height());
     }
     //Map the polygon
     _points=transform.map(_points);

@@ -86,12 +86,18 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
          showEndofGame(painter);
          pause();
      }
+     //Draw explosions of mine and ship
+     if(!_explosion.empty()){
+         painter.drawPolygon(_explosion);
+         _explosion.clear();
+     }
+
 
 }
 
 void MindStormGame::hatchMines(QPainter &painter){
     //Hatch each mine
-    for(auto i=0;i<_mines.size();++i){
+    for(auto i=0;i<(_mines.size());++i){
 
         //"Remove" the center point by drawing the point in black
         thePen.setColor(Qt::black);
@@ -117,8 +123,25 @@ void MindStormGame::disposeUserShip(QPainter &painter){
 }
 
 
-void MindStormGame::blastPolygon(QPolygon polygon){
-
+void MindStormGame::blastPolygon(QPoint center){
+    QPoint qPoint = QPoint(center.x()+40,center.y());
+    QPoint qPoint1 = QPoint(center.x(),center.y());
+    QPoint qPoint2 = QPoint(center.x()+30,center.y()-30);
+    QPoint qPoint3 = QPoint(center.x(),center.y());
+    QPoint qPoint4 = QPoint(center.x(),center.y()-40);
+    QPoint qPoint5 = QPoint(center.x(),center.y());
+    QPoint qPoint6 = QPoint(center.x()-30,center.y()-30);
+    QPoint qPoint7 = QPoint(center.x(),center.y());
+    QPoint qPoint8 = QPoint(center.x()-40,center.y());
+    QPoint qPoint9 = QPoint(center.x(),center.y());
+    QPoint qPoint10 = QPoint(center.x()-30,center.y()+30);
+    QPoint qPoint11 = QPoint(center.x(),center.y());
+    QPoint qPoint12 = QPoint(center.x(),center.y()+40);
+    QPoint qPoint13 = QPoint(center.x(),center.y());
+    QPoint qPoint14 = QPoint(center.x()+30,center.y()+30);
+    QPoint qPoint15 = QPoint(center.x(),center.y());
+    _explosion << qPoint << qPoint1 << qPoint2 << qPoint3 << qPoint4 << qPoint5 << qPoint6 << qPoint7 << qPoint8 << qPoint9 << qPoint10 << qPoint11 << qPoint12 << qPoint13 << qPoint14 << qPoint15;
+    //qDebug() << "BOOOOOMMMMMMM";
 }
 
 void MindStormGame::mousePressed( int x, int y){
@@ -198,9 +221,12 @@ void MindStormGame::step(){
         }
         if(hasCollision(poly)){
             qDebug() << "Collision";
-            //blastPolygon(_userShip->getPolygon());
             _userShip->destroy();
+            blastPolygon(_userShip->getCenter());
             _mines.at(i)->destroy();
+            //Contruction center of the mine
+            QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
+            blastPolygon(centerMine);
             //Decrement the life number
             _lifecounter->decrement();
             //Init the ship

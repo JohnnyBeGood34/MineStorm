@@ -42,13 +42,14 @@ private:
      * @brief blastPolygon used to blast the ship or a mine
      * @param polygon
      */
-    void blastPolygon(QPolygon polygon);
+    void blastPolygon(QPoint center);
 Ship *_userShip;
 Mine *_computerMine;
 //vector<QPoint> _mines;
 vector<Mine*> _mines;
 LifeCounter *_lifecounter;
 PointsCounter *_pointcounter;
+QPolygon _explosion;
 
 int loopCounter;
 QTimer *minesTimer;
