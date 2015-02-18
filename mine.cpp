@@ -71,7 +71,7 @@ void Mine::reDrawMine(const QSize &size){
     int yCenter=_center.y();
 
 
-    //Detect if center of user ship is out of screen
+    //Detect if center of mine is out of screen
     //Right side
     if(_center.x() > size.width()){
         //qDebug() << "RIGHT OUT";
@@ -118,9 +118,7 @@ void Mine::destroy(){
 QPolygon Mine::getPolygon(){
     return _points;
 }
-/**
- * @brief Mine::move A refaire avec une direction différent pour chaque mine
- */
+
 void Mine::move(){
     qDebug() << "move mine";
     QTransform transform;

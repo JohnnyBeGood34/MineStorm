@@ -15,7 +15,7 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
 void Ship::initShip(){
 
     //Ship center;
-    _centerShip= QPoint(450,450);
+    _centerShip= QPoint(300,300);
     //Initialize speed 0 by default
     speed = 0;
     //Create top of ship according to its center
@@ -41,7 +41,7 @@ void Ship::initShip(){
     _points << _sommet << qPoint1 << qPoint8 << qPoint9 << qPoint10 << qPoint2 << qPoint4 << qPoint5
             << qPoint6 << qPoint3;
     //_points << _sommet << qPoint1 << qPoint8 << qPoint9 << qPoint10 << qPoint11 << qPoint1 << qPoint2 <<
-      //         qPoint3 << qPoint4 << qPoint5 << qPoint6 << qPoint7 << qPoint3;
+    //         qPoint3 << qPoint4 << qPoint5 << qPoint6 << qPoint7 << qPoint3;
 }
 
 Ship::~Ship(){
@@ -137,23 +137,19 @@ void Ship::rotate(string direction){
 
 void Ship::shoot(QPainter &painter){
 
+    //QTransform to translate shots
+    QTransform transform;
+    auto center=_centerShip;
+    QPoint shotStart=QPoint(_sommet.x(),_sommet.y());
+    QPoint shotEnd(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
+    //Create a shot polygon
+    QPolygon aShot;
+    aShot << shotStart << shotEnd;
+    painter.drawPolygon(aShot);
+    transform = transform.translate(shotStart.x()-shotEnd.x()*0.2,shotStart.y()-shotEnd.y()*0.2);
+    aShot=transform.map(aShot);
 
-            auto center=_centerShip;
-            QPoint shotStart=QPoint(_sommet.x(),_sommet.y());
-            QPoint shotEnd(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
-
-          painter.drawLine(shotStart.x(),shotStart.y(),shotEnd.x(),shotEnd.y());
-           /* QTransform trans;
-            trans.translate(0,-3);
-
-                    shotStart=trans.map(shotStart);
-                     shotEnd=trans.map(shotEnd);
-                     painter.drawLine(shotStart.x(),shotStart.y(),shotEnd.x(),shotEnd.y());
-*/
-
-
-
- }
+}
 
 void Ship::destroy(){
     _points.clear();
@@ -162,7 +158,7 @@ void Ship::destroy(){
 void Ship::slowDown(){
 
     this->speed = 0;
-   /*if(this->speed >= 0.2){
+    /*if(this->speed >= 0.2){
     this->speed = this->speed - 0.2;
     }*/
 }

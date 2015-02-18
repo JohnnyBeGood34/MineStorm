@@ -83,7 +83,8 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 
     //End of game
      if(_lifecounter->getLifes() == 0 ){
-         showEndofGame(painter);
+
+         showEndofGame(painter,rect);
          pause();
      }
      //Draw explosions of mine and ship
@@ -98,7 +99,6 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 void MindStormGame::hatchMines(QPainter &painter){
     //Hatch each mine
     for(auto i=0;i<(_mines.size());++i){
-
         //"Remove" the center point by drawing the point in black
         thePen.setColor(Qt::black);
         painter.setPen(thePen);
@@ -167,15 +167,17 @@ void MindStormGame::keyPressed( int key ){
 
 }
 
-void MindStormGame::showEndofGame(QPainter &painter)
+void MindStormGame::showEndofGame(QPainter &painter,QRect &rect)
 {
+    //Fill the background of the game board
+    painter.fillRect(rect, QColor(0,0,0));
     //Set font
     QFont font=painter.font() ;
     font.setPointSize (32);
     painter.setFont(font);
 
     //Then draw it into the gameboard
-    painter.drawText(QPoint((size().width()/2),(size().height()/2)),"GAME OVER");
+    painter.drawText(QPoint((size().width()/3),(size().height()/2)),"GAME OVER");
 }
 
 void MindStormGame::disposeMines(QPainter &painter){
@@ -219,12 +221,14 @@ void MindStormGame::step(){
             int y=poly.at(j).y();
             poly.setPoint(j,x+xD,y+yD);
         }
+
         if(hasCollision(poly)){
             qDebug() << "Collision";
             _userShip->destroy();
-            blastPolygon(_userShip->getCenter());
+            QPoint centerShip = _userShip->getCenter();
+            blastPolygon(centerShip);
             _mines.at(i)->destroy();
-            //Contruction center of the mine
+            //Construction center of the to blast mine
             QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
             blastPolygon(centerMine);
             //Decrement the life number

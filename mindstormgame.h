@@ -34,7 +34,7 @@ private:
     void initialize();
     void disposeMines(QPainter &painter);
     void disposeUserShip(QPainter &painter);
-    void showEndofGame(QPainter &painter);
+    void showEndofGame(QPainter &painter,QRect &rect);
     void resetPlace();
     void buildMines();
     void moveMines();
