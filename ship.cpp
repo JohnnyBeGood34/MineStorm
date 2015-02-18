@@ -80,7 +80,7 @@ void Ship::reDrawShip(const QSize &size){
     //Right side
     if(_centerShip.x() > size.width()){
         qDebug() << "RIGHT OUT";
-        transform=transform.translate(235,235);
+        transform=transform.translate(300,300);
     }
     //Left side
     else if(_centerShip.x() < 0){
