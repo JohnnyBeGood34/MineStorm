@@ -74,11 +74,34 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     //Used to display the score of the user
     _pointcounter->drawPointsIntoGameBoard(painter,size());
 
-    //Shoot tests
+    //On event we add shot to vector of shots
     if(_userShip->_isShooting){
 
-        _userShip->shoot(painter);
-        qDebug() << "Shooting...";
+        _userShip->shoot();
+        qDebug() << "Add shot...";
+    }
+
+    //We get all shots and then we draw them
+    vector<Shot>* shots=_userShip->getShots();
+    qDebug() << "Nb shots : "<< shots->size();
+
+
+    for(auto i=0;i<shots->size();++i){
+        QTransform transform;
+        auto startShot=shots->at(i).getStart();
+        auto endShot=shots->at(i).getEnd();
+         //Il faudrait arriver ici à récupérer les bonnes coordonnées des points ...pour l'instant X = O
+        qDebug()<< "Start shot X: " << startShot.x();
+        //qDebug()<< "End shot X: " << endShot->x();
+        //transform = transform.translate(startShot.x()-endShot->x()*0.2,startShot->y()-endShot->y()*0.2);
+        QPolygon* shot=&shots->at(i);
+        //startShot->setX(startShot->x()-endShot->x()*0.2);
+        //startShot->setY(startShot->y()-endShot->y()*0.2);
+        //endShot->setX(startShot->x()-endShot->x()*0.2);
+        //endShot->setY(startShot->y()-endShot->y()*0.2);
+        //painter.drawPolygon(*shot);
+        //*shot = transform.map(*shot);
+         //painter.drawPolygon(*shot);
     }
 
     //End of game
@@ -87,6 +110,7 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
          showEndofGame(painter,rect);
          pause();
      }
+
      //Draw explosions of mine and ship
      if(!_explosion.empty()){
          painter.drawPolygon(_explosion);
@@ -180,7 +204,7 @@ void MindStormGame::showEndofGame(QPainter &painter,QRect &rect)
 
 void MindStormGame::disposeMines(QPainter &painter){
     //For each mines, drawing a point according
-    //to its center, maybe need to make a sleep..
+    //to its center
     for(auto i=0;i<_mines.size();++i){
         QPointF point(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
         painter.drawPoint(point);

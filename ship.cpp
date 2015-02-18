@@ -135,19 +135,17 @@ void Ship::rotate(string direction){
 
 }
 
-void Ship::shoot(QPainter &painter){
+void Ship::shoot(){
 
-    //QTransform to translate shots
-    QTransform transform;
     auto center=_centerShip;
     QPoint shotStart=QPoint(_sommet.x(),_sommet.y());
-    QPoint shotEnd(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
+    QPoint shotEnd=QPoint(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
     //Create a shot polygon
-    QPolygon aShot;
+    Shot aShot;
     aShot << shotStart << shotEnd;
-    painter.drawPolygon(aShot);
-    transform = transform.translate(shotStart.x()-shotEnd.x()*0.2,shotStart.y()-shotEnd.y()*0.2);
-    aShot = transform.map(aShot);
+    qDebug()<< "création shot "<< endl << "start X : "<<shotStart.x();
+    //Add shot to shots list
+    _shots.push_back(aShot);
 
 }
 
@@ -177,4 +175,8 @@ QPoint* Ship::getSommet(){
 
 QPoint Ship::getCenter(){
     return _centerShip;
+}
+
+vector<Shot>* Ship::getShots(){
+return &_shots;
 }

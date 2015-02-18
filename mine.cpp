@@ -120,7 +120,7 @@ QPolygon Mine::getPolygon(){
 }
 
 void Mine::move(){
-    qDebug() << "move mine";
+   // qDebug() << "move mine";
     QTransform transform;
     transform = transform.translate(this->direction_x*0.05,this->direction_y*0.05);
     _points=transform.map(_points);

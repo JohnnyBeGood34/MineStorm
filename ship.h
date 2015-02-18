@@ -43,7 +43,7 @@ public:
 
     void incrementSpeed();
 
-    void shoot(QPainter &painter);
+    void shoot();
 
     bool _isShooting;
     /**
@@ -54,12 +54,14 @@ public:
      * @brief initShip init the ship position
      */
     void initShip();
+    vector<Shot>* getShots();
 private:
     QPolygon _points;
     Weapon *_shipWeapon;
     QPoint _sommet;
     QPoint _centerShip;
     double speed;
+    vector<Shot> _shots;
 };
 
 #endif // SHIP_H
