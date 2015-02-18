@@ -46,7 +46,7 @@ void Mine::hatch(){
     }
 
     //Create tops of mines according to the central point
-    QPoint qPointSommetMine = QPoint(_center.x(),_center.y()+_x);
+    _sommet = QPoint(_center.x(),_center.y()+_x);
     QPoint qPointSommetMine2 = QPoint(_center.x()+_y,_center.y()+_y);
     QPoint qPointSommetMine3 = QPoint(_center.x()+_x,_center.y());
     QPoint qPointSommetMine4 = QPoint(_center.x()+_y,_center.y()-_y);
@@ -56,10 +56,51 @@ void Mine::hatch(){
     QPoint qPointSommetMine8 = QPoint(_center.x()-_y,_center.y()+_y);
     _points.clear();
     //Create the mine polygon
-    _points << qPointSommetMine << qPointSommetMine2 << qPointSommetMine3 << qPointSommetMine4 << qPointSommetMine5 << qPointSommetMine6 << qPointSommetMine7 << qPointSommetMine8;
+    _points << _sommet << qPointSommetMine2 << qPointSommetMine3 << qPointSommetMine4 << qPointSommetMine5 << qPointSommetMine6 << qPointSommetMine7 << qPointSommetMine8;
+
 
     _direction=QPoint(1,1);
 }
+
+void Mine::reDrawMine(const QSize &size){
+
+    QTransform transform;
+    int xSommet=_sommet.x();
+    int ySommet=_sommet.y();
+    int xCenter=_center.x();
+    int yCenter=_center.y();
+
+
+    //Detect if center of user ship is out of screen
+    //Right side
+    if(_center.x() > size.width()){
+        //qDebug() << "RIGHT OUT";
+        transform=transform.translate(xSommet-xCenter-size.width(),ySommet-yCenter);
+    }
+    //Left side
+    else if(_center.x() < 0){
+        //qDebug() << "LEFT OUT";
+        transform=transform.translate(xSommet-xCenter+size.width(),ySommet-yCenter);
+    }
+    //Top side
+    else if(_center.y() > size.height()){
+        transform=transform.translate(xSommet-xCenter,ySommet-yCenter-size.height());
+    }
+    //Bottom side
+    else if(_center.y() < 0){
+        transform=transform.translate(xSommet-xCenter,ySommet-yCenter+size.height());
+    }
+    //Map the polygon
+    _points=transform.map(_points);
+    _center=transform.map(_center);
+    _sommet=transform.map(_sommet);
+}
+
+
+
+
+
+
 
 Mine::~Mine(){
    _points.clear();//Destroy the polygon
@@ -83,7 +124,7 @@ QPolygon Mine::getPolygon(){
 void Mine::move(){
     qDebug() << "move mine";
     QTransform transform;
-    transform = transform.translate(this->direction_x*0.2,this->direction_y*0.2);
+    transform = transform.translate(this->direction_x*0.05,this->direction_y*0.05);
     _points=transform.map(_points);
     _center=transform.map(_center);
 }
