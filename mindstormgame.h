@@ -6,6 +6,7 @@
 #include "vector"
 #include "lifecounter.h"
 #include "pointscounter.h"
+#include "ennemyspaceship.h"
 #include "memory"
 #include <QPaintEvent>
 #include <QTimer>
@@ -34,6 +35,7 @@ private:
     void initialize();
     void disposeMines(QPainter &painter);
     void disposeUserShip(QPainter &painter);
+    void disposeEnnemyShip(QPainter &painter);
     void showEndofGame(QPainter &painter,QRect &rect);
     void resetPlace();
     void buildMines();
@@ -44,6 +46,7 @@ private:
      */
     void blastPolygon(QPoint center);
 Ship *_userShip;
+EnnemySpaceShip *_EnnemyShip;
 Mine *_computerMine;
 //vector<QPoint> _mines;
 vector<Mine*> _mines;
