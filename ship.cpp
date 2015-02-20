@@ -136,7 +136,6 @@ void Ship::rotate(string direction){
 }
 
 void Ship::shoot(QPainter &painter){
-
     //QTransform to translate shots
     QTransform transform;
     auto center=_centerShip;
@@ -148,7 +147,6 @@ void Ship::shoot(QPainter &painter){
     painter.drawPolygon(aShot);
     transform = transform.translate(shotStart.x()-shotEnd.x()*0.2,shotStart.y()-shotEnd.y()*0.2);
     aShot = transform.map(aShot);
-
 }
 
 void Ship::destroy(){
@@ -159,7 +157,7 @@ void Ship::slowDown(){
 
     this->speed = 0;
     /*if(this->speed >= 0.2){
-    this->speed = this->speed - 0.2;
+        this->speed = this->speed - 0.2;
     }*/
 }
 
