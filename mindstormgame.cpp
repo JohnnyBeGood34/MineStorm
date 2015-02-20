@@ -16,8 +16,13 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
     thePen.setWidth(2);
     //Loop counter is initialize to 0
     loopCounter = 0;
+    //Loop counter for hacth mine is initialize to 0
+    loopCounterHatchMines = 0;
+
     //User space ship initialization
     _userShip=new Ship();
+    //User space Ennemy ship initialization
+    _EnnemyShip=new EnnemySpaceShip();
     //Build mines
     buildMines();
     _lifecounter = new LifeCounter();
@@ -30,10 +35,10 @@ void MindStormGame::test(){
     qDebug() << "signal test ...";
 }
 
-void MindStormGame::moveMines(){
-    for(auto i=0;i<_mines.size();++i){
+void MindStormGame::moveMines(int counter){
+     for(auto i=0;i<=counter;++i){
         _mines.at(i)->move();
-    }
+        }
 }
 
 void MindStormGame::buildMines(){
@@ -49,10 +54,7 @@ void MindStormGame::buildMines(){
 
 void MindStormGame::draw(QPainter &painter, QRect &rect){
 
-    //Increment the loop counter to have a 5 seconds to hatch mines
-    if(loopCounter <100){
-        ++loopCounter;
-    }
+
 
     //Antialiasing on painter
     painter.setRenderHint(QPainter::Antialiasing);
@@ -60,45 +62,89 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     painter.setPen(thePen);
     //Fill the background of the game board
     painter.fillRect(rect, QColor(0,0,0));
-    //Hatch each mines at 5 seconds (100 loops)
-    if(loopCounter == 100){
-        hatchMines(painter);
-        moveMines();
+
+    //Ennemyship appear and dispose mines only if in screen
+    if(_EnnemyShip->getCenter().y() < 600){
+        disposeEnnemyShip(painter);
+        _EnnemyShip->move();
+        //Fill mines
+        disposeMines(painter);
     }
-    //Fill mines
-    disposeMines(painter);
-    //Fille user space ship
-    disposeUserShip(painter);
-    //Used to display lifes of user
-    _lifecounter->drawLifeOnGameBoard(painter,size());
-    //Used to display the score of the user
-    _pointcounter->drawPointsIntoGameBoard(painter,size());
+    //When Ennemy ship clear, the game start
+    else{
+        // Destroy ennemy ship
+        _EnnemyShip->destroy();
 
-    //Shoot tests
-    if(_userShip->_isShooting){
+        //Increment the loop counter to have a 5 seconds to hatch mines
+        if(loopCounter <1500){
+            ++loopCounter;
+        }
 
-        _userShip->shoot(painter);
-        qDebug() << "Shooting...";
+        //Hatch each mines at 5 seconds (100 loops)
+        if(loopCounter % 50 == 0){
+            ++loopCounterHatchMines;
+        }
+        hatchMines(painter,loopCounterHatchMines);
+        moveMines(loopCounterHatchMines);
+
+
+        //Fill mines
+        disposeMines(painter);
+        //Fille user space ship
+        disposeUserShip(painter);
+        //Used to display lifes of user
+        _lifecounter->drawLifeOnGameBoard(painter,size());
+        //Used to display the score of the user
+        _pointcounter->drawPointsIntoGameBoard(painter,size());
+
+        //On event we add shot to vector of shots
+        if(_userShip->_isShooting){
+            _userShip->shoot(painter);
+            qDebug() << "Add shot...";
+        }
+
+        //We get all shots and then we draw them
+        vector<Shot>* shots=_userShip->getShots();
+        qDebug() << "Nb shots : "<< shots->size();
+
+
+        for(auto i=0;i<shots->size();++i){
+            QTransform transform;
+            auto startShot=shots->at(i).getStart();
+            auto endShot=shots->at(i).getEnd();
+             //Il faudrait arriver ici à récupérer les bonnes coordonnées des points ...pour l'instant X = O
+            qDebug()<< "Start shot X: " << startShot.x();
+            //qDebug()<< "End shot X: " << endShot->x();
+            //transform = transform.translate(startShot.x()-endShot->x()*0.2,startShot->y()-endShot->y()*0.2);
+            QPolygon* shot=&shots->at(i);
+            //startShot->setX(startShot->x()-endShot->x()*0.2);
+            //startShot->setY(startShot->y()-endShot->y()*0.2);
+            //endShot->setX(startShot->x()-endShot->x()*0.2);
+            //endShot->setY(startShot->y()-endShot->y()*0.2);
+            //painter.drawPolygon(*shot);
+            //*shot = transform.map(*shot);
+             //painter.drawPolygon(*shot);
+        }
+
+        //End of game
+         if(_lifecounter->getLifes() == 0 ){
+
+             showEndofGame(painter,rect);
+             pause();
+         }
+
+         //Draw explosions of mine and ship
+         if(!_explosion.empty()){
+             painter.drawPolygon(_explosion);
+             _explosion.clear();
+         }
     }
-
-    //End of game
-     if(_lifecounter->getLifes() == 0 ){
-
-         showEndofGame(painter,rect);
-         pause();
-     }
-     //Draw explosions of mine and ship
-     if(!_explosion.empty()){
-         painter.drawPolygon(_explosion);
-         _explosion.clear();
-     }
-
-
 }
 
-void MindStormGame::hatchMines(QPainter &painter){
+void MindStormGame::hatchMines(QPainter &painter, int counter){
     //Hatch each mine
-    for(auto i=0;i<(_mines.size());++i){
+
+    for(auto i=0;i<counter;++i){
         //"Remove" the center point by drawing the point in black
         thePen.setColor(Qt::black);
         painter.setPen(thePen);
@@ -118,6 +164,12 @@ void MindStormGame::disposeUserShip(QPainter &painter){
     painter.setBrush(Qt::blue);
     painter.drawPolygon(polygon,Qt::WindingFill);
     _userShip->reDrawShip(size());
+}
+
+void MindStormGame::disposeEnnemyShip(QPainter &painter){
+    QPolygon polygon=_EnnemyShip->getPolygon();
+    painter.setBrush(Qt::blue);
+    painter.drawPolygon(polygon,Qt::WindingFill);
 }
 
 
@@ -178,12 +230,18 @@ void MindStormGame::showEndofGame(QPainter &painter,QRect &rect)
     painter.drawText(QPoint((size().width()/3),(size().height()/2)),"GAME OVER");
 }
 
+
+
+
+
 void MindStormGame::disposeMines(QPainter &painter){
     //For each mines, drawing a point according
-    //to its center, maybe need to make a sleep..
+    //to its center
     for(auto i=0;i<_mines.size();++i){
-        QPointF point(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
-        painter.drawPoint(point);
+        if((_mines.at(i)->getCenter()->y()) < (_EnnemyShip->getCenter().y())){
+            QPointF point(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
+            painter.drawPoint(point);
+        }
     }
 
 }
@@ -256,6 +314,7 @@ void MindStormGame::resetPlace(){
     _mines.clear();
     _userShip=nullptr;
     loopCounter=0;
+    loopCounterHatchMines=0;
    _userShip=new Ship();
     //_userShip->initShip();
     buildMines();
@@ -264,6 +323,7 @@ void MindStormGame::resetPlace(){
 void MindStormGame::initialize(){
 
 resetPlace();
+_EnnemyShip=new EnnemySpaceShip();
 _lifecounter->setLifes(4);
 _pointcounter->setPoint(0);
 

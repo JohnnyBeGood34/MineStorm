@@ -6,6 +6,7 @@
 #include "vector"
 #include "lifecounter.h"
 #include "pointscounter.h"
+#include "ennemyspaceship.h"
 #include "memory"
 #include <QPaintEvent>
 #include <QTimer>
@@ -29,21 +30,23 @@ public:
     bool hasCollision(QPolygon mine);
 
 private:
-    void hatchMines(QPainter &painter);
+    void hatchMines(QPainter &painter,int counter);
     virtual void step();
     void initialize();
     void disposeMines(QPainter &painter);
     void disposeUserShip(QPainter &painter);
+    void disposeEnnemyShip(QPainter &painter);
     void showEndofGame(QPainter &painter,QRect &rect);
     void resetPlace();
     void buildMines();
-    void moveMines();
+    void moveMines(int counter);
     /**
      * @brief blastPolygon used to blast the ship or a mine
      * @param polygon
      */
     void blastPolygon(QPoint center);
 Ship *_userShip;
+EnnemySpaceShip *_EnnemyShip;
 Mine *_computerMine;
 //vector<QPoint> _mines;
 vector<Mine*> _mines;
@@ -52,6 +55,7 @@ PointsCounter *_pointcounter;
 QPolygon _explosion;
 
 int loopCounter;
+int loopCounterHatchMines;
 QTimer *minesTimer;
 
 private slots:
