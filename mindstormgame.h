@@ -30,7 +30,7 @@ public:
     bool hasCollision(QPolygon mine);
 
 private:
-    void hatchMines(QPainter &painter);
+    void hatchMines(QPainter &painter,int counter);
     virtual void step();
     void initialize();
     void disposeMines(QPainter &painter);
@@ -39,7 +39,7 @@ private:
     void showEndofGame(QPainter &painter,QRect &rect);
     void resetPlace();
     void buildMines();
-    void moveMines();
+    void moveMines(int counter);
     /**
      * @brief blastPolygon used to blast the ship or a mine
      * @param polygon
@@ -55,6 +55,7 @@ PointsCounter *_pointcounter;
 QPolygon _explosion;
 
 int loopCounter;
+int loopCounterHatchMines;
 QTimer *minesTimer;
 
 private slots:

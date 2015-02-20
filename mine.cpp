@@ -16,6 +16,9 @@ Mine::Mine(QPoint qPointRand, int &compteur)
     //qPointRand central point of a mine
     _center =qPointRand;
     //Determine the mine type (little, middle, great)
+
+
+
     if(compteur < 5){
         mineType = 1;
     }else if(compteur >= 5 && compteur < 25){
@@ -85,10 +88,13 @@ void Mine::reDrawMine(const QSize &size){
     //Top side
     else if(_center.y() > size.height()){
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter-size.height());
+        qDebug() << "bug" << xSommet <<","<< xCenter << "," << ySommet <<","<< yCenter;
     }
     //Bottom side
     else if(_center.y() < 0){
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter+size.height());
+
+        qDebug()<< "ok"  << xSommet <<","<< xCenter << "," << ySommet <<","<< yCenter;
     }
     //Map the polygon
     _points=transform.map(_points);

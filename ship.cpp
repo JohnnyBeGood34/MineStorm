@@ -19,10 +19,53 @@ void Ship::initShip(){
     //Initialize speed 0 by default
     speed = 0;
     //Create top of ship according to its center
-    _sommet = QPoint(_centerShip.x(),_centerShip.y()-20);
+    _sommet = QPoint(_centerShip.x(),_centerShip.y()-35);
+
+    QPoint qPoint1 = QPoint(_centerShip.x()+10,_centerShip.y());
+    QPoint qPoint2 = QPoint(_centerShip.x()+15,_centerShip.y());
+    QPoint qPoint3 = QPoint(_centerShip.x()+15,_centerShip.y()-15);
+    QPoint qPoint4 = QPoint(_centerShip.x()+15,_centerShip.y());
+    QPoint qPoint5 = QPoint(_centerShip.x()+20,_centerShip.y());
+    QPoint qPoint6 = QPoint(_centerShip.x()+20,_centerShip.y()-10);
+    QPoint qPoint7 = QPoint(_centerShip.x()+25,_centerShip.y()-10);
+    QPoint qPoint8 = QPoint(_centerShip.x()+25,_centerShip.y()-30);
+    QPoint qPoint9 = QPoint(_centerShip.x()+25,_centerShip.y()-10);
+    QPoint qPoint10 = QPoint(_centerShip.x()+30,_centerShip.y()-10);
+    QPoint qPoint11 = QPoint(_centerShip.x()+30,_centerShip.y()+10);
+    QPoint qPoint12 = QPoint(_centerShip.x()+20,_centerShip.y()+10);
+    QPoint qPoint13 = QPoint(_centerShip.x()+20,_centerShip.y()+5);
+    QPoint qPoint14 = QPoint(_centerShip.x()+10,_centerShip.y()+10);
+    QPoint qPoint15 = QPoint(_centerShip.x()+10,_centerShip.y()+15);
+    QPoint qPoint16 = QPoint(_centerShip.x()+5,_centerShip.y()+15);
+    QPoint qPoint17 = QPoint(_centerShip.x()+5,_centerShip.y()+10);
+    QPoint qPoint18 = QPoint(_centerShip.x()-5,_centerShip.y()+10);
+    QPoint qPoint19 = QPoint(_centerShip.x()-5,_centerShip.y()+15);
+    QPoint qPoint20 = QPoint(_centerShip.x()-10,_centerShip.y()+15);
+    QPoint qPoint21 = QPoint(_centerShip.x()-10,_centerShip.y()+10);
+    QPoint qPoint22 = QPoint(_centerShip.x()-20,_centerShip.y()+5);
+    QPoint qPoint23 = QPoint(_centerShip.x()-20,_centerShip.y()+10);
+    QPoint qPoint24 = QPoint(_centerShip.x()-30,_centerShip.y()+10);
+    QPoint qPoint25 = QPoint(_centerShip.x()-30,_centerShip.y()-10);
+    QPoint qPoint26 = QPoint(_centerShip.x()-25,_centerShip.y()-10);
+    QPoint qPoint27 = QPoint(_centerShip.x()-25,_centerShip.y()-30);
+    QPoint qPoint28 = QPoint(_centerShip.x()-25,_centerShip.y()-10);
+    QPoint qPoint29 = QPoint(_centerShip.x()-20,_centerShip.y()-10);
+    QPoint qPoint30 = QPoint(_centerShip.x()-20,_centerShip.y());
+    QPoint qPoint31 = QPoint(_centerShip.x()-15,_centerShip.y());
+    QPoint qPoint32 = QPoint(_centerShip.x()-15,_centerShip.y()-15);
+    QPoint qPoint33 = QPoint(_centerShip.x()-15,_centerShip.y());
+    QPoint qPoint34 = QPoint(_centerShip.x()-10,_centerShip.y());
+    QPoint qPoint35 = QPoint(_centerShip.x(),_centerShip.y()-35);
+
+
+    _points << _sommet << qPoint1 << qPoint2 << qPoint3 << qPoint4 << qPoint5 << qPoint6 << qPoint7 << qPoint8 << qPoint9 << qPoint10
+                                  << qPoint11 << qPoint12 << qPoint13 << qPoint14 << qPoint15 << qPoint16 << qPoint17 << qPoint18 << qPoint19 << qPoint20
+                                     << qPoint21 << qPoint22 << qPoint23 << qPoint24 << qPoint25 << qPoint26 << qPoint27 << qPoint28 << qPoint29 << qPoint30
+                                        << qPoint31 << qPoint32 << qPoint33 << qPoint34 << qPoint35;
+
 
     //Ship body
-    QPoint qPoint1 = QPoint(_centerShip.x()-10,_centerShip.y()+20);
+    /*QPoint qPoint1 = QPoint(_centerShip.x()-10,_centerShip.y()+20);
     QPoint qPoint2 = QPoint(_centerShip.x(),_centerShip.y()+25);
     QPoint qPoint3 = QPoint(_centerShip.x()+10,_centerShip.y()+20);
 
@@ -36,12 +79,9 @@ void Ship::initShip(){
     QPoint qPoint9 = QPoint(_centerShip.x()-20,_centerShip.y()+20);
     QPoint qPoint10 = QPoint(_centerShip.x()-10,_centerShip.y()+35);
 
-    //_points << _sommet << qPoint1;
     //Create ship Qpolygon
     _points << _sommet << qPoint1 << qPoint8 << qPoint9 << qPoint10 << qPoint2 << qPoint4 << qPoint5
-            << qPoint6 << qPoint3;
-    //_points << _sommet << qPoint1 << qPoint8 << qPoint9 << qPoint10 << qPoint11 << qPoint1 << qPoint2 <<
-    //         qPoint3 << qPoint4 << qPoint5 << qPoint6 << qPoint7 << qPoint3;
+            << qPoint6 << qPoint3;*/
 }
 
 Ship::~Ship(){
@@ -50,6 +90,8 @@ Ship::~Ship(){
 }
 
 void Ship::accelerate(){
+
+
 
     QTransform transform;
     int xSommet=_sommet.x();
@@ -63,6 +105,8 @@ void Ship::accelerate(){
     _points=transform.map(_points);
     _centerShip=transform.map(_centerShip);
     _sommet=transform.map(_sommet);
+
+
 
 }
 
