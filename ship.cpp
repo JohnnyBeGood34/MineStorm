@@ -169,12 +169,12 @@ void Ship::rotate(string direction){
     _sommet=trans.map(_sommet);
 
 
-    /* int i=0;
+    /*int i=0;
     foreach (QPoint point, _points) {
 
         int x = cos(angle)*(point.x()-xCenter) - sin(angle)*(point.y()-yCenter) + xCenter;
         int y = sin(angle)*(point.x()-xCenter) + cos(angle)*(point.y()-yCenter) + yCenter;
-        _points.setPoint(i.,x,y);
+        _points.setPoint(i,x,y);
         ++i;
     }*/
 
