@@ -88,13 +88,10 @@ void Mine::reDrawMine(const QSize &size){
     //Top side
     else if(_center.y() > size.height()){
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter-size.height());
-        qDebug() << "bug" << xSommet <<","<< xCenter << "," << ySommet <<","<< yCenter;
     }
     //Bottom side
     else if(_center.y() < 0){
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter+size.height());
-
-        qDebug()<< "ok"  << xSommet <<","<< xCenter << "," << ySommet <<","<< yCenter;
     }
     //Map the polygon
     _points=transform.map(_points);

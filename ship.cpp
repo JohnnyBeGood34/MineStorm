@@ -161,14 +161,12 @@ void Ship::rotate(string direction){
     int yCenter=_centerShip.y();
 
     QTransform trans;
-    trans.translate(xCenter,yCenter);
+    trans.translate(0,0);
     trans.rotate(angle);
     trans.translate(-xCenter,-yCenter);
 
     _points=trans.map(_points);
     _sommet=trans.map(_sommet);
-
-<<<<<<< HEAD
 
     /*int i=0;
     foreach (QPoint point, _points) {
@@ -178,9 +176,6 @@ void Ship::rotate(string direction){
         _points.setPoint(i,x,y);
         ++i;
     }*/
-
-=======
->>>>>>> 772bc95082dc588ceb4157f4cf23bcf32dbd9d09
 }
 
 void Ship::shoot(/*QPainter &painter*/){
