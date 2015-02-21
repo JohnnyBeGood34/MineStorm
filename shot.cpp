@@ -1,7 +1,7 @@
 #include "shot.h"
 
-Shot::Shot(QPoint start,QPoint end)
-{
+Shot::Shot(QPoint start,QPoint end):_start(start),_end(_end)
+{       
     polygonShot << start << end;
     this->isPainted = false;
 }
@@ -9,8 +9,8 @@ void Shot::draw(){
 
 }
 
-QPolygon Shot::getPolygon(){
-    return this->polygonShot;
+QPolygon* Shot::getPolygon(){
+    return &this->polygonShot;
 }
 
 QPoint Shot::getStart(){

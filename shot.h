@@ -15,7 +15,7 @@ public:
     void draw();
     QPoint getStart();
     QPoint getEnd();
-    QPolygon getPolygon();
+    QPolygon* getPolygon();
     void setPainted(bool painted);
     bool getPainted();
 

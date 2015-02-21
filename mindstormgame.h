@@ -28,7 +28,8 @@ public:
      * @param mine
      * @return
      */
-    bool hasCollision(QPolygon mine);
+    bool hasCollision(QPolygon &mine);
+    bool isMineShot(QPolygon &mine,QPolygon &shot);
 
 private:
     void hatchMines(QPainter &painter,int counter);

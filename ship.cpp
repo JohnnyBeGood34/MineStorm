@@ -152,7 +152,7 @@ void Ship::reDrawShip(const QSize &size){
 
 void Ship::rotate(string direction){
 
-    qDebug() << "Rotate ...";
+    //qDebug() << "Rotate ...";
 
     const int angle = (direction == "right") ? 30 : -30;
 
@@ -161,7 +161,7 @@ void Ship::rotate(string direction){
     int yCenter=_centerShip.y();
 
     QTransform trans;
-    trans.translate(0,0);
+    trans.translate(xCenter,yCenter);
     trans.rotate(angle);
     trans.translate(-xCenter,-yCenter);
 
@@ -179,9 +179,12 @@ void Ship::rotate(string direction){
 }
 
 void Ship::shoot(/*QPainter &painter*/){
-    auto center=_centerShip;
+
     QPoint shotStart=QPoint(_sommet.x(),_sommet.y());
-    QPoint shotEnd=QPoint(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
+
+    //QPoint shotEnd=QPoint(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
+    QPoint shotEnd=QPoint(_centerShip.x(),_centerShip.y());
+    qDebug()<< "Add shot  X :"<< _sommet.x()-_centerShip.x();
     Shot newShot = Shot(shotStart,shotEnd);
     //Push a new shot object into vector
     _shots.push_back(newShot);
