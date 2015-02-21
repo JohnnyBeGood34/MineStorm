@@ -123,14 +123,22 @@ void MindStormGame::moveShots(QPainter &painter){
 
     QTransform transform;
     //Get shots
-    for(auto i =0;i< _userShip->getShots()->size();i++){
+    //qDebug() << "Nb shots  : " << _userShip->getShots()->size();
+    for(auto i =0u;i< _userShip->getShots()->size();i++){
         //If the shot hasn't painted, paint it
         if(!_userShip->getShots()->at(i).getPainted()){
-            painter.drawPolygon(_userShip->getShots()->at(i).getPolygon());
+            //Move polygon shot
+            //int startX=_userShip->getShots()->at(i).getStart().x();//OK
+           //int endX=_userShip->getShots()->at(i).getEnd().x();//OK
+
+
+          // qDebug()<< " X move shot n°: "<<i<< "  "<< (startX-endX);//Retourne un truc bizarre...
+            transform=transform.translate((_userShip->getShots()->at(i).getStart().x() - _userShip->getShots()->at(i).getEnd().x())*0.2,(_userShip->getShots()->at(i).getStart().y() - _userShip->getShots()->at(i).getEnd().y())*0.2);
+            //transform=transform.translate(0,-0.2);
+            *_userShip->getShots()->at(i).getPolygon() = transform.map(*_userShip->getShots()->at(i).getPolygon());
+            painter.drawPolygon(*_userShip->getShots()->at(i).getPolygon());
         }
-        //Move polygon shot
-        transform=transform.translate((_userShip->getShots()->at(i).getStart().x() - _userShip->getShots()->at(i).getEnd().x())*0.2,(_userShip->getShots()->at(i).getStart().y() - _userShip->getShots()->at(i).getEnd().y())*0.2);
-        _userShip->getShots()->at(i).getPolygon() = transform.map(_userShip->getShots()->at(i).getPolygon());
+
     }
 }
 
@@ -191,7 +199,7 @@ void MindStormGame::mousePressed( int x, int y){
 }
 
 void MindStormGame::keyPressed( int key ){
-    qDebug() << "KEY PRESSED " << key;
+   // qDebug() << "KEY PRESSED " << key;
     switch(key) {
     case Qt::Key_Up: _userShip->incrementSpeed();
         break;
@@ -269,7 +277,7 @@ void MindStormGame::step(){
             int y=poly.at(j).y();
             poly.setPoint(j,x+xD,y+yD);
         }
-
+        //Case with collision between ship and mine
         if(hasCollision(poly)){
             qDebug() << "Collision";
             _userShip->destroy();
@@ -285,22 +293,44 @@ void MindStormGame::step(){
             //_userShip->initShip();
              resetPlace();
         }
+        //Case with collision between one shot and mine
+       /* for(auto i= 0;i<_userShip->getShots()->size();++i)
+        {
+            qDebug()<< "step 2e boucle";
+            auto mine=_mines.at(i)->getPolygon();
+                if(isMineShot(mine,*_userShip->getShots()->at(i).getPolygon()))
+                {
+                    qDebug()<< "Collision between shot and mine ";
+                     QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
+                    blastPolygon(centerMine);
+                }
+        }
+        */
     }
 
     _userShip->accelerate();
 }
 
-bool MindStormGame::hasCollision(QPolygon mine)
+bool MindStormGame::hasCollision(QPolygon &mine)
 {
+
     bool retour = false;
     //Collision test between ship and mines
-    QPolygon intersection=_userShip->getPolygon().intersected(QPolygon(mine));
+    QPolygon intersection=_userShip->getPolygon().intersected(mine);
     if(!intersection.isEmpty()){
         retour = true;
     }
     return retour;
 }
 
+bool MindStormGame::isMineShot(QPolygon &mine,QPolygon &shot){
+    bool isShot=false;
+    QPolygon intersect=mine.intersected(shot);
+    if(!intersect.isEmpty()){
+        isShot=true;
+    }
+    return isShot;
+}
 
 void MindStormGame::resetPlace(){
     _mines.clear();
@@ -313,7 +343,7 @@ void MindStormGame::resetPlace(){
 }
 
 void MindStormGame::initialize(){
-
+_EnnemyShip=nullptr;
 resetPlace();
 _EnnemyShip=new EnnemySpaceShip();
 _lifecounter->setLifes(4);
