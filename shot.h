@@ -11,13 +11,19 @@
 class Shot:public QPolygon
 {
 public:
-    Shot();
+    Shot(QPoint start,QPoint end);
     void draw();
     QPoint getStart();
     QPoint getEnd();
+    QPolygon getPolygon();
+    void setPainted(bool painted);
+    bool getPainted();
+
 private:
-QPoint _start;
-QPoint _end;
+    QPoint _start;
+    QPoint _end;
+    QPolygon polygonShot;
+    bool isPainted;
 };
 
 #endif // SHOT_H

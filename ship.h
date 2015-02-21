@@ -43,7 +43,7 @@ public:
 
     void incrementSpeed();
 
-    void shoot(QPainter &painter);
+    void shoot(/*QPainter &painter*/);
 
     bool _isShooting;
     /**

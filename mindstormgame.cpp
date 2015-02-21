@@ -97,32 +97,12 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 
         //On event we add shot to vector of shots
         if(_userShip->_isShooting){
-            _userShip->shoot(painter);
+            _userShip->shoot();
             qDebug() << "Add shot...";
         }
 
-        //We get all shots and then we draw them
-        vector<Shot>* shots=_userShip->getShots();
-        qDebug() << "Nb shots : "<< shots->size();
-
-
-        for(auto i=0;i<shots->size();++i){
-            QTransform transform;
-            auto startShot=shots->at(i).getStart();
-            auto endShot=shots->at(i).getEnd();
-             //Il faudrait arriver ici à récupérer les bonnes coordonnées des points ...pour l'instant X = O
-            qDebug()<< "Start shot X: " << startShot.x();
-            //qDebug()<< "End shot X: " << endShot->x();
-            //transform = transform.translate(startShot.x()-endShot->x()*0.2,startShot->y()-endShot->y()*0.2);
-            QPolygon* shot=&shots->at(i);
-            //startShot->setX(startShot->x()-endShot->x()*0.2);
-            //startShot->setY(startShot->y()-endShot->y()*0.2);
-            //endShot->setX(startShot->x()-endShot->x()*0.2);
-            //endShot->setY(startShot->y()-endShot->y()*0.2);
-            //painter.drawPolygon(*shot);
-            //*shot = transform.map(*shot);
-             //painter.drawPolygon(*shot);
-        }
+        //Move all shots
+        moveShots(painter);
 
         //End of game
          if(_lifecounter->getLifes() == 0 ){
@@ -136,6 +116,21 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
              painter.drawPolygon(_explosion);
              _explosion.clear();
          }
+    }
+}
+
+void MindStormGame::moveShots(QPainter &painter){
+
+    QTransform transform;
+    //Get shots
+    for(auto i =0;i< _userShip->getShots()->size();i++){
+        //If the shot hasn't painted, paint it
+        if(!_userShip->getShots()->at(i).getPainted()){
+            painter.drawPolygon(_userShip->getShots()->at(i).getPolygon());
+        }
+        //Move polygon shot
+        transform=transform.translate((_userShip->getShots()->at(i).getStart().x() - _userShip->getShots()->at(i).getEnd().x())*0.2,(_userShip->getShots()->at(i).getStart().y() - _userShip->getShots()->at(i).getEnd().y())*0.2);
+        _userShip->getShots()->at(i).getPolygon() = transform.map(_userShip->getShots()->at(i).getPolygon());
     }
 }
 

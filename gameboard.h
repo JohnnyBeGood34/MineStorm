@@ -2,6 +2,7 @@
 #define GAMEBOARD_H
 
 #include <QWidget>
+#include <QSet>
 class Game;
 /**
  * @brief La class GameBoard définit un widget permettant l'affichage d'un
@@ -23,7 +24,15 @@ protected:
     void mousePressEvent ( QMouseEvent * event );
     void keyPressEvent ( QKeyEvent * event );
     void keyReleaseEvent ( QKeyEvent * event );
-
+    /**
+     * @brief eventFilter Handle multi-touch events
+     * @param obj
+     * @param event
+     * @return
+     */
+    bool eventFilter(QObject * obj, QEvent * event);
+    QSet<int> pressedKeys;
+    QSet<int>::iterator iterator;
 private:
     Game *_game;
 };
