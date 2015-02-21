@@ -154,7 +154,7 @@ void Ship::rotate(string direction){
 
     qDebug() << "Rotate ...";
 
-    const int angle = (direction == "right") ? 10 : -10;
+    const int angle = (direction == "right") ? 30 : -30;
 
 
     int xCenter=_centerShip.x();
@@ -168,30 +168,17 @@ void Ship::rotate(string direction){
     _points=trans.map(_points);
     _sommet=trans.map(_sommet);
 
-
-    /* int i=0;
-    foreach (QPoint point, _points) {
-
-        int x = cos(angle)*(point.x()-xCenter) - sin(angle)*(point.y()-yCenter) + xCenter;
-        int y = sin(angle)*(point.x()-xCenter) + cos(angle)*(point.y()-yCenter) + yCenter;
-        _points.setPoint(i.,x,y);
-        ++i;
-    }*/
-
 }
 
-void Ship::shoot(QPainter &painter){
-    //QTransform to translate shots
-    /*QTransform transform;
+void Ship::shoot(/*QPainter &painter*/){
     auto center=_centerShip;
     QPoint shotStart=QPoint(_sommet.x(),_sommet.y());
     QPoint shotEnd=QPoint(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
-    //Create a shot polygon
-    Shot aShot;
-    aShot << shotStart << shotEnd;
-    qDebug()<< "création shot "<< endl << "start X : "<<shotStart.x();
-    //Add shot to shots list
-    _shots.push_back(aShot);*/
+    Shot newShot = Shot(shotStart,shotEnd);
+    //Push a new shot object into vector
+    _shots.push_back(newShot);
+    //Draw shot
+    //painter.drawPolygon(newShot.getPolygon());
 }
 
 void Ship::destroy(){

@@ -22,6 +22,7 @@ public:
     void mousePressed( int x, int y);
     void keyPressed( int key );
     void keyReleased( QKeyEvent * event);
+    void moveShots(QPainter &painter);
     /**
      * @brief hasCollision, detect collision between ship and mines
      * @param mine
