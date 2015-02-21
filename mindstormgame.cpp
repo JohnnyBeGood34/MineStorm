@@ -36,7 +36,7 @@ void MindStormGame::test(){
 }
 
 void MindStormGame::moveMines(int counter){
-     for(auto i=0;i<=counter;++i){
+     for(auto i=0;i<counter;++i){
         _mines.at(i)->move();
         }
 }
@@ -75,19 +75,17 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
         // Destroy ennemy ship
         _EnnemyShip->destroy();
 
-        //Increment the loop counter to have a 5 seconds to hatch mines
+        //Increment the loop counter
         if(loopCounter <1500){
             ++loopCounter;
         }
 
-        //Hatch each mines at 5 seconds (100 loops)
-        if(loopCounter % 50 == 0){
+        //Hatch each mines at 2.5 seconds (100 loops)
+        if((loopCounter % 50 == 0)&&(loopCounterHatchMines<30)){
             ++loopCounterHatchMines;
         }
         hatchMines(painter,loopCounterHatchMines);
         moveMines(loopCounterHatchMines);
-
-
         //Fill mines
         disposeMines(painter);
         //Fille user space ship
@@ -143,7 +141,6 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 
 void MindStormGame::hatchMines(QPainter &painter, int counter){
     //Hatch each mine
-
     for(auto i=0;i<counter;++i){
         //"Remove" the center point by drawing the point in black
         thePen.setColor(Qt::black);
