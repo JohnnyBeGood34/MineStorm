@@ -12,60 +12,153 @@
 #include <QTimer>
 
 using namespace std;
-
+/**
+ * @brief The MindStormGame class, normally named MineStormGame, is the game classe
+ */
 class MindStormGame:public Game
 {
 
 public:
+    /**
+     * @brief MindStormGame constructor of MindStormGame
+     * @param size, size of the gameboard
+     * @param parent
+     */
     MindStormGame(const QSize &size,QObject *parent = nullptr);
+    /**
+     * @brief draw, used to draw everything into the gameboard for each loop
+     * @param painter, a painter which is used to paint polygons
+     * @param rect, the gameboard rectangle
+     */
     virtual void draw(QPainter &painter, QRect &rect);
+    /**
+     * @brief mousePressed used to handle mouse pressed events
+     * @param x, the x point
+     * @param y, the y point
+     */
     void mousePressed( int x, int y);
+    /**
+     * @brief keyPressed, used to handle a key pressed
+     * @param key, int
+     */
     void keyPressed( int key );
+    /**
+     * @brief keyReleased, used to handle a jey release
+     * @param event
+     */
     void keyReleased( QKeyEvent * event);
-    void moveShots(QPainter &painter);
     /**
      * @brief hasCollision, detect collision between ship and mines
      * @param mine
      * @return
      */
     bool hasCollision(QPolygon &mine);
-    bool isMineShot(QPolygon &mine,QPolygon &shot);
+    /**
+     * @brief isMineShot, detect collision between mine and shot
+     * @param mine, a mine QPolygon
+     * @param shot, a Shot QPolygon
+     * @return true if there is a collission, false if there isn't
+     */
+    bool isMineShot(QPolygon mine,QPolygon shot);
 
 private:
+    /**
+     * @brief hatchMines, used to draw mines hatched
+     * @param painter, the game painter
+     * @param counter, a logical loop counter
+     */
     void hatchMines(QPainter &painter,int counter);
+    /**
+     * @brief step, used to make action for each loop, like detection of collisions
+     */
     virtual void step();
+    /**
+     * @brief initialize used to initialize the game
+     * Inititlize the ship, mines, life and points counters
+     */
     void initialize();
+    /**
+     * @brief shot
+     */
     void shot();
+    /**
+     * @brief disposeShot, used to draw shots
+     * @param painter, the game painter
+     */
     void disposeShot(QPainter &painter);
+    /**
+     * @brief disposeMines, used to dispose mines into the gameboard
+     * @param painter, the game painter
+     */
     void disposeMines(QPainter &painter);
+    /**
+     * @brief disposeUserShip, draw the user ship polygon with the painter
+     * @param painter, the game painter
+     */
     void disposeUserShip(QPainter &painter);
+    /**
+     * @brief disposeEnnemyShip, draw ennemy ship polygon with the painter
+     * @param painter, the game painter
+     */
     void disposeEnnemyShip(QPainter &painter);
+    /**
+     * @brief showEndofGame, used to show end of game
+     * @param painter, the game painter
+     * @param rect, Gameboard QRect
+     */
     void showEndofGame(QPainter &painter,QRect &rect);
+    /**
+     * @brief resetPlace, used to reset the game
+     */
     void resetPlace();
+    /**
+     * @brief buildMines, used to build all mines into the gameboard
+     */
     void buildMines();
+    /**
+     * @brief moveMines, say to mines for move
+     * @param counter, logical loop counter
+     */
     void moveMines(int counter);
     /**
      * @brief blastPolygon used to blast the ship or a mine
-     * @param polygon
+     * @param QPoint
      */
     void blastPolygon(QPoint center);
-Ship *_userShip;
-Shot *_shot;
-vector<Shot*> _shotQPoint;
-EnnemySpaceShip *_EnnemyShip;
-Mine *_computerMine;
-//vector<QPoint> _mines;
-vector<Mine*> _mines;
-LifeCounter *_lifecounter;
-PointsCounter *_pointcounter;
-QPolygon _explosion;
-bool isShooting=false;
-int loopCounter;
-int loopCounterHatchMines;
-QTimer *minesTimer;
+    /**
+     * @brief _userShip, the user ship object
+     */
+    Ship *_userShip;
+    /**
+     * @brief _shot, the user ship shots
+     */
+    Shot *_shot;
+    /**
+     * @brief _shotQPoint, array of shots
+     */
+    vector<Shot*> _shotQPoint;
+    /**
+     * @brief _EnnemyShip, the ennemy space ship object
+     */
+    EnnemySpaceShip *_EnnemyShip;
+    /**
+     * @brief _computerMine, mine object
+     */
+    Mine *_computerMine;
+    /**
+     * @brief _mines array vector of mines present into gameboard
+     */
+    vector<Mine*> _mines;
+    LifeCounter *_lifecounter;
+    PointsCounter *_pointcounter;
+    QPolygon _explosion;
+    bool isShooting=false;
+    int loopCounter;
+    int loopCounterHatchMines;
+    QTimer *minesTimer;
 
 private slots:
-void test();
+    void test();
 };
 
 #endif // TESTGAME_H

@@ -43,6 +43,7 @@ bool GameBoard::eventFilter(QObject * obj, QEvent * event)
             _game->keyPressed(*iterator);
         }
     }
+    return false;
 }
 
 void GameBoard::keyPressEvent ( QKeyEvent * event ) {

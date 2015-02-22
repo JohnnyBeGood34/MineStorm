@@ -134,7 +134,7 @@ void Ship::rotate(string direction){
 
     //qDebug() << "Rotate ...";
 
-    const int angle = (direction == "right") ? 15 : -15;
+    const int angle = (direction == "right") ? 10 : -10;
 
 
     int xCenter=_centerShip.x();
@@ -147,15 +147,6 @@ void Ship::rotate(string direction){
 
     _points=trans.map(_points);
     _sommet=trans.map(_sommet);
-
-    /*int i=0;
-    foreach (QPoint point, _points) {
-
-        int x = cos(angle)*(point.x()-xCenter) - sin(angle)*(point.y()-yCenter) + xCenter;
-        int y = sin(angle)*(point.x()-xCenter) + cos(angle)*(point.y()-yCenter) + yCenter;
-        _points.setPoint(i,x,y);
-        ++i;
-    }*/
 }
 
 

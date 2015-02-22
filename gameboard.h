@@ -25,10 +25,10 @@ protected:
     void keyPressEvent ( QKeyEvent * event );
     void keyReleaseEvent ( QKeyEvent * event );
     /**
-     * @brief eventFilter Handle multi-touch events
+     * @brief eventFilter Handle multi-touch events, used to stack events
      * @param obj
      * @param event
-     * @return
+     * @return boolean value
      */
     bool eventFilter(QObject * obj, QEvent * event);
     QSet<int> pressedKeys;

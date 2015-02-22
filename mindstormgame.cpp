@@ -36,9 +36,9 @@ void MindStormGame::test(){
 }
 
 void MindStormGame::moveMines(int counter){
-     for(auto i=0;i<counter;++i){
+    for(auto i=0;i<counter;++i){
         _mines.at(i)->move();
-        }
+    }
 }
 
 void MindStormGame::buildMines(){
@@ -99,17 +99,17 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
         }
         disposeShot(painter);
         //End of game
-         if(_lifecounter->getLifes() == 0 ){
+        if(_lifecounter->getLifes() == 0 ){
 
-             showEndofGame(painter,rect);
-             pause();
-         }
+            showEndofGame(painter,rect);
+            pause();
+        }
 
-         //Draw explosions of mine and ship
-         if(!_explosion.empty()){
-             painter.drawPolygon(_explosion);
-             _explosion.clear();
-         }
+        //Draw explosions of mine and ship
+        if(!_explosion.empty()){
+            painter.drawPolygon(_explosion);
+            _explosion.clear();
+        }
     }
 }
 
@@ -186,7 +186,7 @@ void MindStormGame::mousePressed( int x, int y){
 }
 
 void MindStormGame::keyPressed( int key ){
-   // qDebug() << "KEY PRESSED " << key;
+    // qDebug() << "KEY PRESSED " << key;
     switch(key) {
     case Qt::Key_Up: _userShip->incrementSpeed();
         break;
@@ -280,19 +280,20 @@ void MindStormGame::step(){
             _lifecounter->decrement();
             //Init the ship
             //_userShip->initShip();
-             resetPlace();
+            resetPlace();
         }
         //Case with collision between one shot and mine
-       for(auto z=0;z<_shotQPoint.size();++z)
+        for(auto z=0;z<_shotQPoint.size();++z)
         {
-           auto shot =_shotQPoint.at(z)->getPolygon();
-           auto mine =_mines.at(i)->getPolygon();
-                if(isMineShot(mine,shot))
-                {
-                    QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
-                    blastPolygon(centerMine);
-                    _mines.at(i)->destroy();
-                }
+            if(isMineShot(_shotQPoint.at(z)->getPolygon(),_mines.at(i)->getPolygon()))
+            {
+                QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
+                blastPolygon(centerMine);
+                _mines.at(i)->destroy();
+
+                //Incrément points counter
+                _pointcounter->increment();
+            }
         }
     }
     _userShip->accelerate();
@@ -310,7 +311,7 @@ bool MindStormGame::hasCollision(QPolygon &mine)
     return retour;
 }
 
-bool MindStormGame::isMineShot(QPolygon &mine,QPolygon &shot){
+bool MindStormGame::isMineShot(QPolygon mine,QPolygon shot){
     bool isShot=false;
     QPolygon intersect=mine.intersected(shot);
     if(!intersect.isEmpty()){
@@ -324,16 +325,16 @@ void MindStormGame::resetPlace(){
     _userShip=nullptr;
     loopCounter=0;
     loopCounterHatchMines=0;
-   _userShip=new Ship();
+    _userShip=new Ship();
     //_userShip->initShip();
     buildMines();
 }
 
 void MindStormGame::initialize(){
-_EnnemyShip=nullptr;
-resetPlace();
-_EnnemyShip=new EnnemySpaceShip();
-_lifecounter->setLifes(4);
-_pointcounter->setPoint(0);
+    _EnnemyShip=nullptr;
+    resetPlace();
+    _EnnemyShip=new EnnemySpaceShip();
+    _lifecounter->setLifes(4);
+    _pointcounter->setPoint(0);
 
 }
