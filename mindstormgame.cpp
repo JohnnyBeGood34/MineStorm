@@ -37,7 +37,7 @@ void MindStormGame::test(){
 
 void MindStormGame::moveMines(int counter){
     for(auto i=0;i<counter;++i){
-        _mines.at(i)->move();
+            _mines.at(i)->move();
     }
 }
 
@@ -303,7 +303,7 @@ bool MindStormGame::hasCollision(QPolygon &mine)
 {
 
     bool retour = false;
-    //Collision test between ship and mines
+    //Collision between ship and mines
     QPolygon intersection=_userShip->getPolygon().intersected(mine);
     if(!intersection.isEmpty()){
         retour = true;
