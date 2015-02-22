@@ -1,30 +1,45 @@
 #include "shot.h"
+#include <QPainter>
 
-Shot::Shot(QPoint start,QPoint end):_start(start),_end(_end)
-{       
-    polygonShot << start << end;
-    this->isPainted = false;
-}
-void Shot::draw(){
-
-}
-
-QPolygon* Shot::getPolygon(){
-    return &this->polygonShot;
+Shot::Shot(QPoint shotPoint, QPoint centerShip)
+{
+    _centerShot = shotPoint;
+    _centerShip = centerShip;
+    hatch();
 }
 
-QPoint Shot::getStart(){
-    return _start;
+
+Shot::~Shot(){
 }
 
-QPoint Shot::getEnd(){
-    return _end;
+void Shot::hatch(){
+    QPoint qPoint1 = QPoint(_centerShot.x(),_centerShot.y()-1);
+    QPoint qPoint2 = QPoint(_centerShot.x()+1,_centerShot.y()-1);
+    QPoint qPoint3 = QPoint(_centerShot.x()+1,_centerShot.y()+1);
+    QPoint qPoint4 = QPoint(_centerShot.x()-1,_centerShot.y()+1);
+    QPoint qPoint5 = QPoint(_centerShot.x()-1,_centerShot.y()-1);
+   _shotPoint << qPoint1 << qPoint2 << qPoint3 << qPoint4 << qPoint5;
 }
 
-void Shot::setPainted(bool painted){
-    this->isPainted = painted;
+QPoint* Shot::getShot(){
+    return &_centerShot;
 }
 
-bool Shot::getPainted(){
-    return this->isPainted;
+QPolygon Shot::getPolygon(){
+    return _shotPoint;
+}
+
+
+void Shot::reDrawShot(){
+
+    QTransform transform;
+    int xShotPoint=_centerShot.x();
+    int yShotPoint=_centerShot.y();
+    int xCenterShip=_centerShip.x();
+    int yCenterShip=_centerShip.y();
+
+    transform=transform.translate((xShotPoint-xCenterShip)*0.1,(yShotPoint-yCenterShip)*0.1);
+
+    _shotPoint=transform.map(_shotPoint);
+    _centerShot=transform.map(_centerShot);
 }

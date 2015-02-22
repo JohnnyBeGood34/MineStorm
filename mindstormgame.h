@@ -35,6 +35,8 @@ private:
     void hatchMines(QPainter &painter,int counter);
     virtual void step();
     void initialize();
+    void shot();
+    void disposeShot(QPainter &painter);
     void disposeMines(QPainter &painter);
     void disposeUserShip(QPainter &painter);
     void disposeEnnemyShip(QPainter &painter);
@@ -48,6 +50,8 @@ private:
      */
     void blastPolygon(QPoint center);
 Ship *_userShip;
+Shot *_shot;
+vector<Shot*> _shotQPoint;
 EnnemySpaceShip *_EnnemyShip;
 Mine *_computerMine;
 //vector<QPoint> _mines;
@@ -55,7 +59,7 @@ vector<Mine*> _mines;
 LifeCounter *_lifecounter;
 PointsCounter *_pointcounter;
 QPolygon _explosion;
-
+bool isShooting=false;
 int loopCounter;
 int loopCounterHatchMines;
 QTimer *minesTimer;

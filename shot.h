@@ -1,29 +1,25 @@
 #ifndef SHOT_H
 #define SHOT_H
-#include <QPoint>
 #include <QPolygon>
 /**
  * @brief The Shot class représente un tir
  */
 
+using namespace std;
 
-
-class Shot:public QPolygon
+class Shot
 {
 public:
-    Shot(QPoint start,QPoint end);
-    void draw();
-    QPoint getStart();
-    QPoint getEnd();
-    QPolygon* getPolygon();
-    void setPainted(bool painted);
-    bool getPainted();
-
+    Shot(QPoint shotPoint,QPoint centerShip);
+    ~Shot();
+    void hatch();
+    QPoint* getShot();
+    void reDrawShot();
+    QPolygon getPolygon();
 private:
-    QPoint _start;
-    QPoint _end;
-    QPolygon polygonShot;
-    bool isPainted;
+    QPolygon _shotPoint;
+    QPoint _centerShot;
+    QPoint _centerShip;
 };
 
 #endif // SHOT_H

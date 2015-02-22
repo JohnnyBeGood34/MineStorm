@@ -62,26 +62,6 @@ void Ship::initShip(){
                                   << qPoint11 << qPoint12 << qPoint13 << qPoint14 << qPoint15 << qPoint16 << qPoint17 << qPoint18 << qPoint19 << qPoint20
                                      << qPoint21 << qPoint22 << qPoint23 << qPoint24 << qPoint25 << qPoint26 << qPoint27 << qPoint28 << qPoint29 << qPoint30
                                         << qPoint31 << qPoint32 << qPoint33 << qPoint34 << qPoint35;
-
-
-    //Ship body
-    /*QPoint qPoint1 = QPoint(_centerShip.x()-10,_centerShip.y()+20);
-    QPoint qPoint2 = QPoint(_centerShip.x(),_centerShip.y()+25);
-    QPoint qPoint3 = QPoint(_centerShip.x()+10,_centerShip.y()+20);
-
-    //Right reactor
-    QPoint qPoint4 = QPoint(_centerShip.x()+10,_centerShip.y()+35);
-    QPoint qPoint5 = QPoint(_centerShip.x()+20,_centerShip.y()+20);
-    QPoint qPoint6 = QPoint(_centerShip.x()+10,_centerShip.y()-5);
-
-    //Left reactor
-    QPoint qPoint8 = QPoint(_centerShip.x()-10,_centerShip.y()-5);
-    QPoint qPoint9 = QPoint(_centerShip.x()-20,_centerShip.y()+20);
-    QPoint qPoint10 = QPoint(_centerShip.x()-10,_centerShip.y()+35);
-
-    //Create ship Qpolygon
-    _points << _sommet << qPoint1 << qPoint8 << qPoint9 << qPoint10 << qPoint2 << qPoint4 << qPoint5
-            << qPoint6 << qPoint3;*/
 }
 
 Ship::~Ship(){
@@ -154,7 +134,7 @@ void Ship::rotate(string direction){
 
     //qDebug() << "Rotate ...";
 
-    const int angle = (direction == "right") ? 30 : -30;
+    const int angle = (direction == "right") ? 15 : -15;
 
 
     int xCenter=_centerShip.x();
@@ -178,19 +158,6 @@ void Ship::rotate(string direction){
     }*/
 }
 
-void Ship::shoot(/*QPainter &painter*/){
-
-    QPoint shotStart=QPoint(_sommet.x(),_sommet.y());
-
-    //QPoint shotEnd=QPoint(_sommet.x()+_sommet.x()-center.x(),_sommet.y()+(_sommet.y()-center.y()));
-    QPoint shotEnd=QPoint(_centerShip.x(),_centerShip.y());
-    qDebug()<< "Add shot  X :"<< _sommet.x()-_centerShip.x();
-    Shot newShot = Shot(shotStart,shotEnd);
-    //Push a new shot object into vector
-    _shots.push_back(newShot);
-    //Draw shot
-    //painter.drawPolygon(newShot.getPolygon());
-}
 
 void Ship::destroy(){
     _points.clear();
@@ -220,6 +187,3 @@ QPoint Ship::getCenter(){
     return _centerShip;
 }
 
-vector<Shot>* Ship::getShots(){
-return &_shots;
-}

@@ -1,7 +1,6 @@
 #include "mine.h"
 #include <QDebug>
 #include <QPainter>
-#include <QDebug>
 Mine::Mine(QPoint qPointRand, int &compteur)
 {
     //Get a random direction

@@ -42,7 +42,6 @@ void MindStormGame::moveMines(int counter){
 }
 
 void MindStormGame::buildMines(){
-
     for(auto i=0;i<30;++i){
         auto x = rand() %size().width();
         auto y = rand() %size().height();
@@ -95,15 +94,10 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
         //Used to display the score of the user
         _pointcounter->drawPointsIntoGameBoard(painter,size());
 
-        //On event we add shot to vector of shots
-        if(_userShip->_isShooting){
-            _userShip->shoot();
-            qDebug() << "Add shot...";
+        if(isShooting==true){
+            shot();
         }
-
-        //Move all shots
-        moveShots(painter);
-
+        disposeShot(painter);
         //End of game
          if(_lifecounter->getLifes() == 0 ){
 
@@ -119,28 +113,21 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     }
 }
 
-void MindStormGame::moveShots(QPainter &painter){
+void MindStormGame::shot(){
+    qDebug() << "oki il tire";
+    int x = _userShip->getSommet()->x();
+    int y = _userShip->getSommet()->y();
+    QPoint pointShot(x,y);
+    _shotQPoint.push_back(new Shot(pointShot,_userShip->getCenter()));
+}
 
-    QTransform transform;
-    //Get shots
-    //qDebug() << "Nb shots  : " << _userShip->getShots()->size();
-    for(auto i =0u;i< _userShip->getShots()->size();i++){
-        //If the shot hasn't painted, paint it
-        if(!_userShip->getShots()->at(i).getPainted()){
-            //Move polygon shot
-            //int startX=_userShip->getShots()->at(i).getStart().x();//OK
-           //int endX=_userShip->getShots()->at(i).getEnd().x();//OK
-
-
-          // qDebug()<< " X move shot n°: "<<i<< "  "<< (startX-endX);//Retourne un truc bizarre...
-            transform=transform.translate((_userShip->getShots()->at(i).getStart().x() - _userShip->getShots()->at(i).getEnd().x())*0.2,(_userShip->getShots()->at(i).getStart().y() - _userShip->getShots()->at(i).getEnd().y())*0.2);
-            //transform=transform.translate(0,-0.2);
-            *_userShip->getShots()->at(i).getPolygon() = transform.map(*_userShip->getShots()->at(i).getPolygon());
-            painter.drawPolygon(*_userShip->getShots()->at(i).getPolygon());
-        }
-
+void MindStormGame::disposeShot(QPainter &painter){
+    for(auto i=0;i<_shotQPoint.size();++i){
+        painter.drawPolygon(_shotQPoint.at(i)->getPolygon());
+        _shotQPoint.at(i)->reDrawShot();
     }
 }
+
 
 void MindStormGame::hatchMines(QPainter &painter, int counter){
     //Hatch each mine
@@ -209,7 +196,7 @@ void MindStormGame::keyPressed( int key ){
         break;
     case Qt::Key_Right: _userShip->rotate("right");
         break;
-    case Qt::Key_Space:_userShip->_isShooting=true;
+    case Qt::Key_Space:isShooting=true;
         break;
     default:
         break;
@@ -247,6 +234,8 @@ void MindStormGame::disposeMines(QPainter &painter){
 }
 
 
+
+
 void MindStormGame::keyReleased( QKeyEvent * event){
 
     switch(event->key()) {
@@ -258,7 +247,7 @@ void MindStormGame::keyReleased( QKeyEvent * event){
             _userShip->slowDown();
         }
         break;
-    case Qt::Key_Space:_userShip->_isShooting=false;//End of shots
+    case Qt::Key_Space:isShooting=false;//End of shots
         break;
     }
 }
@@ -294,20 +283,18 @@ void MindStormGame::step(){
              resetPlace();
         }
         //Case with collision between one shot and mine
-       /* for(auto i= 0;i<_userShip->getShots()->size();++i)
+       for(auto z=0;z<_shotQPoint.size();++z)
         {
-            qDebug()<< "step 2e boucle";
-            auto mine=_mines.at(i)->getPolygon();
-                if(isMineShot(mine,*_userShip->getShots()->at(i).getPolygon()))
+           auto shot =_shotQPoint.at(z)->getPolygon();
+           auto mine =_mines.at(i)->getPolygon();
+                if(isMineShot(mine,shot))
                 {
-                    qDebug()<< "Collision between shot and mine ";
-                     QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
+                    QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
                     blastPolygon(centerMine);
+                    _mines.at(i)->destroy();
                 }
         }
-        */
     }
-
     _userShip->accelerate();
 }
 
