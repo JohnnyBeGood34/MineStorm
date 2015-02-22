@@ -54,9 +54,6 @@ void MindStormGame::buildMines(int nbMines){
 }
 
 void MindStormGame::draw(QPainter &painter, QRect &rect){
-
-
-
     //Antialiasing on painter
     painter.setRenderHint(QPainter::Antialiasing);
     //Set the painter pen
@@ -65,7 +62,7 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     painter.fillRect(rect, QColor(0,0,0));
 
     //Ennemyship appear and dispose mines only if in screen
-    if((_EnnemyShip->getCenter().y() < 600)&&(loopCounter==0)){
+    if((_EnnemyShip->getCenter().y() < size().height())&&(loopCounter==0)){
         disposeEnnemyShip(painter);
         _EnnemyShip->move();
         //Fill mines
@@ -80,21 +77,20 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 
 
         //Increment the loop counter for passage ennemyship
-        if(loopCounterEnnemyShip <100){
+        if(loopCounterEnnemyShip <600){
             ++loopCounterEnnemyShip;
         }
 
-        if(loopCounterEnnemyShip == 100){
+        /*if(loopCounterEnnemyShip == 600){
             buildMines(5);
-            qDebug() << "nb mines" << _mines.size();
             // Innitialize ennemy ship
             _EnnemyShip->initShip();
         }
-        if(_EnnemyShip->getCenter().y() < 600){
+        if(_EnnemyShip->getCenter().y() < size().height() ){
             disposeEnnemyShip(painter);
             _EnnemyShip->move();
             loopCounterEnnemyShip = 0;
-        }
+        }*/
 
         //Hatch each mines at 2.5 seconds (100 loops)
         if((loopCounter % 50 == 0)&&(loopCounterHatchMines<_mines.size())){
@@ -132,9 +128,11 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 
 
 void MindStormGame::disposeShot(QPainter &painter){
-    for(auto i=0;i<_userShip->_shotQPoint.size();++i){
-        painter.drawPolygon(_userShip->_shotQPoint.at(i)->getPolygon());
-        _userShip->_shotQPoint.at(i)->reDrawShot();
+    for(auto i=0;i<_userShip->getShotsVector().size();++i){
+        painter.drawPolygon(_userShip->getShotsVector().at(i)->getPolygon());
+        _userShip->getShotsVector().at(i)->reDrawShot();
+        //used to kill a shot if it is out of screen
+        _userShip->killShotOutOfScreen(size());
     }
 }
 
@@ -152,6 +150,7 @@ void MindStormGame::hatchMines(QPainter &painter, int counter){
         painter.setPen(thePen);
         _mines.at(i)->hatch();
         painter.drawPolygon(_mines.at(i)->getPolygon());
+        //Used to detect out of screen
         _mines.at(i)->reDrawMine(size());
     }
 }
@@ -291,18 +290,35 @@ void MindStormGame::step(){
             //_userShip->initShip();
             samePlayerPlayAgain();
         }
-        //Case with collision between one shot and mine
-        for(auto z=0;z<_userShip->_shotQPoint.size();++z)
+
+        //Case with collision between one shot and mine or ennemy ship
+        for(auto z=0;z<_userShip->getShotsVector().size();++z)
         {
-            if(isMineShot(_userShip->_shotQPoint.at(z)->getPolygon(),_mines.at(i)->getPolygon()))
+            if(isShot(_userShip->getShotsVector().at(z)->getPolygon(),_mines.at(i)->getPolygon()))
             {
                 QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
                 blastPolygon(centerMine);
                 _mines.at(i)->destroy();
                 //Erase mine from vector
-                _mines.erase(_mines.begin()+i);
+                try {
+                    qDebug()<< "ERASE MINE ";
+                    if(_mines.begin()+i != _mines.end()){
+                        _mines.erase(_mines.begin()+i);
+                    }
+                  }
+                  catch (const std::out_of_range& error) {
+                    qDebug() << "Out of Range error: " << error.what() << '\n';
+                  }
+
                 //Incrément points counter
-                _pointcounter->increment();
+                _pointcounter->increment(false);
+            }
+            //Ennemy ship
+            if(isShot(_userShip->getShotsVector().at(z)->getPolygon(),_EnnemyShip->getPolygon())){
+                    blastPolygon(_EnnemyShip->getCenter());
+                    _EnnemyShip->destroy();
+                    //Incrément points counter
+                    _pointcounter->increment(true);
             }
         }
     }
@@ -321,14 +337,15 @@ bool MindStormGame::hasCollision(QPolygon &mine)
     return retour;
 }
 
-bool MindStormGame::isMineShot(QPolygon mine,QPolygon shot){
+bool MindStormGame::isShot(QPolygon shot,QPolygon mineOrEnnemy){
     bool isShot=false;
-    QPolygon intersect=mine.intersected(shot);
+    QPolygon intersect=shot.intersected(mineOrEnnemy);
     if(!intersect.isEmpty()){
         isShot=true;
     }
     return isShot;
 }
+
 
 void MindStormGame::resetPlace(){
     _mines.clear();

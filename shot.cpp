@@ -21,6 +21,28 @@ void Shot::hatch(){
    _shotPoint << qPoint1 << qPoint2 << qPoint3 << qPoint4 << qPoint5;
 }
 
+bool Shot::detectOutOfScreen(const QSize &size){
+    bool isoutOfScreen = false;
+    //Right side
+    if(_centerShot.x() > size.width()){
+        isoutOfScreen = true;
+    }
+    //Left side
+    else if(_centerShot.x() < 0){
+        isoutOfScreen = true;
+    }
+    //Top side
+    else if(_centerShot.y() > size.height()){
+        isoutOfScreen = true;
+    }
+    //Bottom side
+    else if(_centerShot.y() < 0){
+       isoutOfScreen = true;
+    }
+
+    return isoutOfScreen;
+}
+
 QPoint* Shot::getShot(){
     return &_centerShot;
 }

@@ -14,8 +14,9 @@ public:
     PointsCounter();
     /**
      * @brief increment, used to increment the counter
+     * @param ennemyShip, used to know if ennemyship is destroy
      */
-    void increment();
+    void increment(bool ennemyShip);
     /**
      * @brief drawPointsIntoGameBoard, used to draw the counter into the gameboard
      * @param painter, used to draw

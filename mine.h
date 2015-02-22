@@ -64,6 +64,20 @@ public:
      * @brief _direction, mine direction
      */
     QPoint _direction;
+    /**
+     * @brief getIsHatched, used to know if a mine is already hatch
+     * @return boolean isHatched
+     */
+    bool getIsHatched();
+    /**
+     * @brief setIsHatched, used to set the hatch boolean
+     * @param hatch, boolean
+     */
+    void setIsHatched(bool hatch);
+    /**
+     * @brief getRandomDirection, used to get a random direction for mine (x,y)
+     */
+    void getRandomDirection();
 private:
     /**
      * @brief QPolygon _points, represents the mine polygon
@@ -100,6 +114,10 @@ private:
      * @brief direction_y, direction of mine by Y axis
      */
     int direction_y;
+    /**
+     * @brief isHatched boolean, used to know if mine is already hatched
+     */
+    bool isHatched;
 };
 
 #endif // MINE_H

@@ -37,6 +37,11 @@ public:
      * @return QPolygon
      */
     QPolygon getPolygon();
+    /**
+     * @brief detectOutOfScreen, used to know if a shot is out of screen
+     * @return boolean, true if it is out of creen, else false
+     */
+    bool detectOutOfScreen(const QSize &size);
 private:
     /**
      * @brief _shotPoint, Shot QPolygon

@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //DummyGame game(QSize(400,400));
-    MindStormGame game(QSize(600,600));
+    MindStormGame game(QSize(650,650));
     MainWindow w(&game);
     return a.exec();
 }
