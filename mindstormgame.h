@@ -109,6 +109,10 @@ private:
      */
     void resetPlace();
     /**
+     * @brief samePlayerPlayAgain, used to play again if life >0
+     */
+    void samePlayerPlayAgain();
+    /**
      * @brief buildMines, used to build all mines into the gameboard
      */
     void buildMines();

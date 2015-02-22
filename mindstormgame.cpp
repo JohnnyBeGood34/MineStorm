@@ -273,7 +273,7 @@ void MindStormGame::step(){
             _lifecounter->decrement();
             //Init the ship
             //_userShip->initShip();
-            resetPlace();
+            samePlayerPlayAgain();
         }
         //Case with collision between one shot and mine
         for(auto z=0;z<_userShip->_shotQPoint.size();++z)
@@ -322,6 +322,10 @@ void MindStormGame::resetPlace(){
     //_userShip->initShip();
     buildMines();
 }
+ void MindStormGame::samePlayerPlayAgain(){
+     _userShip=nullptr;
+     _userShip=new Ship();
+ }
 
 void MindStormGame::initialize(){
     _EnnemyShip=nullptr;
