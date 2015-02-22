@@ -263,7 +263,7 @@ void MindStormGame::keyReleased( QKeyEvent * event){
 void MindStormGame::step(){
     //version vector de Mines
 
-    for(auto i=0;i<_mines.size();++i){
+                         for(auto i=0;i<_mines.size();++i){
         int xD=_mines.at(i)->_direction.x();
         int yD=_mines.at(i)->_direction.y();
 
