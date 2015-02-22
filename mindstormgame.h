@@ -149,13 +149,30 @@ private:
      * @brief _mines array vector of mines present into gameboard
      */
     vector<Mine*> _mines;
+    /**
+     * @brief _lifecounter, lifeCounter object, used to handle user lifes
+     */
     LifeCounter *_lifecounter;
+    /**
+     * @brief _pointcounter pointCounter object, used to handle user points
+     */
     PointsCounter *_pointcounter;
+    /**
+     * @brief _explosion, QPolygon, used to blast ship and mines
+     */
     QPolygon _explosion;
+    /**
+     * @brief isShooting, boolean, used to know if the ship is shooting
+     */
     bool isShooting=false;
+    /**
+     * @brief loopCounter, logical loop counter
+     */
     int loopCounter;
+    /**
+     * @brief loopCounterHatchMines, logical loop counter
+     */
     int loopCounterHatchMines;
-    QTimer *minesTimer;
 
 private slots:
     void test();
