@@ -263,7 +263,7 @@ void MindStormGame::keyReleased( QKeyEvent * event){
 void MindStormGame::step(){
     //version vector de Mines
 
-                         for(auto i=0;i<_mines.size();++i){
+    for(auto i=0;i<_mines.size();++i){
         int xD=_mines.at(i)->_direction.x();
         int yD=_mines.at(i)->_direction.y();
 
@@ -301,24 +301,24 @@ void MindStormGame::step(){
                 _mines.at(i)->destroy();
                 //Erase mine from vector
                 try {
-                    qDebug()<< "ERASE MINE ";
+                    qDebug()<< "ERASE MINE FROM VECTOR";
                     if(_mines.begin()+i != _mines.end()){
                         _mines.erase(_mines.begin()+i);
                     }
-                  }
-                  catch (const std::out_of_range& error) {
+                }
+                catch (const std::out_of_range& error) {
                     qDebug() << "Out of Range error: " << error.what() << '\n';
-                  }
+                }
 
                 //Incrément points counter
                 _pointcounter->increment(false);
             }
             //Ennemy ship
             if(isShot(_userShip->getShotsVector().at(z)->getPolygon(),_EnnemyShip->getPolygon())){
-                    blastPolygon(_EnnemyShip->getCenter());
-                    _EnnemyShip->destroy();
-                    //Incrément points counter
-                    _pointcounter->increment(true);
+                blastPolygon(_EnnemyShip->getCenter());
+                _EnnemyShip->destroy();
+                //Incrément points counter
+                _pointcounter->increment(true);
             }
         }
     }
