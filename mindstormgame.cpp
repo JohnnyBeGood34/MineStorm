@@ -80,13 +80,12 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 
 
         //Increment the loop counter for passage ennemyship
-        if(loopCounterEnnemyShip <100){
+        if(loopCounterEnnemyShip <600){
             ++loopCounterEnnemyShip;
         }
 
-        if(loopCounterEnnemyShip == 100){
+        if(loopCounterEnnemyShip == 600){
             buildMines(5);
-            qDebug() << "nb mines" << _mines.size();
             // Innitialize ennemy ship
             _EnnemyShip->initShip();
         }
@@ -291,10 +290,11 @@ void MindStormGame::step(){
             //_userShip->initShip();
             samePlayerPlayAgain();
         }
-        //Case with collision between one shot and mine
+
+        //Case with collision between one shot and mine or ennemy ship
         for(auto z=0;z<_userShip->_shotQPoint.size();++z)
         {
-            if(isMineShot(_userShip->_shotQPoint.at(z)->getPolygon(),_mines.at(i)->getPolygon()))
+            if(isShot(_userShip->_shotQPoint.at(z)->getPolygon(),_mines.at(i)->getPolygon()))
             {
                 QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
                 blastPolygon(centerMine);
@@ -302,7 +302,13 @@ void MindStormGame::step(){
                 //Erase mine from vector
                 _mines.erase(_mines.begin()+i);
                 //Incrément points counter
-                _pointcounter->increment();
+                _pointcounter->increment(false);
+            }
+            if(isShot(_userShip->_shotQPoint.at(z)->getPolygon(),_EnnemyShip->getPolygon())){
+                blastPolygon(_EnnemyShip->getCenter());
+                _EnnemyShip->destroy();
+                //Incrément points counter
+                _pointcounter->increment(true);
             }
         }
     }
@@ -321,14 +327,15 @@ bool MindStormGame::hasCollision(QPolygon &mine)
     return retour;
 }
 
-bool MindStormGame::isMineShot(QPolygon mine,QPolygon shot){
+bool MindStormGame::isShot(QPolygon shot,QPolygon mineOrEnnemy){
     bool isShot=false;
-    QPolygon intersect=mine.intersected(shot);
+    QPolygon intersect=shot.intersected(mineOrEnnemy);
     if(!intersect.isEmpty()){
         isShot=true;
     }
     return isShot;
 }
+
 
 void MindStormGame::resetPlace(){
     _mines.clear();

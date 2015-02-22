@@ -59,7 +59,7 @@ public:
      * @param shot, a Shot QPolygon
      * @return true if there is a collission, false if there isn't
      */
-    bool isMineShot(QPolygon mine,QPolygon shot);
+    bool isShot(QPolygon shot,QPolygon mineOrEnnemy);
 
 private:
     /**
