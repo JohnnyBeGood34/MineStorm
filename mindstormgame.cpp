@@ -18,13 +18,15 @@ MindStormGame::MindStormGame(const QSize &size,QObject *parent):Game(size,parent
     loopCounter = 0;
     //Loop counter for hacth mine is initialize to 0
     loopCounterHatchMines = 0;
+    //Loop counter for ennemyship initialize to 0
+    loopCounterEnnemyShip=0;
 
     //User space ship initialization
     _userShip=new Ship();
     //User space Ennemy ship initialization
     _EnnemyShip=new EnnemySpaceShip();
     //Build mines
-    buildMines();
+    buildMines(30);
     _lifecounter = new LifeCounter();
     _pointcounter = new PointsCounter();
     //connect(minesTimer,SIGNAL(timeout()),this,SLOT(test()));
@@ -41,8 +43,8 @@ void MindStormGame::moveMines(int counter){
     }
 }
 
-void MindStormGame::buildMines(){
-    for(auto i=0;i<30;++i){
+void MindStormGame::buildMines(int nbMines){
+    for(auto i=0;i<nbMines;++i){
         auto x = rand() %size().width();
         auto y = rand() %size().height();
         //Add a mine in mines vector
@@ -63,7 +65,7 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     painter.fillRect(rect, QColor(0,0,0));
 
     //Ennemyship appear and dispose mines only if in screen
-    if(_EnnemyShip->getCenter().y() < 600){
+    if((_EnnemyShip->getCenter().y() < 600)&&(loopCounter==0)){
         disposeEnnemyShip(painter);
         _EnnemyShip->move();
         //Fill mines
@@ -71,27 +73,31 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     }
     //When Ennemy ship clear, the game start
     else{
-        // Destroy ennemy ship
-        _EnnemyShip->destroy();
-
         //Increment the loop counter
-        if(loopCounter <1500){
+        if(loopCounter <(100*_mines.size())){
             ++loopCounter;
         }
 
-        //Increment the loop counter
-        if(loopCounterEnnemyShip <600){
+
+        //Increment the loop counter for passage ennemyship
+        if(loopCounterEnnemyShip <100){
             ++loopCounterEnnemyShip;
         }
-        if(loopCounterEnnemyShip == 600){
-            qDebug() << "vaisseau";
+
+        if(loopCounterEnnemyShip == 100){
+            buildMines(5);
+            qDebug() << "nb mines" << _mines.size();
+            // Innitialize ennemy ship
+            _EnnemyShip->initShip();
+        }
+        if(_EnnemyShip->getCenter().y() < 600){
+            disposeEnnemyShip(painter);
+            _EnnemyShip->move();
             loopCounterEnnemyShip = 0;
-            //User space Ennemy ship initialization
-            _EnnemyShip=new EnnemySpaceShip();
         }
 
         //Hatch each mines at 2.5 seconds (100 loops)
-        if((loopCounter % 50 == 0)&&(loopCounterHatchMines<30)){
+        if((loopCounter % 50 == 0)&&(loopCounterHatchMines<_mines.size())){
             ++loopCounterHatchMines;
         }
         hatchMines(painter,loopCounterHatchMines);
@@ -234,7 +240,6 @@ void MindStormGame::disposeMines(QPainter &painter){
             painter.drawPoint(point);
         }
     }
-
 }
 
 
@@ -329,9 +334,10 @@ void MindStormGame::resetPlace(){
     _userShip=nullptr;
     loopCounter=0;
     loopCounterHatchMines=0;
+    loopCounterEnnemyShip=0;
     _userShip=new Ship();
     //_userShip->initShip();
-    buildMines();
+    buildMines(30);
 }
  void MindStormGame::samePlayerPlayAgain(){
      _userShip=nullptr;

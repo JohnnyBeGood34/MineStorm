@@ -11,11 +11,11 @@ EnnemySpaceShip::EnnemySpaceShip()
 }
 
 EnnemySpaceShip::~EnnemySpaceShip(){
-    qDebug()<< "desructeur vaisseau ennemy";
     _pointsEnnemySpaceShip.clear();//Destroy the polygon of space ship
 }
 
 void EnnemySpaceShip::initShip(){
+    destroy();
     //Ship center;
     _centerEnnemySpaceShip= QPoint(300,-100);
 

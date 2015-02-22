@@ -29,7 +29,6 @@ QPolygon Shot::getPolygon(){
     return _shotPoint;
 }
 
-
 void Shot::reDrawShot(){
 
     QTransform transform;

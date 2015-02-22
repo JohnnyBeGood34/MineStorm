@@ -84,7 +84,7 @@ private:
      */
     void disposeShot(QPainter &painter);
     /**
-     * @brief disposeMines, used to dispose mines into the gameboard
+     * @brief disposeOldMines, used to dispose mines into the gameboard
      * @param painter, the game painter
      */
     void disposeMines(QPainter &painter);
@@ -115,7 +115,7 @@ private:
     /**
      * @brief buildMines, used to build all mines into the gameboard
      */
-    void buildMines();
+    void buildMines(int nbMines);
     /**
      * @brief moveMines, say to mines for move
      * @param counter, logical loop counter
