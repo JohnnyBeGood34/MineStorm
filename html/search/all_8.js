@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['setspeed',['setSpeed',['../classGame.html#adb9239fdd7f7d67e4b28a22c274eb05e',1,'Game']]],
-  ['size',['size',['../classGame.html#aef028fef77b6498c42f347400b1ebf55',1,'Game']]],
-  ['speed',['speed',['../classGame.html#a40c5981d4dba47a9c4d5195380d9f9bf',1,'Game']]],
-  ['start',['start',['../classGame.html#a3d9b98f7c4a96ecf578f75b96c9f0e90',1,'Game']]],
-  ['step',['step',['../classGame.html#a89e2a08b8d6f132c874b14de3cb50ab0',1,'Game']]]
+  ['increment',['increment',['../classPointsCounter.html#a3d8f09e392cbba696390e332d2babe63',1,'PointsCounter']]],
+  ['incrementspeed',['incrementSpeed',['../classShip.html#ae727df3cd6f7a61eeba76645580de0eb',1,'Ship']]],
+  ['initialize',['initialize',['../classGame.html#a948ffd91069e102438caeb687e1be9be',1,'Game']]],
+  ['initship',['initShip',['../classEnnemySpaceShip.html#ab311c28a670a3c581c9a189e5c5f91df',1,'EnnemySpaceShip::initShip()'],['../classShip.html#aad02fdee7cc0e2a43c3fd3dea0380373',1,'Ship::initShip()']]],
+  ['ismineshot',['isMineShot',['../classMindStormGame.html#aa0c48521cbf590052e8a2c4fc5e7d4a5',1,'MindStormGame']]],
+  ['isrunning',['isRunning',['../classGame.html#abb31098c8d016b98888fe9acac497fcb',1,'Game']]],
+  ['iterator',['iterator',['../classGameBoard.html#a86738f8c54853af2460a7f5b36af361b',1,'GameBoard']]]
 ];

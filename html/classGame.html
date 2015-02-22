@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,7 +102,8 @@ Inheritance diagram for Game:</div>
  <div class="center">
   <img src="classGame.png" usemap="#Game_map" alt=""/>
   <map id="Game_map" name="Game_map">
-<area href="classDummyGame.html" title="La classe DummyGame donne un exemple de l&#39;utilisation de la classe Game. " alt="DummyGame" shape="rect" coords="0,112,85,136"/>
+<area href="classDummyGame.html" title="La classe DummyGame donne un exemple de l&#39;utilisation de la classe Game. " alt="DummyGame" shape="rect" coords="0,112,104,136"/>
+<area href="classMindStormGame.html" title="The MindStormGame class, normally named MineStormGame, is the game classe. " alt="MindStormGame" shape="rect" coords="114,112,218,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -142,12 +144,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a90bb392d6ca1dd209388bf43a25ac0b2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a90bb392d6ca1dd209388bf43a25ac0b2">keyPressed</a> (int key)=0</td></tr>
 <tr class="memdesc:a90bb392d6ca1dd209388bf43a25ac0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyPressed appélée quand l'utilisateur presse une touche  <a href="#a90bb392d6ca1dd209388bf43a25ac0b2">More...</a><br/></td></tr>
 <tr class="separator:a90bb392d6ca1dd209388bf43a25ac0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adad85a1736ff369687f77695fecb8ffe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#adad85a1736ff369687f77695fecb8ffe">keyReleased</a> (int key)=0</td></tr>
-<tr class="memdesc:adad85a1736ff369687f77695fecb8ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyReleased appélée quand l'utilisateur relache une touche  <a href="#adad85a1736ff369687f77695fecb8ffe">More...</a><br/></td></tr>
-<tr class="separator:adad85a1736ff369687f77695fecb8ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9b2b4a31794697ac33814fd9bf53db7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ac9b2b4a31794697ac33814fd9bf53db7">keyReleased</a> (QKeyEvent *event)=0</td></tr>
+<tr class="memdesc:ac9b2b4a31794697ac33814fd9bf53db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyReleased appélée quand l'utilisateur relache une touche  <a href="#ac9b2b4a31794697ac33814fd9bf53db7">More...</a><br/></td></tr>
+<tr class="separator:ac9b2b4a31794697ac33814fd9bf53db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb31098c8d016b98888fe9acac497fcb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#abb31098c8d016b98888fe9acac497fcb">isRunning</a> () const </td></tr>
 <tr class="memdesc:abb31098c8d016b98888fe9acac497fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">isRunning retourne true si le jeu est lancé  <a href="#abb31098c8d016b98888fe9acac497fcb">More...</a><br/></td></tr>
 <tr class="separator:abb31098c8d016b98888fe9acac497fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ef394da6eedf82e5c73f8bed8773bc2"><td class="memItemLeft" align="right" valign="top">QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a8ef394da6eedf82e5c73f8bed8773bc2">getTimer</a> ()</td></tr>
+<tr class="separator:a8ef394da6eedf82e5c73f8bed8773bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09be83cd3c0656eba9ed7fe1a596b15c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a09be83cd3c0656eba9ed7fe1a596b15c">getSpeed</a> ()</td></tr>
+<tr class="separator:a09be83cd3c0656eba9ed7fe1a596b15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -167,7 +173,7 @@ Protected Member Functions</h2></td></tr>
 <li>gestion de l'affichage </li>
 </ul>
 
-<p>Definition at line <a class="el" href="game_8h_source.html#l00017">17</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+<p>Definition at line <a class="el" href="game_8h_source.html#l00018">18</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a76646df3c285c17da275919046f3724b"></a>
 <div class="memitem">
@@ -203,7 +209,7 @@ Protected Member Functions</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="game_8cpp_source.html#l00003">3</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                           :QObject(parent), _isRunning(<span class="keyword">false</span>),_speed(50), _size(<a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>){</div>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                           :QObject(parent), _isRunning(<span class="keyword">false</span>),_speed(70), _size(<a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>){</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    _timer.setSingleShot(<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    connect(&amp;_timer,SIGNAL(timeout()),<span class="keyword">this</span>,SLOT(update()));</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div>
@@ -276,8 +282,48 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classDummyGame.html#a5075c0a38577df6e26251d9e71c21875">DummyGame</a>.</p>
+<p>Implemented in <a class="el" href="classMindStormGame.html#a81f10a9bc71c1c2abc74d06c0ddb01dc">MindStormGame</a>, and <a class="el" href="classDummyGame.html#a5075c0a38577df6e26251d9e71c21875">DummyGame</a>.</p>
 
+</div>
+</div>
+<a class="anchor" id="a09be83cd3c0656eba9ed7fe1a596b15c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::getSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="game_8cpp_source.html#l00054">54</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                  {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> _speed;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8ef394da6eedf82e5c73f8bed8773bc2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer * Game::getTimer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="game_8cpp_source.html#l00050">50</a> of file <a class="el" href="game_8cpp_source.html">game.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                      {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> &amp;_timer;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a948ffd91069e102438caeb687e1be9be"></a>
@@ -358,11 +404,11 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classDummyGame.html#a45c9b35a5bc520dd612845b39a5d6196">DummyGame</a>.</p>
+<p>Implemented in <a class="el" href="classMindStormGame.html#a94a0a98adad32777ff22feba6a3b1dc8">MindStormGame</a>, and <a class="el" href="classDummyGame.html#a45c9b35a5bc520dd612845b39a5d6196">DummyGame</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adad85a1736ff369687f77695fecb8ffe"></a>
+<a class="anchor" id="ac9b2b4a31794697ac33814fd9bf53db7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -372,8 +418,8 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void Game::keyReleased </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
+          <td class="paramtype">QKeyEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -392,7 +438,7 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classDummyGame.html#a9929b9dd6f31aa03701bd63c966e652e">DummyGame</a>.</p>
+<p>Implemented in <a class="el" href="classMindStormGame.html#a10b1d547af10a6106432bdd195d51bb9">MindStormGame</a>.</p>
 
 </div>
 </div>
@@ -438,7 +484,7 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classGame.html#aef028fef77b6498c42f347400b1ebf55" title="size retourne la taille du jeu ">size()</a> </dd></dl>
 
-<p>Implemented in <a class="el" href="classDummyGame.html#a281588f498b1648ca0627d0660d5146f">DummyGame</a>.</p>
+<p>Implemented in <a class="el" href="classMindStormGame.html#a541c5be6d1a05ed880d8170a89ba7eaf">MindStormGame</a>, and <a class="el" href="classDummyGame.html#a281588f498b1648ca0627d0660d5146f">DummyGame</a>.</p>
 
 </div>
 </div>
@@ -633,7 +679,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 15 2014 08:14:53 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 12:10:48 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

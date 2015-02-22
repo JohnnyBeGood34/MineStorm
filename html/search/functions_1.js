@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['draw',['draw',['../classDummyGame.html#a5075c0a38577df6e26251d9e71c21875',1,'DummyGame::draw()'],['../classGame.html#a05d9948e89b0d0d0d62058d3d3bcc236',1,'Game::draw()']]],
-  ['dummygame',['DummyGame',['../classDummyGame.html#a90e9c8e8067e5063687f18286ff77aeb',1,'DummyGame']]]
+  ['changed',['changed',['../classGame.html#aa56256a804a59c9031e6eb1fd9e70dc7',1,'Game']]],
+  ['connectsommet',['connectSommet',['../classShip.html#a91561a78d898bcc0b1a27428fbbcfe6c',1,'Ship']]],
+  ['controller',['Controller',['../classController.html#ad55ce347b4cb45a9faf3ee55b4bf88b4',1,'Controller']]],
+  ['createshot',['createShot',['../classShip.html#ac37c345670f67afa44d27819f574ca5f',1,'Ship']]]
 ];

@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,10 +92,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="classGame.html#aa56256a804a59c9031e6eb1fd9e70dc7">changed</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"><span class="mlabel">signal</span></td></tr>
   <tr><td class="entry"><a class="el" href="classGame.html#a05d9948e89b0d0d0d62058d3d3bcc236">draw</a>(QPainter &amp;painter, QRect &amp;size)=0</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classGame.html#a76646df3c285c17da275919046f3724b">Game</a>(const QSize &amp;size, QObject *parent)</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classGame.html#a09be83cd3c0656eba9ed7fe1a596b15c">getSpeed</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGame.html#a8ef394da6eedf82e5c73f8bed8773bc2">getTimer</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classGame.html#a948ffd91069e102438caeb687e1be9be">initialize</a>()=0</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classGame.html#abb31098c8d016b98888fe9acac497fcb">isRunning</a>() const </td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classGame.html#a90bb392d6ca1dd209388bf43a25ac0b2">keyPressed</a>(int key)=0</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classGame.html#adad85a1736ff369687f77695fecb8ffe">keyReleased</a>(int key)=0</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGame.html#ac9b2b4a31794697ac33814fd9bf53db7">keyReleased</a>(QKeyEvent *event)=0</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classGame.html#afec7f51d4f088df3bbabc416ab29ed78">mousePressed</a>(int x, int y)=0</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classGame.html#a4b507ab6c09910b3a621cf1980d65604">pause</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classGame.html#a39bb2fd26b5ea6b164f28f9f6723582e">reset</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
@@ -106,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 15 2014 08:14:53 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 12:10:48 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

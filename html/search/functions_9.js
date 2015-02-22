@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7emainwindow',['~MainWindow',['../classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7',1,'MainWindow']]]
+  ['lifecounter',['LifeCounter',['../classLifeCounter.html#a976d3ac7d1f77c9ee985336bb8484b28',1,'LifeCounter']]]
 ];

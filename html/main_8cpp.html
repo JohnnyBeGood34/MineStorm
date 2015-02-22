@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="dummygame_8h_source.html">dummygame.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="mindstormgame_8h_source.html">mindstormgame.h</a>&quot;</code><br/>
 <code>#include &lt;QSize&gt;</code><br/>
 <code>#include &lt;QApplication&gt;</code><br/>
 </div>
@@ -125,11 +126,12 @@ Functions</h2></td></tr>
 <p>Definition at line <a class="el" href="main_8cpp_source.html#l00007">7</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    QApplication a(argc, argv);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classDummyGame.html">DummyGame</a> game(QSize(400,400));</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classMainWindow.html">MainWindow</a> w(&amp;game);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> a.exec();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
-<div class="ttc" id="classDummyGame_html"><div class="ttname"><a href="classDummyGame.html">DummyGame</a></div><div class="ttdoc">La classe DummyGame donne un exemple de l&#39;utilisation de la classe Game. </div><div class="ttdef"><b>Definition:</b> <a href="dummygame_8h_source.html#l00012">dummygame.h:12</a></div></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">//DummyGame game(QSize(400,400));</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classMindStormGame.html">MindStormGame</a> game(QSize(600,600));</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classMainWindow.html">MainWindow</a> w(&amp;game);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> a.exec();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="ttc" id="classMindStormGame_html"><div class="ttname"><a href="classMindStormGame.html">MindStormGame</a></div><div class="ttdoc">The MindStormGame class, normally named MineStormGame, is the game classe. </div><div class="ttdef"><b>Definition:</b> <a href="mindstormgame_8h_source.html#l00018">mindstormgame.h:18</a></div></div>
 <div class="ttc" id="classMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdoc">La classe MainWindow crée un widget contenant un controller et un gameboard pour le game donné ...</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8h_source.html#l00011">mainwindow.h:11</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -137,7 +139,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 15 2014 08:14:53 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 12:10:48 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['paintevent',['paintEvent',['../classGameBoard.html#ae70803877f040a743eb8e424902974f3',1,'GameBoard']]],
-  ['pause',['pause',['../classGame.html#a4b507ab6c09910b3a621cf1980d65604',1,'Game']]]
+  ['hascollision',['hasCollision',['../classMindStormGame.html#a9b0de7cb032ce02717e31e3a20d3fb6e',1,'MindStormGame']]],
+  ['hatch',['hatch',['../classMine.html#adc1fe5c1c4afb3c52545214e3bba173c',1,'Mine::hatch()'],['../classShot.html#a59851c6aa0a57a83a02e52379b7ae2bf',1,'Shot::hatch()']]]
 ];

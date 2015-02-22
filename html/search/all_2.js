@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['game',['Game',['../classGame.html',1,'Game'],['../classGame.html#a76646df3c285c17da275919046f3724b',1,'Game::Game()']]],
-  ['game_2ecpp',['game.cpp',['../game_8cpp.html',1,'']]],
-  ['game_2eh',['game.h',['../game_8h.html',1,'']]],
-  ['gameboard',['GameBoard',['../classGameBoard.html',1,'GameBoard'],['../classGameBoard.html#a1a815e159958fed5ba4a5e23fa934835',1,'GameBoard::GameBoard()']]],
-  ['gameboard_2ecpp',['gameboard.cpp',['../gameboard_8cpp.html',1,'']]],
-  ['gameboard_2eh',['gameboard.h',['../gameboard_8h.html',1,'']]]
+  ['changed',['changed',['../classGame.html#aa56256a804a59c9031e6eb1fd9e70dc7',1,'Game']]],
+  ['connectsommet',['connectSommet',['../classShip.html#a91561a78d898bcc0b1a27428fbbcfe6c',1,'Ship']]],
+  ['controller',['Controller',['../classController.html',1,'Controller'],['../classController.html#ad55ce347b4cb45a9faf3ee55b4bf88b4',1,'Controller::Controller()']]],
+  ['controller_2ecpp',['controller.cpp',['../controller_8cpp.html',1,'']]],
+  ['controller_2eh',['controller.h',['../controller_8h.html',1,'']]],
+  ['createshot',['createShot',['../classShip.html#ac37c345670f67afa44d27819f574ca5f',1,'Ship']]]
 ];
