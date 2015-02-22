@@ -179,6 +179,15 @@ QPoint Ship::getCenter(){
 }
 
 
+void Ship::createShot(){
+    //qDebug() << "oki il tire";
+    int x = _sommet.x();
+    int y = _sommet.y();
+    QPoint pointShot(x,y);
+    _shotQPoint.push_back(new Shot(pointShot,_centerShip));
+}
+
+
 bool Ship::getIsShooting(){
     return _isShooting;
 }

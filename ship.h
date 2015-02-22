@@ -1,6 +1,7 @@
 #ifndef SHIP_H
 #define SHIP_H
 #include "weapon.h"
+#include "shot.h"
 #include <QPolygon>
 #include <QPainter>
 
@@ -55,6 +56,14 @@ public:
      * @return QPoint
      */
     QPoint getCenter();
+    /**
+     * @brief createShot
+     */
+    /**
+     * @brief _shotQPoint, array of shots
+     */
+    vector<Shot*> _shotQPoint;
+    void createShot();
 
     Weapon* getWeapon();
 

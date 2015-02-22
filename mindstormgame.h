@@ -77,10 +77,7 @@ private:
      * Inititlize the ship, mines, life and points counters
      */
     void initialize();
-    /**
-     * @brief createShot
-     */
-    void createShot();
+
     /**
      * @brief disposeShot, used to draw shots
      * @param painter, the game painter
@@ -133,10 +130,7 @@ private:
      * @brief _shot, the user ship shots
      */
     Shot *_shot;
-    /**
-     * @brief _shotQPoint, array of shots
-     */
-    vector<Shot*> _shotQPoint;
+
     /**
      * @brief _EnnemyShip, the ennemy space ship object
      */
@@ -161,10 +155,6 @@ private:
      * @brief _explosion, QPolygon, used to blast ship and mines
      */
     QPolygon _explosion;
-    /**
-     * @brief isShooting, boolean, used to know if the ship is shooting
-     */
-    bool isShooting=false;
     /**
      * @brief loopCounter, logical loop counter
      */

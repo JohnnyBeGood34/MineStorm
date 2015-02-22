@@ -95,7 +95,7 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
         _pointcounter->drawPointsIntoGameBoard(painter,size());
 
         if(_userShip->getIsShooting()==true){
-            createShot();
+            _userShip->createShot();
         }
         disposeShot(painter);
         //End of game
@@ -113,18 +113,11 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     }
 }
 
-void MindStormGame::createShot(){
-    //qDebug() << "oki il tire";
-    int x = _userShip->getSommet()->x();
-    int y = _userShip->getSommet()->y();
-    QPoint pointShot(x,y);
-    _shotQPoint.push_back(new Shot(pointShot,_userShip->getCenter()));
-}
 
 void MindStormGame::disposeShot(QPainter &painter){
-    for(auto i=0;i<_shotQPoint.size();++i){
-        painter.drawPolygon(_shotQPoint.at(i)->getPolygon());
-        _shotQPoint.at(i)->reDrawShot();
+    for(auto i=0;i<_userShip->_shotQPoint.size();++i){
+        painter.drawPolygon(_userShip->_shotQPoint.at(i)->getPolygon());
+        _userShip->_shotQPoint.at(i)->reDrawShot();
     }
 }
 
@@ -283,9 +276,9 @@ void MindStormGame::step(){
             resetPlace();
         }
         //Case with collision between one shot and mine
-        for(auto z=0;z<_shotQPoint.size();++z)
+        for(auto z=0;z<_userShip->_shotQPoint.size();++z)
         {
-            if(isMineShot(_shotQPoint.at(z)->getPolygon(),_mines.at(i)->getPolygon()))
+            if(isMineShot(_userShip->_shotQPoint.at(z)->getPolygon(),_mines.at(i)->getPolygon()))
             {
                 QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
                 blastPolygon(centerMine);
