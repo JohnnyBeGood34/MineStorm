@@ -10,8 +10,13 @@ PointsCounter::PointsCounter()
 /**
  * @brief PointsCounter::increment, increment the points counter
  */
-void PointsCounter::increment(){
-    _points += 10;
+void PointsCounter::increment(bool ennemyShip){
+    if(ennemyShip==true){
+        _points += 100;
+    }
+    else{
+        _points += 10;
+    }
 }
 
 void PointsCounter::drawPointsIntoGameBoard(QPainter &painter,const QSize &size){
