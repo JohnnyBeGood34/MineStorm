@@ -86,7 +86,7 @@ void Mine::reDrawMine(const QSize &size){
     }
     //Top side
     else if(_center.y() > size.height()){
-        transform=transform.translate(xSommet-xCenter,ySommet-yCenter-size.height());
+        transform=transform.translate(xSommet-xCenter,0);
     }
     //Bottom side
     else if(_center.y() < 0){
