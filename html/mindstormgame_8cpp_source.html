@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>TD6: mindstormgame.cpp Source File</title>
+<title>Mine storm: mindstormgame.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TD6
+   <div id="projectname">Mine storm
    </div>
   </td>
  </tr>
@@ -226,7 +226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">void</span> MindStormGame::disposeUserShip(QPainter &amp;painter){</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    QPolygon polygon=_userShip-&gt;<a class="code" href="classShip.html#a8ecb0ae16e84465fea5387e33f940755">getPolygon</a>();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    QPolygonF polygon=_userShip-&gt;<a class="code" href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">getPolygon</a>();</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    painter.setBrush(Qt::blue);</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    painter.drawPolygon(polygon,Qt::WindingFill);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    _userShip-&gt;<a class="code" href="classShip.html#ab78aaff6ba3087a1549d391f83f886a2">reDrawShip</a>(<a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>());</div>
@@ -359,7 +359,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            _lifecounter-&gt;<a class="code" href="classLifeCounter.html#a76f57ddaa7c3c1584b60019a4141435c">decrement</a>();</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <span class="comment">//Init the ship</span></div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <span class="comment">//_userShip-&gt;initShip();</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            resetPlace();</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            samePlayerPlayAgain();</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        }</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="comment">//Case with collision between one shot and mine</span></div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> z=0;z&lt;_userShip-&gt;<a class="code" href="classShip.html#ac25e91d566c48b5dd4f0b0afc248202c">_shotQPoint</a>.size();++z)</div>
@@ -383,7 +383,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">bool</span> retour = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="comment">//Collision between ship and mines</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    QPolygon intersection=_userShip-&gt;<a class="code" href="classShip.html#a8ecb0ae16e84465fea5387e33f940755">getPolygon</a>().intersected(mine);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    QPolygonF intersection=_userShip-&gt;<a class="code" href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">getPolygon</a>().intersected(mine);</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">if</span>(!intersection.isEmpty()){</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        retour = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
@@ -408,15 +408,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="comment">//_userShip-&gt;initShip();</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    buildMines();</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;}</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="keywordtype">void</span> MindStormGame::initialize(){</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    _EnnemyShip=<span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    resetPlace();</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    _EnnemyShip=<span class="keyword">new</span> <a class="code" href="classEnnemySpaceShip.html">EnnemySpaceShip</a>();</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    _lifecounter-&gt;<a class="code" href="classLifeCounter.html#a95741f09ff253e9fce11d75de229a76f">setLifes</a>(4);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    _pointcounter-&gt;<a class="code" href="classPointsCounter.html#ac43b77553bd734c8482f0b7034e99926">setPoint</a>(0);</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;}</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; <span class="keywordtype">void</span> MindStormGame::samePlayerPlayAgain(){</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;     _userShip=<span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;     _userShip=<span class="keyword">new</span> <a class="code" href="classShip.html">Ship</a>();</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="keywordtype">void</span> MindStormGame::initialize(){</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    _EnnemyShip=<span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    resetPlace();</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    _EnnemyShip=<span class="keyword">new</span> <a class="code" href="classEnnemySpaceShip.html">EnnemySpaceShip</a>();</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    _lifecounter-&gt;<a class="code" href="classLifeCounter.html#a95741f09ff253e9fce11d75de229a76f">setLifes</a>(4);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    _pointcounter-&gt;<a class="code" href="classPointsCounter.html#ac43b77553bd734c8482f0b7034e99926">setPoint</a>(0);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;}</div>
 <div class="ttc" id="classPointsCounter_html_aff77b67544303548954973e353f0eafd"><div class="ttname"><a href="classPointsCounter.html#aff77b67544303548954973e353f0eafd">PointsCounter::drawPointsIntoGameBoard</a></div><div class="ttdeci">void drawPointsIntoGameBoard(QPainter &amp;painter, const QSize &amp;size)</div><div class="ttdoc">drawPointsIntoGameBoard, used to draw the counter into the gameboard </div><div class="ttdef"><b>Definition:</b> <a href="pointscounter_8cpp_source.html#l00017">pointscounter.cpp:17</a></div></div>
 <div class="ttc" id="classEnnemySpaceShip_html"><div class="ttname"><a href="classEnnemySpaceShip.html">EnnemySpaceShip</a></div><div class="ttdoc">The EnnemySpaceShip class, represent the ennemy space ship which fill mines into gameboard. </div><div class="ttdef"><b>Definition:</b> <a href="ennemyspaceship_8h_source.html#l00009">ennemyspaceship.h:9</a></div></div>
 <div class="ttc" id="classGame_html_a4b507ab6c09910b3a621cf1980d65604"><div class="ttname"><a href="classGame.html#a4b507ab6c09910b3a621cf1980d65604">Game::pause</a></div><div class="ttdeci">void pause()</div><div class="ttdoc">pause met le jeu en pause </div><div class="ttdef"><b>Definition:</b> <a href="game_8cpp_source.html#l00015">game.cpp:15</a></div></div>
@@ -449,6 +453,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classShip_html_a6e3fd99d8eb9f48b7973091f1aec14e3"><div class="ttname"><a href="classShip.html#a6e3fd99d8eb9f48b7973091f1aec14e3">Ship::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdoc">destroy destroy the user space ship </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00153">ship.cpp:153</a></div></div>
 <div class="ttc" id="classShip_html_a9eacb166564ccdb9a34db39b30e73ce7"><div class="ttname"><a href="classShip.html#a9eacb166564ccdb9a34db39b30e73ce7">Ship::accelerate</a></div><div class="ttdeci">void accelerate()</div><div class="ttdoc">accelerate </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00072">ship.cpp:72</a></div></div>
 <div class="ttc" id="classLifeCounter_html_a1e80aa04a141bc2d94143a383d1074d3"><div class="ttname"><a href="classLifeCounter.html#a1e80aa04a141bc2d94143a383d1074d3">LifeCounter::getLifes</a></div><div class="ttdeci">int getLifes()</div><div class="ttdoc">getLifes return the total number of lifes </div><div class="ttdef"><b>Definition:</b> <a href="lifecounter_8cpp_source.html#l00035">lifecounter.cpp:35</a></div></div>
+<div class="ttc" id="classShip_html_a994dee0b10904dcb1adfa56436d550cf"><div class="ttname"><a href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">Ship::getPolygon</a></div><div class="ttdeci">QPolygonF getPolygon()</div><div class="ttdoc">getPolygon, used to get the Ship polygon </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00169">ship.cpp:169</a></div></div>
 <div class="ttc" id="classMindStormGame_html_a541c5be6d1a05ed880d8170a89ba7eaf"><div class="ttname"><a href="classMindStormGame.html#a541c5be6d1a05ed880d8170a89ba7eaf">MindStormGame::mousePressed</a></div><div class="ttdeci">void mousePressed(int x, int y)</div><div class="ttdoc">mousePressed used to handle mouse pressed events </div><div class="ttdef"><b>Definition:</b> <a href="mindstormgame_8cpp_source.html#l00177">mindstormgame.cpp:177</a></div></div>
 <div class="ttc" id="classPointsCounter_html"><div class="ttname"><a href="classPointsCounter.html">PointsCounter</a></div><div class="ttdoc">The PointsCounter class represents the Point counter into the game board. </div><div class="ttdef"><b>Definition:</b> <a href="pointscounter_8h_source.html#l00008">pointscounter.h:8</a></div></div>
 <div class="ttc" id="classShip_html_ad12db7bf7e65dc815b7893895afcab39"><div class="ttname"><a href="classShip.html#ad12db7bf7e65dc815b7893895afcab39">Ship::setIsShooting</a></div><div class="ttdeci">void setIsShooting(bool result)</div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00195">ship.cpp:195</a></div></div>
@@ -456,11 +461,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classEnnemySpaceShip_html_aad36e7b12c489d140f0e6ece32cf14a1"><div class="ttname"><a href="classEnnemySpaceShip.html#aad36e7b12c489d140f0e6ece32cf14a1">EnnemySpaceShip::getCenter</a></div><div class="ttdeci">QPoint getCenter()</div><div class="ttdoc">getCenter, return a QPoint which is the center of ennemy space ship polygon </div><div class="ttdef"><b>Definition:</b> <a href="ennemyspaceship_8cpp_source.html#l00077">ennemyspaceship.cpp:77</a></div></div>
 <div class="ttc" id="classPointsCounter_html_ac43b77553bd734c8482f0b7034e99926"><div class="ttname"><a href="classPointsCounter.html#ac43b77553bd734c8482f0b7034e99926">PointsCounter::setPoint</a></div><div class="ttdeci">void setPoint(int points)</div><div class="ttdoc">setPoint, used to set points </div><div class="ttdef"><b>Definition:</b> <a href="pointscounter_8cpp_source.html#l00030">pointscounter.cpp:30</a></div></div>
 <div class="ttc" id="classMindStormGame_html_a94a0a98adad32777ff22feba6a3b1dc8"><div class="ttname"><a href="classMindStormGame.html#a94a0a98adad32777ff22feba6a3b1dc8">MindStormGame::keyPressed</a></div><div class="ttdeci">void keyPressed(int key)</div><div class="ttdoc">keyPressed, used to handle a key pressed </div><div class="ttdef"><b>Definition:</b> <a href="mindstormgame_8cpp_source.html#l00181">mindstormgame.cpp:181</a></div></div>
-<div class="ttc" id="classShip_html_a8ecb0ae16e84465fea5387e33f940755"><div class="ttname"><a href="classShip.html#a8ecb0ae16e84465fea5387e33f940755">Ship::getPolygon</a></div><div class="ttdeci">QPolygon getPolygon()</div><div class="ttdoc">getPolygon, used to get the Ship polygon </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00169">ship.cpp:169</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 12:10:48 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 12:59:03 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
