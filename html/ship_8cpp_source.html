@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>TD6: ship.cpp Source File</title>
+<title>Mine storm: ship.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TD6
+   <div id="projectname">Mine storm
    </div>
   </td>
  </tr>
@@ -107,41 +107,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">//Create top of ship according to its center</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    _sommet = QPoint(_centerShip.x(),_centerShip.y()-35);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QPoint qPoint1 = QPoint(_centerShip.x()+10,_centerShip.y());</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QPoint qPoint2 = QPoint(_centerShip.x()+15,_centerShip.y());</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QPoint qPoint3 = QPoint(_centerShip.x()+15,_centerShip.y()-15);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    QPoint qPoint4 = QPoint(_centerShip.x()+15,_centerShip.y());</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QPoint qPoint5 = QPoint(_centerShip.x()+20,_centerShip.y());</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    QPoint qPoint6 = QPoint(_centerShip.x()+20,_centerShip.y()-10);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    QPoint qPoint7 = QPoint(_centerShip.x()+25,_centerShip.y()-10);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QPoint qPoint8 = QPoint(_centerShip.x()+25,_centerShip.y()-30);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QPoint qPoint9 = QPoint(_centerShip.x()+25,_centerShip.y()-10);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QPoint qPoint10 = QPoint(_centerShip.x()+30,_centerShip.y()-10);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    QPoint qPoint11 = QPoint(_centerShip.x()+30,_centerShip.y()+10);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QPoint qPoint12 = QPoint(_centerShip.x()+20,_centerShip.y()+10);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QPoint qPoint13 = QPoint(_centerShip.x()+20,_centerShip.y()+5);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QPoint qPoint14 = QPoint(_centerShip.x()+10,_centerShip.y()+10);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    QPoint qPoint15 = QPoint(_centerShip.x()+10,_centerShip.y()+15);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QPoint qPoint16 = QPoint(_centerShip.x()+5,_centerShip.y()+15);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QPoint qPoint17 = QPoint(_centerShip.x()+5,_centerShip.y()+10);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    QPoint qPoint18 = QPoint(_centerShip.x()-5,_centerShip.y()+10);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QPoint qPoint19 = QPoint(_centerShip.x()-5,_centerShip.y()+15);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QPoint qPoint20 = QPoint(_centerShip.x()-10,_centerShip.y()+15);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QPoint qPoint21 = QPoint(_centerShip.x()-10,_centerShip.y()+10);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QPoint qPoint22 = QPoint(_centerShip.x()-20,_centerShip.y()+5);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QPoint qPoint23 = QPoint(_centerShip.x()-20,_centerShip.y()+10);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QPoint qPoint24 = QPoint(_centerShip.x()-30,_centerShip.y()+10);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QPoint qPoint25 = QPoint(_centerShip.x()-30,_centerShip.y()-10);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QPoint qPoint26 = QPoint(_centerShip.x()-25,_centerShip.y()-10);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QPoint qPoint27 = QPoint(_centerShip.x()-25,_centerShip.y()-30);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QPoint qPoint28 = QPoint(_centerShip.x()-25,_centerShip.y()-10);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    QPoint qPoint29 = QPoint(_centerShip.x()-20,_centerShip.y()-10);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QPoint qPoint30 = QPoint(_centerShip.x()-20,_centerShip.y());</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QPoint qPoint31 = QPoint(_centerShip.x()-15,_centerShip.y());</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    QPoint qPoint32 = QPoint(_centerShip.x()-15,_centerShip.y()-15);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QPoint qPoint33 = QPoint(_centerShip.x()-15,_centerShip.y());</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QPoint qPoint34 = QPoint(_centerShip.x()-10,_centerShip.y());</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    QPoint qPoint35 = QPoint(_centerShip.x(),_centerShip.y()-35);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QPointF qPoint1 = QPointF(_centerShip.x()+10,_centerShip.y());</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QPointF qPoint2 = QPointF(_centerShip.x()+15,_centerShip.y());</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QPointF qPoint3 = QPointF(_centerShip.x()+15,_centerShip.y()-15);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    QPointF qPoint4 = QPointF(_centerShip.x()+15,_centerShip.y());</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QPointF qPoint5 = QPointF(_centerShip.x()+20,_centerShip.y());</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    QPointF qPoint6 = QPointF(_centerShip.x()+20,_centerShip.y()-10);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    QPointF qPoint7 = QPointF(_centerShip.x()+25,_centerShip.y()-10);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QPointF qPoint8 = QPointF(_centerShip.x()+25,_centerShip.y()-30);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QPointF qPoint9 = QPointF(_centerShip.x()+25,_centerShip.y()-10);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QPointF qPoint10 = QPointF(_centerShip.x()+30,_centerShip.y()-10);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    QPointF qPoint11 = QPointF(_centerShip.x()+30,_centerShip.y()+10);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QPointF qPoint12 = QPointF(_centerShip.x()+20,_centerShip.y()+10);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QPointF qPoint13 = QPointF(_centerShip.x()+20,_centerShip.y()+5);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QPointF qPoint14 = QPointF(_centerShip.x()+10,_centerShip.y()+10);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    QPointF qPoint15 = QPointF(_centerShip.x()+10,_centerShip.y()+15);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QPointF qPoint16 = QPointF(_centerShip.x()+5,_centerShip.y()+15);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QPointF qPoint17 = QPointF(_centerShip.x()+5,_centerShip.y()+10);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    QPointF qPoint18 = QPointF(_centerShip.x()-5,_centerShip.y()+10);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QPointF qPoint19 = QPointF(_centerShip.x()-5,_centerShip.y()+15);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QPointF qPoint20 = QPointF(_centerShip.x()-10,_centerShip.y()+15);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QPointF qPoint21 = QPointF(_centerShip.x()-10,_centerShip.y()+10);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QPointF qPoint22 = QPointF(_centerShip.x()-20,_centerShip.y()+5);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QPointF qPoint23 = QPointF(_centerShip.x()-20,_centerShip.y()+10);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QPointF qPoint24 = QPointF(_centerShip.x()-30,_centerShip.y()+10);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QPointF qPoint25 = QPointF(_centerShip.x()-30,_centerShip.y()-10);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QPointF qPoint26 = QPointF(_centerShip.x()-25,_centerShip.y()-10);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QPointF qPoint27 = QPointF(_centerShip.x()-25,_centerShip.y()-30);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QPointF qPoint28 = QPointF(_centerShip.x()-25,_centerShip.y()-10);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    QPointF qPoint29 = QPointF(_centerShip.x()-20,_centerShip.y()-10);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QPointF qPoint30 = QPointF(_centerShip.x()-20,_centerShip.y());</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QPointF qPoint31 = QPointF(_centerShip.x()-15,_centerShip.y());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    QPointF qPoint32 = QPointF(_centerShip.x()-15,_centerShip.y()-15);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QPointF qPoint33 = QPointF(_centerShip.x()-15,_centerShip.y());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QPointF qPoint34 = QPointF(_centerShip.x()-10,_centerShip.y());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    QPointF qPoint35 = QPointF(_centerShip.x(),_centerShip.y()-35);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    _points &lt;&lt; _sommet &lt;&lt; qPoint1 &lt;&lt; qPoint2 &lt;&lt; qPoint3 &lt;&lt; qPoint4 &lt;&lt; qPoint5 &lt;&lt; qPoint6 &lt;&lt; qPoint7 &lt;&lt; qPoint8 &lt;&lt; qPoint9 &lt;&lt; qPoint10</div>
@@ -252,7 +252,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">return</span> _shipWeapon;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classShip.html#a8ecb0ae16e84465fea5387e33f940755">  169</a></span>&#160;QPolygon <a class="code" href="classShip.html#a8ecb0ae16e84465fea5387e33f940755">Ship::getPolygon</a>(){</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">  169</a></span>&#160;QPolygonF <a class="code" href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">Ship::getPolygon</a>(){</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">return</span> _points;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
@@ -294,17 +294,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classShip_html_aaa7d5dfec8be77e822115accc04e5998"><div class="ttname"><a href="classShip.html#aaa7d5dfec8be77e822115accc04e5998">Ship::getCenter</a></div><div class="ttdeci">QPoint getCenter()</div><div class="ttdoc">getCenter, get the QPoint center of the ship </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00177">ship.cpp:177</a></div></div>
 <div class="ttc" id="classShip_html_a6e3fd99d8eb9f48b7973091f1aec14e3"><div class="ttname"><a href="classShip.html#a6e3fd99d8eb9f48b7973091f1aec14e3">Ship::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdoc">destroy destroy the user space ship </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00153">ship.cpp:153</a></div></div>
 <div class="ttc" id="classShip_html_a9eacb166564ccdb9a34db39b30e73ce7"><div class="ttname"><a href="classShip.html#a9eacb166564ccdb9a34db39b30e73ce7">Ship::accelerate</a></div><div class="ttdeci">void accelerate()</div><div class="ttdoc">accelerate </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00072">ship.cpp:72</a></div></div>
+<div class="ttc" id="classShip_html_a994dee0b10904dcb1adfa56436d550cf"><div class="ttname"><a href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">Ship::getPolygon</a></div><div class="ttdeci">QPolygonF getPolygon()</div><div class="ttdoc">getPolygon, used to get the Ship polygon </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00169">ship.cpp:169</a></div></div>
 <div class="ttc" id="classShip_html_a7279c5367ad956160e411056a80c6ff9"><div class="ttname"><a href="classShip.html#a7279c5367ad956160e411056a80c6ff9">Ship::getWeapon</a></div><div class="ttdeci">Weapon * getWeapon()</div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00165">ship.cpp:165</a></div></div>
 <div class="ttc" id="classShip_html_ad12db7bf7e65dc815b7893895afcab39"><div class="ttname"><a href="classShip.html#ad12db7bf7e65dc815b7893895afcab39">Ship::setIsShooting</a></div><div class="ttdeci">void setIsShooting(bool result)</div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00195">ship.cpp:195</a></div></div>
 <div class="ttc" id="classShip_html_a43cd6eeaffc11b49239b091621963a65"><div class="ttname"><a href="classShip.html#a43cd6eeaffc11b49239b091621963a65">Ship::~Ship</a></div><div class="ttdeci">~Ship()</div><div class="ttdoc">~Ship Destructor </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00067">ship.cpp:67</a></div></div>
 <div class="ttc" id="ship_8h_html"><div class="ttname"><a href="ship_8h.html">ship.h</a></div></div>
 <div class="ttc" id="classShip_html_aad02fdee7cc0e2a43c3fd3dea0380373"><div class="ttname"><a href="classShip.html#aad02fdee7cc0e2a43c3fd3dea0380373">Ship::initShip</a></div><div class="ttdeci">void initShip()</div><div class="ttdoc">initShip init the ship position </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00015">ship.cpp:15</a></div></div>
 <div class="ttc" id="classWeapon_html"><div class="ttname"><a href="classWeapon.html">Weapon</a></div><div class="ttdef"><b>Definition:</b> <a href="weapon_8h_source.html#l00011">weapon.h:11</a></div></div>
-<div class="ttc" id="classShip_html_a8ecb0ae16e84465fea5387e33f940755"><div class="ttname"><a href="classShip.html#a8ecb0ae16e84465fea5387e33f940755">Ship::getPolygon</a></div><div class="ttdeci">QPolygon getPolygon()</div><div class="ttdoc">getPolygon, used to get the Ship polygon </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00169">ship.cpp:169</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 12:10:48 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 12:59:03 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

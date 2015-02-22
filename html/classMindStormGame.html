@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>TD6: MindStormGame Class Reference</title>
+<title>Mine storm: MindStormGame Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TD6
+   <div id="projectname">Mine storm
    </div>
   </td>
  </tr>
@@ -381,13 +381,13 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">bool</span> retour = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="comment">//Collision between ship and mines</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    QPolygon intersection=_userShip-&gt;<a class="code" href="classShip.html#a8ecb0ae16e84465fea5387e33f940755">getPolygon</a>().intersected(mine);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    QPolygonF intersection=_userShip-&gt;<a class="code" href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">getPolygon</a>().intersected(mine);</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">if</span>(!intersection.isEmpty()){</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        retour = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">return</span> retour;</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;}</div>
-<div class="ttc" id="classShip_html_a8ecb0ae16e84465fea5387e33f940755"><div class="ttname"><a href="classShip.html#a8ecb0ae16e84465fea5387e33f940755">Ship::getPolygon</a></div><div class="ttdeci">QPolygon getPolygon()</div><div class="ttdoc">getPolygon, used to get the Ship polygon </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00169">ship.cpp:169</a></div></div>
+<div class="ttc" id="classShip_html_a994dee0b10904dcb1adfa56436d550cf"><div class="ttname"><a href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">Ship::getPolygon</a></div><div class="ttdeci">QPolygonF getPolygon()</div><div class="ttdoc">getPolygon, used to get the Ship polygon </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00169">ship.cpp:169</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -605,7 +605,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 12:10:48 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 12:59:03 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

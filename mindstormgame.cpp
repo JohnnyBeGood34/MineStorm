@@ -37,7 +37,7 @@ void MindStormGame::test(){
 
 void MindStormGame::moveMines(int counter){
     for(auto i=0;i<counter;++i){
-            _mines.at(i)->move();
+        _mines.at(i)->move();
     }
 }
 
@@ -283,7 +283,6 @@ void MindStormGame::step(){
                 QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
                 blastPolygon(centerMine);
                 _mines.at(i)->destroy();
-
                 //Incrément points counter
                 _pointcounter->increment();
             }
@@ -322,10 +321,10 @@ void MindStormGame::resetPlace(){
     //_userShip->initShip();
     buildMines();
 }
- void MindStormGame::samePlayerPlayAgain(){
-     _userShip=nullptr;
-     _userShip=new Ship();
- }
+void MindStormGame::samePlayerPlayAgain(){
+    _userShip=nullptr;
+    _userShip=new Ship();
+}
 
 void MindStormGame::initialize(){
     _EnnemyShip=nullptr;
