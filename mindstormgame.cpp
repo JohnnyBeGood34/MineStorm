@@ -128,6 +128,7 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
 
 
 void MindStormGame::disposeShot(QPainter &painter){
+   // qDebug()<< "Nb shots : "<<_userShip->getShotsVector().size();
     for(auto i=0;i<_userShip->getShotsVector().size();++i){
         painter.drawPolygon(_userShip->getShotsVector().at(i)->getPolygon());
         _userShip->getShotsVector().at(i)->reDrawShot();
@@ -302,9 +303,12 @@ void MindStormGame::step(){
                 //Erase mine from vector
                 try {
                     qDebug()<< "ERASE MINE FROM VECTOR";
+                    qDebug()<< "Nb mines avant : "<<_mines.size();
+                    //vector<Mine*>* mines=&_mines;
                     if(_mines.begin()+i != _mines.end()){
                         _mines.erase(_mines.begin()+i);
                     }
+                     qDebug()<< "Nb mines aprés : "<<_mines.size();
                 }
                 catch (const std::out_of_range& error) {
                     qDebug() << "Out of Range error: " << error.what() << '\n';

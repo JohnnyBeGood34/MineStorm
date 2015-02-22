@@ -85,22 +85,22 @@ void Mine::reDrawMine(const QSize &size){
     //Detect if center of mine is out of screen
     //Right side
     if(_center.x() >= size.width()){
-        qDebug() << "MINE RIGHT OUT";
+       // qDebug() << "MINE RIGHT OUT";
         transform=transform.translate(xSommet-xCenter-size.width(),ySommet-yCenter);
     }
     //Left side
     else if(_center.x() <= 0){
-        qDebug() << "MINE LEFT OUT";
+        //qDebug() << "MINE LEFT OUT";
         transform=transform.translate(xSommet-xCenter+size.width(),ySommet-yCenter);
     }
     //Top side
     else if(_center.y() >= size.height()){
-        qDebug() << "MINE TOP OUT";
+        //qDebug() << "MINE TOP OUT";
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter - size.height());
     }
     //Bottom side
     else if(_center.y() <= 0){
-        qDebug() << "MINE BOTTOM OUT";
+        //qDebug() << "MINE BOTTOM OUT";
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter+size.height());
     }
     //Map the polygon
