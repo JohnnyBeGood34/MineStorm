@@ -151,7 +151,7 @@ void MindStormGame::hatchMines(QPainter &painter, int counter){
 }
 
 void MindStormGame::disposeUserShip(QPainter &painter){
-    QPolygon polygon=_userShip->getPolygon();
+    QPolygonF polygon=_userShip->getPolygon();
     painter.setBrush(Qt::blue);
     painter.drawPolygon(polygon,Qt::WindingFill);
     _userShip->reDrawShip(size());
@@ -308,7 +308,7 @@ bool MindStormGame::hasCollision(QPolygon &mine)
 
     bool retour = false;
     //Collision between ship and mines
-    QPolygon intersection=_userShip->getPolygon().intersected(mine);
+    QPolygonF intersection=_userShip->getPolygon().intersected(mine);
     if(!intersection.isEmpty()){
         retour = true;
     }
