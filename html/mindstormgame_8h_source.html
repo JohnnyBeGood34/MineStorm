@@ -107,8 +107,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> mousePressed( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> keyPressed( <span class="keywordtype">int</span> key );</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> keyReleased( QKeyEvent * event);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> hasCollision(QPolygon &amp;mine);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> isShot(QPolygon shot,QPolygon mineOrEnnemy);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> hasCollision(QPolygon &amp;poly);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> isShot(QPolygon shoot,QPolygon mineOrEnnemy);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> hatchMines(QPainter &amp;painter,<span class="keywordtype">int</span> counter);</div>
@@ -129,24 +129,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classShot.html">Shot</a> *_shot;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="classEnnemySpaceShip.html">EnnemySpaceShip</a> *_EnnemyShip;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="classMine.html">Mine</a> *_computerMine;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    vector&lt;Mine*&gt; _mines;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="classLifeCounter.html">LifeCounter</a> *_lifecounter;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="classPointsCounter.html">PointsCounter</a> *_pointcounter;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    QPolygon _explosion;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">int</span> loopCounter;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">int</span> loopCounterHatchMines;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">int</span> loopCounterEnnemyShip;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">void</span> test();</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#endif // TESTGAME_H</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    vector&lt;Mine*&gt; _mines;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="classLifeCounter.html">LifeCounter</a> *_lifecounter;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="classPointsCounter.html">PointsCounter</a> *_pointcounter;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    QPolygon _explosion;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">int</span> loopCounter;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">int</span> loopCounterHatchMines;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">int</span> loopCounterEnnemyShip;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;};</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#endif // TESTGAME_H</span></div>
 <div class="ttc" id="classShot_html"><div class="ttname"><a href="classShot.html">Shot</a></div><div class="ttdoc">The Shot class represents a shot. </div><div class="ttdef"><b>Definition:</b> <a href="shot_8h_source.html#l00009">shot.h:9</a></div></div>
 <div class="ttc" id="classEnnemySpaceShip_html"><div class="ttname"><a href="classEnnemySpaceShip.html">EnnemySpaceShip</a></div><div class="ttdoc">The EnnemySpaceShip class, represent the ennemy space ship which fill mines into gameboard. </div><div class="ttdef"><b>Definition:</b> <a href="ennemyspaceship_8h_source.html#l00009">ennemyspaceship.h:9</a></div></div>
 <div class="ttc" id="ennemyspaceship_8h_html"><div class="ttname"><a href="ennemyspaceship_8h.html">ennemyspaceship.h</a></div></div>
 <div class="ttc" id="mine_8h_html"><div class="ttname"><a href="mine_8h.html">mine.h</a></div></div>
-<div class="ttc" id="classMine_html"><div class="ttname"><a href="classMine.html">Mine</a></div><div class="ttdoc">The Mine class represents mine objects. </div><div class="ttdef"><b>Definition:</b> <a href="mine_8h_source.html#l00010">mine.h:10</a></div></div>
 <div class="ttc" id="classLifeCounter_html"><div class="ttname"><a href="classLifeCounter.html">LifeCounter</a></div><div class="ttdoc">The LifeCounter class is the class used to count and display the lifes of the user. </div><div class="ttdef"><b>Definition:</b> <a href="lifecounter_8h_source.html#l00009">lifecounter.h:9</a></div></div>
 <div class="ttc" id="game_8h_html"><div class="ttname"><a href="game_8h.html">game.h</a></div></div>
 <div class="ttc" id="classShip_html"><div class="ttname"><a href="classShip.html">Ship</a></div><div class="ttdoc">The Ship class, represents the User Ship. </div><div class="ttdef"><b>Definition:</b> <a href="ship_8h_source.html#l00012">ship.h:12</a></div></div>
@@ -159,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 18:17:24 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 23:07:56 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

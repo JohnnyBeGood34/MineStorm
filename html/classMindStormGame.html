@@ -121,12 +121,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a10b1d547af10a6106432bdd195d51bb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMindStormGame.html#a10b1d547af10a6106432bdd195d51bb9">keyReleased</a> (QKeyEvent *event)</td></tr>
 <tr class="memdesc:a10b1d547af10a6106432bdd195d51bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyReleased, used to handle a jey release  <a href="#a10b1d547af10a6106432bdd195d51bb9">More...</a><br/></td></tr>
 <tr class="separator:a10b1d547af10a6106432bdd195d51bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b0de7cb032ce02717e31e3a20d3fb6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMindStormGame.html#a9b0de7cb032ce02717e31e3a20d3fb6e">hasCollision</a> (QPolygon &amp;mine)</td></tr>
-<tr class="memdesc:a9b0de7cb032ce02717e31e3a20d3fb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">hasCollision, detect collision between ship and mines  <a href="#a9b0de7cb032ce02717e31e3a20d3fb6e">More...</a><br/></td></tr>
-<tr class="separator:a9b0de7cb032ce02717e31e3a20d3fb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0881a6711df72d848e6ea47ab0f5683"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMindStormGame.html#af0881a6711df72d848e6ea47ab0f5683">isShot</a> (QPolygon shot, QPolygon mineOrEnnemy)</td></tr>
-<tr class="memdesc:af0881a6711df72d848e6ea47ab0f5683"><td class="mdescLeft">&#160;</td><td class="mdescRight">isMineShot, detect collision between mine and shot  <a href="#af0881a6711df72d848e6ea47ab0f5683">More...</a><br/></td></tr>
-<tr class="separator:af0881a6711df72d848e6ea47ab0f5683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f62101a3cdc8039a7f91ead8000ed9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMindStormGame.html#aa6f62101a3cdc8039a7f91ead8000ed9">hasCollision</a> (QPolygon &amp;poly)</td></tr>
+<tr class="memdesc:aa6f62101a3cdc8039a7f91ead8000ed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">hasCollision, detect collision between ship and mines  <a href="#aa6f62101a3cdc8039a7f91ead8000ed9">More...</a><br/></td></tr>
+<tr class="separator:aa6f62101a3cdc8039a7f91ead8000ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8522b54d94c65ccd93cd1ee8e65d754f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMindStormGame.html#a8522b54d94c65ccd93cd1ee8e65d754f">isShot</a> (QPolygon shoot, QPolygon mineOrEnnemy)</td></tr>
+<tr class="memdesc:a8522b54d94c65ccd93cd1ee8e65d754f"><td class="mdescLeft">&#160;</td><td class="mdescRight">isMineShot, detect collision between mine and shot  <a href="#a8522b54d94c65ccd93cd1ee8e65d754f">More...</a><br/></td></tr>
+<tr class="separator:a8522b54d94c65ccd93cd1ee8e65d754f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classGame"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classGame')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classGame.html">Game</a></td></tr>
 <tr class="memitem:a76646df3c285c17da275919046f3724b inherit pub_methods_classGame"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a76646df3c285c17da275919046f3724b">Game</a> (const QSize &amp;<a class="el" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>, QObject *parent)</td></tr>
 <tr class="memdesc:a76646df3c285c17da275919046f3724b inherit pub_methods_classGame"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classGame.html" title="La classe Game est une classe abstraite représentant base d&#39;un jeu. Elle fournit les services de base...">Game</a> contruit un jeu.  <a href="#a76646df3c285c17da275919046f3724b">More...</a><br/></td></tr>
@@ -279,79 +279,83 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classGame.html#a05d9948e89b0d0d0d62058d3d3bcc236">Game</a>.</p>
 
-<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00056">56</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                                      {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//Antialiasing on painter</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    painter.setRenderHint(QPainter::Antialiasing);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">//Set the painter pen</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    painter.setPen(<a class="code" href="mindstormgame_8cpp.html#a93e5739a0e7d284e317343f0c1ba57f3">thePen</a>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">//Fill the background of the game board</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    painter.fillRect(rect, QColor(0,0,0));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">//Ennemyship appear and dispose mines only if in screen</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span>((_EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#aad36e7b12c489d140f0e6ece32cf14a1">getCenter</a>().y() &lt; <a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>().height())&amp;&amp;(loopCounter==0)){</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        disposeEnnemyShip(painter);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        _EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#a61406747c495da2d2527d4a0e20a647b">move</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">//Fill mines</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        disposeMines(painter);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//When Ennemy ship clear, the game start</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">//Increment the loop counter</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span>(loopCounter &lt;(100*_mines.size())){</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            ++loopCounter;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">//Increment the loop counter for passage ennemyship</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span>(loopCounterEnnemyShip &lt;600){</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            ++loopCounterEnnemyShip;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span>(loopCounterEnnemyShip == 600){</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            buildMines(5);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="comment">// Innitialize ennemy ship</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            _EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#ab311c28a670a3c581c9a189e5c5f91df">initShip</a>();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span>(_EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#aad36e7b12c489d140f0e6ece32cf14a1">getCenter</a>().y() &lt; <a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>().height() ){</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            disposeEnnemyShip(painter);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            _EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#a61406747c495da2d2527d4a0e20a647b">move</a>();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            loopCounterEnnemyShip = 0;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment">//Hatch each mines at 2.5 seconds (100 loops)</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span>((loopCounter % 50 == 0)&amp;&amp;(loopCounterHatchMines&lt;_mines.size())){</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            ++loopCounterHatchMines;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        hatchMines(painter,loopCounterHatchMines);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        moveMines(loopCounterHatchMines);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">//Fill mines</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        disposeMines(painter);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">//Fille user space ship</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        disposeUserShip(painter);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">//Used to display lifes of user</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        _lifecounter-&gt;<a class="code" href="classLifeCounter.html#a4d0644b5a532a5d24e761749e955389a">drawLifeOnGameBoard</a>(painter,<a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>());</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">//Used to display the score of the user</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        _pointcounter-&gt;<a class="code" href="classPointsCounter.html#aff77b67544303548954973e353f0eafd">drawPointsIntoGameBoard</a>(painter,<a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>());</div>
+<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00063">63</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                                      {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">//Antialiasing on painter</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    painter.setRenderHint(QPainter::Antialiasing);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">//Set the painter pen</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    painter.setPen(<a class="code" href="mindstormgame_8cpp.html#a93e5739a0e7d284e317343f0c1ba57f3">thePen</a>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">//Fill the background of the game board</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    painter.fillRect(rect, QColor(0,0,0));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//Ennemyship appear and dispose mines only if in screen</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span>((_EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#aad36e7b12c489d140f0e6ece32cf14a1">getCenter</a>().y() &lt; <a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>().height())&amp;&amp;(loopCounter==0)){</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        disposeEnnemyShip(painter);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        _EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#a61406747c495da2d2527d4a0e20a647b">move</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">//Fill mines</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        disposeMines(painter);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//When Ennemy ship clear, the game start</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">//Increment the loop counter for passage ennemyship</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span>(loopCounterEnnemyShip &lt;600){</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            _EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#a0cdb29e64d2dc4886f9a977c9a1d77ac">destroy</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            ++loopCounterEnnemyShip;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span>(loopCounterEnnemyShip == 600){</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            buildMines(5);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="comment">// Innitialize ennemy ship</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            _EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#ab311c28a670a3c581c9a189e5c5f91df">initShip</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span>(_EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#aad36e7b12c489d140f0e6ece32cf14a1">getCenter</a>().y() &lt; <a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>().height() ){</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            disposeEnnemyShip(painter);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            _EnnemyShip-&gt;<a class="code" href="classEnnemySpaceShip.html#a61406747c495da2d2527d4a0e20a647b">move</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            loopCounterEnnemyShip = 0;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">//Increment the loop counter</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">if</span>(loopCounter &lt;(100*_mines.size())){</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            ++loopCounter;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">//Hatch each mines at 2.5 seconds (100 loops)</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">if</span>((loopCounter % 50 == 0)&amp;&amp;(loopCounterHatchMines&lt;_mines.size())){</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            ++loopCounterHatchMines;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        hatchMines(painter,loopCounterHatchMines);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        moveMines(loopCounterHatchMines);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span>(_userShip-&gt;<a class="code" href="classShip.html#a4728f2fdc698a4a406149bc2ba87717b">getIsShooting</a>()==<span class="keyword">true</span>){</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            _userShip-&gt;<a class="code" href="classShip.html#ac37c345670f67afa44d27819f574ca5f">createShot</a>();</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        disposeShot(painter);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="comment">//End of game</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span>(_lifecounter-&gt;<a class="code" href="classLifeCounter.html#a1e80aa04a141bc2d94143a383d1074d3">getLifes</a>() == 0 ){</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            showEndofGame(painter,rect);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <a class="code" href="classGame.html#a4b507ab6c09910b3a621cf1980d65604">pause</a>();</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="comment">//Fill mines</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        disposeMines(painter);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="comment">//Fille user space ship</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        disposeUserShip(painter);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="comment">//Used to display lifes of user</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        _lifecounter-&gt;<a class="code" href="classLifeCounter.html#a4d0644b5a532a5d24e761749e955389a">drawLifeOnGameBoard</a>(painter,<a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>());</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="comment">//Used to display the score of the user</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        _pointcounter-&gt;<a class="code" href="classPointsCounter.html#aff77b67544303548954973e353f0eafd">drawPointsIntoGameBoard</a>(painter,<a class="code" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>());</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="comment">//Draw explosions of mine and ship</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">if</span>(!_explosion.empty()){</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            painter.drawPolygon(_explosion);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            _explosion.clear();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span>(_userShip-&gt;<a class="code" href="classShip.html#a4728f2fdc698a4a406149bc2ba87717b">getIsShooting</a>()==<span class="keyword">true</span>){</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            _userShip-&gt;<a class="code" href="classShip.html#ac37c345670f67afa44d27819f574ca5f">createShot</a>();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        disposeShot(painter);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="comment">//End of game</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">if</span>(_lifecounter-&gt;<a class="code" href="classLifeCounter.html#a1e80aa04a141bc2d94143a383d1074d3">getLifes</a>() == 0 ){</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            showEndofGame(painter,rect);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <a class="code" href="classGame.html#a4b507ab6c09910b3a621cf1980d65604">pause</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="comment">//Draw explosions of mine and ship</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">if</span>(!_explosion.empty()){</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            painter.drawPolygon(_explosion);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            _explosion.clear();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
 <div class="ttc" id="classPointsCounter_html_aff77b67544303548954973e353f0eafd"><div class="ttname"><a href="classPointsCounter.html#aff77b67544303548954973e353f0eafd">PointsCounter::drawPointsIntoGameBoard</a></div><div class="ttdeci">void drawPointsIntoGameBoard(QPainter &amp;painter, const QSize &amp;size)</div><div class="ttdoc">drawPointsIntoGameBoard, used to draw the counter into the gameboard </div><div class="ttdef"><b>Definition:</b> <a href="pointscounter_8cpp_source.html#l00022">pointscounter.cpp:22</a></div></div>
 <div class="ttc" id="classGame_html_a4b507ab6c09910b3a621cf1980d65604"><div class="ttname"><a href="classGame.html#a4b507ab6c09910b3a621cf1980d65604">Game::pause</a></div><div class="ttdeci">void pause()</div><div class="ttdoc">pause met le jeu en pause </div><div class="ttdef"><b>Definition:</b> <a href="game_8cpp_source.html#l00015">game.cpp:15</a></div></div>
 <div class="ttc" id="classEnnemySpaceShip_html_a61406747c495da2d2527d4a0e20a647b"><div class="ttname"><a href="classEnnemySpaceShip.html#a61406747c495da2d2527d4a0e20a647b">EnnemySpaceShip::move</a></div><div class="ttdeci">void move()</div><div class="ttdoc">move, used to move the annemy space ship accrosthe gameboard </div><div class="ttdef"><b>Definition:</b> <a href="ennemyspaceship_8cpp_source.html#l00062">ennemyspaceship.cpp:62</a></div></div>
@@ -359,6 +363,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="ttc" id="classGame_html_aef028fef77b6498c42f347400b1ebf55"><div class="ttname"><a href="classGame.html#aef028fef77b6498c42f347400b1ebf55">Game::size</a></div><div class="ttdeci">const QSize &amp; size() const </div><div class="ttdoc">size retourne la taille du jeu </div><div class="ttdef"><b>Definition:</b> <a href="game_8cpp_source.html#l00007">game.cpp:7</a></div></div>
 <div class="ttc" id="mindstormgame_8cpp_html_a93e5739a0e7d284e317343f0c1ba57f3"><div class="ttname"><a href="mindstormgame_8cpp.html#a93e5739a0e7d284e317343f0c1ba57f3">thePen</a></div><div class="ttdeci">QPen thePen</div><div class="ttdef"><b>Definition:</b> <a href="mindstormgame_8cpp_source.html#l00011">mindstormgame.cpp:11</a></div></div>
 <div class="ttc" id="classEnnemySpaceShip_html_ab311c28a670a3c581c9a189e5c5f91df"><div class="ttname"><a href="classEnnemySpaceShip.html#ab311c28a670a3c581c9a189e5c5f91df">EnnemySpaceShip::initShip</a></div><div class="ttdeci">void initShip()</div><div class="ttdoc">initShip, construction of the ennemy space ship Polygon </div><div class="ttdef"><b>Definition:</b> <a href="ennemyspaceship_8cpp_source.html#l00017">ennemyspaceship.cpp:17</a></div></div>
+<div class="ttc" id="classEnnemySpaceShip_html_a0cdb29e64d2dc4886f9a977c9a1d77ac"><div class="ttname"><a href="classEnnemySpaceShip.html#a0cdb29e64d2dc4886f9a977c9a1d77ac">EnnemySpaceShip::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdoc">destroy, destroy the polygon </div><div class="ttdef"><b>Definition:</b> <a href="ennemyspaceship_8cpp_source.html#l00081">ennemyspaceship.cpp:81</a></div></div>
 <div class="ttc" id="classShip_html_ac37c345670f67afa44d27819f574ca5f"><div class="ttname"><a href="classShip.html#ac37c345670f67afa44d27819f574ca5f">Ship::createShot</a></div><div class="ttdeci">void createShot()</div><div class="ttdoc">createShot </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00194">ship.cpp:194</a></div></div>
 <div class="ttc" id="classLifeCounter_html_a4d0644b5a532a5d24e761749e955389a"><div class="ttname"><a href="classLifeCounter.html#a4d0644b5a532a5d24e761749e955389a">LifeCounter::drawLifeOnGameBoard</a></div><div class="ttdeci">void drawLifeOnGameBoard(QPainter &amp;painter, const QSize &amp;size)</div><div class="ttdoc">drawLifeOnGameBoard used to display the user lifes </div><div class="ttdef"><b>Definition:</b> <a href="lifecounter_8cpp_source.html#l00023">lifecounter.cpp:23</a></div></div>
 <div class="ttc" id="classLifeCounter_html_a1e80aa04a141bc2d94143a383d1074d3"><div class="ttname"><a href="classLifeCounter.html#a1e80aa04a141bc2d94143a383d1074d3">LifeCounter::getLifes</a></div><div class="ttdeci">int getLifes()</div><div class="ttdoc">getLifes return the total number of lifes </div><div class="ttdef"><b>Definition:</b> <a href="lifecounter_8cpp_source.html#l00035">lifecounter.cpp:35</a></div></div>
@@ -366,7 +371,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="a9b0de7cb032ce02717e31e3a20d3fb6e"></a>
+<a class="anchor" id="aa6f62101a3cdc8039a7f91ead8000ed9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -374,7 +379,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">bool MindStormGame::hasCollision </td>
           <td>(</td>
           <td class="paramtype">QPolygon &amp;&#160;</td>
-          <td class="paramname"><em>mine</em></td><td>)</td>
+          <td class="paramname"><em>poly</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -389,22 +394,22 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00328">328</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;{</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordtype">bool</span> retour = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="comment">//Collision between ship and mines</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    QPolygonF intersection=_userShip-&gt;<a class="code" href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">getPolygon</a>().intersected(mine);</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">if</span>(!intersection.isEmpty()){</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        retour = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    }</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordflow">return</span> retour;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;}</div>
+<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00362">362</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;{</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordtype">bool</span> retour = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="comment">//Collision between ship and mines</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    QPolygonF intersection=_userShip-&gt;<a class="code" href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">getPolygon</a>().intersected(poly);</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordflow">if</span>(!intersection.isEmpty()){</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        retour = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordflow">return</span> retour;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;}</div>
 <div class="ttc" id="classShip_html_a994dee0b10904dcb1adfa56436d550cf"><div class="ttname"><a href="classShip.html#a994dee0b10904dcb1adfa56436d550cf">Ship::getPolygon</a></div><div class="ttdeci">QPolygonF getPolygon()</div><div class="ttdoc">getPolygon, used to get the Ship polygon </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00178">ship.cpp:178</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="af0881a6711df72d848e6ea47ab0f5683"></a>
+<a class="anchor" id="a8522b54d94c65ccd93cd1ee8e65d754f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -412,7 +417,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">bool MindStormGame::isShot </td>
           <td>(</td>
           <td class="paramtype">QPolygon&#160;</td>
-          <td class="paramname"><em>shot</em>, </td>
+          <td class="paramname"><em>shoot</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -438,16 +443,16 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if there is a collission, false if there isn't </dd></dl>
 
-<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00340">340</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                                                             {</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classMindStormGame.html#af0881a6711df72d848e6ea47ab0f5683">isShot</a>=<span class="keyword">false</span>;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    QPolygon intersect=shot.intersected(mineOrEnnemy);</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">if</span>(!intersect.isEmpty()){</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        isShot=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classMindStormGame.html#af0881a6711df72d848e6ea47ab0f5683">isShot</a>;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;}</div>
-<div class="ttc" id="classMindStormGame_html_af0881a6711df72d848e6ea47ab0f5683"><div class="ttname"><a href="classMindStormGame.html#af0881a6711df72d848e6ea47ab0f5683">MindStormGame::isShot</a></div><div class="ttdeci">bool isShot(QPolygon shot, QPolygon mineOrEnnemy)</div><div class="ttdoc">isMineShot, detect collision between mine and shot </div><div class="ttdef"><b>Definition:</b> <a href="mindstormgame_8cpp_source.html#l00340">mindstormgame.cpp:340</a></div></div>
+<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00374">374</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                                                              {</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classMindStormGame.html#a8522b54d94c65ccd93cd1ee8e65d754f">isShot</a>=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    QPolygon intersect=shoot.intersected(mineOrEnnemy);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keywordflow">if</span>(!intersect.isEmpty()){</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        isShot=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classMindStormGame.html#a8522b54d94c65ccd93cd1ee8e65d754f">isShot</a>;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;}</div>
+<div class="ttc" id="classMindStormGame_html_a8522b54d94c65ccd93cd1ee8e65d754f"><div class="ttname"><a href="classMindStormGame.html#a8522b54d94c65ccd93cd1ee8e65d754f">MindStormGame::isShot</a></div><div class="ttdeci">bool isShot(QPolygon shoot, QPolygon mineOrEnnemy)</div><div class="ttdoc">isMineShot, detect collision between mine and shot </div><div class="ttdef"><b>Definition:</b> <a href="mindstormgame_8cpp_source.html#l00374">mindstormgame.cpp:374</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -483,25 +488,25 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classGame.html#a90bb392d6ca1dd209388bf43a25ac0b2">Game</a>.</p>
 
-<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00197">197</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                                       {</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="comment">// qDebug() &lt;&lt; &quot;KEY PRESSED &quot; &lt;&lt; key;</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">switch</span>(key) {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Up: _userShip-&gt;<a class="code" href="classShip.html#ae727df3cd6f7a61eeba76645580de0eb">incrementSpeed</a>();</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Down: _userShip-&gt;<a class="code" href="classShip.html#a3c56768b77b039940a476e524a3ab7c3">slowDown</a>();</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Left: _userShip-&gt;<a class="code" href="classShip.html#a49aebb24da6735e692bc57a008a7bd90">rotate</a>(<span class="stringliteral">&quot;left&quot;</span>);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Right: _userShip-&gt;<a class="code" href="classShip.html#a49aebb24da6735e692bc57a008a7bd90">rotate</a>(<span class="stringliteral">&quot;right&quot;</span>);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Space: _userShip-&gt;<a class="code" href="classShip.html#ad12db7bf7e65dc815b7893895afcab39">setIsShooting</a>(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
+<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00214">214</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                                       {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">// qDebug() &lt;&lt; &quot;KEY PRESSED &quot; &lt;&lt; key;</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">switch</span>(key) {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Up: _userShip-&gt;<a class="code" href="classShip.html#ae727df3cd6f7a61eeba76645580de0eb">incrementSpeed</a>();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Down: _userShip-&gt;<a class="code" href="classShip.html#a3c56768b77b039940a476e524a3ab7c3">slowDown</a>();</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Left: _userShip-&gt;<a class="code" href="classShip.html#a49aebb24da6735e692bc57a008a7bd90">rotate</a>(<span class="stringliteral">&quot;left&quot;</span>);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Right: _userShip-&gt;<a class="code" href="classShip.html#a49aebb24da6735e692bc57a008a7bd90">rotate</a>(<span class="stringliteral">&quot;right&quot;</span>);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Space: _userShip-&gt;<a class="code" href="classShip.html#ad12db7bf7e65dc815b7893895afcab39">setIsShooting</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
 <div class="ttc" id="classShip_html_a3c56768b77b039940a476e524a3ab7c3"><div class="ttname"><a href="classShip.html#a3c56768b77b039940a476e524a3ab7c3">Ship::slowDown</a></div><div class="ttdeci">void slowDown()</div><div class="ttdoc">slowDown slow down the space ship </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00166">ship.cpp:166</a></div></div>
 <div class="ttc" id="classShip_html_a49aebb24da6735e692bc57a008a7bd90"><div class="ttname"><a href="classShip.html#a49aebb24da6735e692bc57a008a7bd90">Ship::rotate</a></div><div class="ttdeci">void rotate(string direction)</div><div class="ttdoc">rotate make a rotation </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00142">ship.cpp:142</a></div></div>
 <div class="ttc" id="classShip_html_ae727df3cd6f7a61eeba76645580de0eb"><div class="ttname"><a href="classShip.html#ae727df3cd6f7a61eeba76645580de0eb">Ship::incrementSpeed</a></div><div class="ttdeci">void incrementSpeed()</div><div class="ttdoc">incrementSpeed, used to increment ship speed </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00093">ship.cpp:93</a></div></div>
@@ -541,22 +546,22 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classGame.html#ac9b2b4a31794697ac33814fd9bf53db7">Game</a>.</p>
 
-<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00247">247</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                                                 {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordflow">switch</span>(event-&gt;key()) {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Up:</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        qDebug() &lt;&lt; <span class="stringliteral">&quot;KEY UP...&quot;</span>;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="comment">//If the event handled isn&#39;t an autorepeat event</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="comment">//Decelerate the ship</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">if</span>(!event-&gt;isAutoRepeat()){</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            _userShip-&gt;<a class="code" href="classShip.html#a3c56768b77b039940a476e524a3ab7c3">slowDown</a>();</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Space:_userShip-&gt;<a class="code" href="classShip.html#ad12db7bf7e65dc815b7893895afcab39">setIsShooting</a>(<span class="keyword">false</span>);<span class="comment">//End of shots</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    }</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;}</div>
+<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00269">269</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                                                 {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">switch</span>(event-&gt;key()) {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Up:</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        qDebug() &lt;&lt; <span class="stringliteral">&quot;KEY UP...&quot;</span>;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="comment">//If the event handled isn&#39;t an autorepeat event</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="comment">//Decelerate the ship</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="keywordflow">if</span>(!event-&gt;isAutoRepeat()){</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            _userShip-&gt;<a class="code" href="classShip.html#a3c56768b77b039940a476e524a3ab7c3">slowDown</a>();</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Space:_userShip-&gt;<a class="code" href="classShip.html#ad12db7bf7e65dc815b7893895afcab39">setIsShooting</a>(<span class="keyword">false</span>);<span class="comment">//End of shots</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;}</div>
 <div class="ttc" id="classShip_html_a3c56768b77b039940a476e524a3ab7c3"><div class="ttname"><a href="classShip.html#a3c56768b77b039940a476e524a3ab7c3">Ship::slowDown</a></div><div class="ttdeci">void slowDown()</div><div class="ttdoc">slowDown slow down the space ship </div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00166">ship.cpp:166</a></div></div>
 <div class="ttc" id="classShip_html_ad12db7bf7e65dc815b7893895afcab39"><div class="ttname"><a href="classShip.html#ad12db7bf7e65dc815b7893895afcab39">Ship::setIsShooting</a></div><div class="ttdeci">void setIsShooting(bool result)</div><div class="ttdef"><b>Definition:</b> <a href="ship_8cpp_source.html#l00206">ship.cpp:206</a></div></div>
 </div><!-- fragment -->
@@ -605,10 +610,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classGame.html#afec7f51d4f088df3bbabc416ab29ed78">Game</a>.</p>
 
-<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00193">193</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                                             {</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;}</div>
+<p>Definition at line <a class="el" href="mindstormgame_8cpp_source.html#l00210">210</a> of file <a class="el" href="mindstormgame_8cpp_source.html">mindstormgame.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                                             {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -619,7 +624,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 18:17:24 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 23:07:56 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

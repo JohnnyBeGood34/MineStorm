@@ -269,7 +269,7 @@ void MindStormGame::keyReleased( QKeyEvent * event){
 
     switch(event->key()) {
     case Qt::Key_Up:
-        qDebug() << "KEY UP...";
+        //qDebug() << "KEY UP...";
         //If the event handled isn't an autorepeat event
         //Decelerate the ship
         if(!event->isAutoRepeat()){
@@ -295,6 +295,7 @@ void MindStormGame::step(){
             samePlayerPlayAgain();
         }
     }
+
     for(auto i=0;i<_mines.size();++i){
         QPolygon poly=_mines.at(i)->getPolygon();
         //Case with collision between ship and mine
@@ -336,6 +337,7 @@ void MindStormGame::step(){
                         _mines.erase(_mines.begin()+i);
                         --loopCounterHatchMines;
                         --loopCounter;
+                        //_mines.resize(_mines.size()-1);
                     }
                      qDebug()<< "Nb mines aprés : "<<_mines.size();
                 }
@@ -386,14 +388,12 @@ void MindStormGame::resetPlace(){
     loopCounter=0;
     loopCounterHatchMines=0;
     loopCounterEnnemyShip=0;
-    _userShip=new Ship();
-    //_userShip->initShip();
+    _userShip=new Ship();    
     buildMines(30);
 }
-void MindStormGame::samePlayerPlayAgain(){
-    _userShip=nullptr;
-    _userShip=new Ship();
-    loopCounterEnnemyShip=0;
+void MindStormGame::samePlayerPlayAgain(){  
+    resetPlace();
+    _pointcounter->setPoint(0);
 }
 
 void MindStormGame::initialize(){

@@ -92,7 +92,7 @@ void Ship::accelerate(){
 
 void Ship::incrementSpeed(){
     if(this->speed < 3){
-        this->speed = this->speed + 0.5;
+        this->speed = this->speed + 0.2;
     }
 }
 
@@ -143,7 +143,7 @@ void Ship::rotate(string direction){
 
     //qDebug() << "Rotate ...";
 
-    const int angle = (direction == "right") ? 10 : -10;
+    const int angle = (direction == "right") ? 5 : -5;
 
 
     int xCenter=_centerShip.x();

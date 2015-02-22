@@ -1,7 +1,6 @@
 var searchData=
 [
   ['setcenter',['setCenter',['../classMine.html#af726198930c076f3e795565936c07aee',1,'Mine']]],
-  ['setishatched',['setIsHatched',['../classMine.html#a6f1bccb3604fcd6009355435e1bb0882',1,'Mine']]],
   ['setisshooting',['setIsShooting',['../classShip.html#ad12db7bf7e65dc815b7893895afcab39',1,'Ship']]],
   ['setlifes',['setLifes',['../classLifeCounter.html#a95741f09ff253e9fce11d75de229a76f',1,'LifeCounter']]],
   ['setpoint',['setPoint',['../classPointsCounter.html#ac43b77553bd734c8482f0b7034e99926',1,'PointsCounter']]],
