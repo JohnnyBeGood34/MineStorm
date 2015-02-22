@@ -59,15 +59,14 @@ public:
     /**
      * @brief createShot
      */
-    /**
-     * @brief _shotQPoint, array of shots
-     */
-    vector<Shot*> _shotQPoint;
     void createShot();
 
     Weapon* getWeapon();
 
-
+    /**
+     * @brief getIsShooting, used to know if the ship is shooting
+     * @return
+     */
     bool getIsShooting();
 
     void setIsShooting(bool result);
@@ -87,7 +86,21 @@ public:
      * @brief initShip init the ship position
      */
     void initShip();
+    /**
+     * @brief getShotsVector, used to get the shot vector
+     * @return vector<Shot*>
+     */
+    vector<Shot*> getShotsVector();
+    /**
+     * @brief killShotOutOfScreen, used to erase a shot from vector if it's out of screen
+     */
+    void killShotOutOfScreen(const QSize &size);
 private:
+
+    /**
+     * @brief _shotQPoint, array of shots
+     */
+    vector<Shot*> _shotQPoint;
     /**
      * @brief _points, represents the QPolygon of the ship
      */
@@ -108,6 +121,9 @@ private:
      * @brief speed, ship speed
      */
     double speed;
+    /**
+     * @brief _isShooting, used to know if the ship is shooting
+     */
     bool _isShooting;
 };
 

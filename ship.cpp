@@ -15,7 +15,7 @@ Ship::Ship(/*Weapon *aWeapon*/) //: shipWeapon(aWeapon)
 void Ship::initShip(){
 
     //Ship center;
-    _centerShip= QPoint(300,300);
+    _centerShip= QPoint(325,325);
     //Initialize speed 0 by default
     speed = 0;
     //Create top of ship according to its center
@@ -130,6 +130,15 @@ void Ship::reDrawShip(const QSize &size){
     _sommet=transform.map(_sommet);
 }
 
+void Ship::killShotOutOfScreen(const QSize &size){
+    for(auto i = 0;i<_shotQPoint.size();i++){
+        if(_shotQPoint.at(i)->detectOutOfScreen(size)){
+            qDebug() << "ERASE SHOT FROM VECTOR";
+            _shotQPoint.erase(_shotQPoint.begin()+i);
+        }
+    }
+}
+
 void Ship::rotate(string direction){
 
     //qDebug() << "Rotate ...";
@@ -178,9 +187,11 @@ QPoint Ship::getCenter(){
     return _centerShip;
 }
 
+vector<Shot*> Ship::getShotsVector(){
+    return this->_shotQPoint;
+}
 
 void Ship::createShot(){
-    //qDebug() << "oki il tire";
     int x = _sommet.x();
     int y = _sommet.y();
     QPoint pointShot(x,y);

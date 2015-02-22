@@ -171,7 +171,6 @@ private:
      * @brief loopCounterEnnemyShip, logical loop counter
      */
     int loopCounterEnnemyShip;
-
 private slots:
     void test();
 };

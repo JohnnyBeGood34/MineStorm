@@ -3,16 +3,11 @@
 #include <QPainter>
 Mine::Mine(QPoint qPointRand, int &compteur)
 {
+
+    //initalize isHatched to false
     this->isHatched = false;
     //Get a random direction
-    int min = -30;
-    int max = 30;
-    int newDirection = min + (rand() % (int)(max - min + 1)) +1;
-    //Set default direction on x and y for mine
-    this->direction_x = newDirection;
-    newDirection = min + (rand() % (int)(max - min + 1));
-    this->direction_y = newDirection;
-
+    getRandomDirection();
     //qPointRand central point of a mine
     _center =qPointRand;
     //Determine the mine type (little, middle, great)
@@ -26,7 +21,22 @@ Mine::Mine(QPoint qPointRand, int &compteur)
 
     //Polygon initialize to a point
     _points << _center;
+    qDebug() << "CREATE A MINE WITH HATCHED TO : " << this->isHatched;
+}
 
+void Mine::getRandomDirection(){
+    int min = -30;
+    int max = 30;
+    int newDirection_x = 1;
+    int newDirection_y = 1;
+    while((newDirection_x == 1 || newDirection_y == 1)){
+        newDirection_x = min + (rand() % (int)(max - min + 1)) +1;
+        newDirection_y = min + (rand() % (int)(max - min + 1)) +1;
+    }
+
+    //Set default direction on x and y for mine
+    this->direction_x = newDirection_x;
+    this->direction_y = newDirection_y;
 }
 
 void Mine::hatch(){
@@ -58,10 +68,7 @@ void Mine::hatch(){
         _points.clear();
         //Create the mine polygon
         _points << _sommet << qPointSommetMine2 << qPointSommetMine3 << qPointSommetMine4 << qPointSommetMine5 << qPointSommetMine6 << qPointSommetMine7 << qPointSommetMine8;
-
-
         _direction=QPoint(1,1);
-
         this->isHatched = true;
     }
 }
@@ -77,21 +84,23 @@ void Mine::reDrawMine(const QSize &size){
 
     //Detect if center of mine is out of screen
     //Right side
-    if(_center.x() > size.width()){
-        //qDebug() << "RIGHT OUT";
+    if(_center.x() >= size.width()){
+        qDebug() << "MINE RIGHT OUT";
         transform=transform.translate(xSommet-xCenter-size.width(),ySommet-yCenter);
     }
     //Left side
-    else if(_center.x() < 0){
-        //qDebug() << "LEFT OUT";
+    else if(_center.x() <= 0){
+        qDebug() << "MINE LEFT OUT";
         transform=transform.translate(xSommet-xCenter+size.width(),ySommet-yCenter);
     }
     //Top side
-    else if(_center.y() > size.height()){
-        transform=transform.translate(xSommet-xCenter,0);
+    else if(_center.y() >= size.height()){
+        qDebug() << "MINE TOP OUT";
+        transform=transform.translate(xSommet-xCenter,ySommet-yCenter - size.height());
     }
     //Bottom side
-    else if(_center.y() < 0){
+    else if(_center.y() <= 0){
+        qDebug() << "MINE BOTTOM OUT";
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter+size.height());
     }
     //Map the polygon
@@ -99,12 +108,6 @@ void Mine::reDrawMine(const QSize &size){
     _center=transform.map(_center);
     _sommet=transform.map(_sommet);
 }
-
-
-
-
-
-
 
 Mine::~Mine(){
     _points.clear();//Destroy the polygon

@@ -74,6 +74,10 @@ public:
      * @param hatch, boolean
      */
     void setIsHatched(bool hatch);
+    /**
+     * @brief getRandomDirection, used to get a random direction for mine (x,y)
+     */
+    void getRandomDirection();
 private:
     /**
      * @brief QPolygon _points, represents the mine polygon
