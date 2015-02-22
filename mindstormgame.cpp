@@ -283,6 +283,8 @@ void MindStormGame::step(){
                 QPoint centerMine = QPoint(_mines.at(i)->getCenter()->x(),_mines.at(i)->getCenter()->y());
                 blastPolygon(centerMine);
                 _mines.at(i)->destroy();
+                //Erase mine from vector
+                _mines.erase(_mines.begin()+i);
                 //Incrément points counter
                 _pointcounter->increment();
             }
