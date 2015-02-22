@@ -79,7 +79,6 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     else{
         //Increment the loop counter for passage ennemyship
         if(loopCounterEnnemyShip <600){
-            _EnnemyShip->destroy();
             ++loopCounterEnnemyShip;
         }
 
