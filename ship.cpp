@@ -178,3 +178,12 @@ QPoint Ship::getCenter(){
     return _centerShip;
 }
 
+
+bool Ship::getIsShooting(){
+    return _isShooting;
+}
+
+void Ship::setIsShooting(bool result){
+    _isShooting = result;
+}
+

@@ -41,11 +41,14 @@ public:
 
     Weapon* getWeapon();
 
+    bool getIsShooting();
+
+    void setIsShooting(bool result);
+
     void incrementSpeed();
 
     void shoot(/*QPainter &painter*/);
 
-    bool _isShooting;
     /**
      * @brief reDrawShip used to re-draw the ship whan it's out of screen
      */
@@ -60,6 +63,7 @@ private:
     QPoint _sommet;
     QPoint _centerShip;
     double speed;
+    bool _isShooting=false;
 };
 
 #endif // SHIP_H

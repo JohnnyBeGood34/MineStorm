@@ -20,6 +20,7 @@ private:
     QPolygon _shotPoint;
     QPoint _centerShot;
     QPoint _centerShip;
+    bool _isShooting=false;
 };
 
 #endif // SHOT_H
