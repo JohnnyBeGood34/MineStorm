@@ -94,8 +94,8 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
         //Used to display the score of the user
         _pointcounter->drawPointsIntoGameBoard(painter,size());
 
-        if(isShooting==true){
-            shot();
+        if(_userShip->getIsShooting()==true){
+            createShot();
         }
         disposeShot(painter);
         //End of game
@@ -113,8 +113,8 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
     }
 }
 
-void MindStormGame::shot(){
-    qDebug() << "oki il tire";
+void MindStormGame::createShot(){
+    //qDebug() << "oki il tire";
     int x = _userShip->getSommet()->x();
     int y = _userShip->getSommet()->y();
     QPoint pointShot(x,y);
@@ -196,7 +196,7 @@ void MindStormGame::keyPressed( int key ){
         break;
     case Qt::Key_Right: _userShip->rotate("right");
         break;
-    case Qt::Key_Space:isShooting=true;
+    case Qt::Key_Space: _userShip->setIsShooting(true);
         break;
     default:
         break;
@@ -247,7 +247,7 @@ void MindStormGame::keyReleased( QKeyEvent * event){
             _userShip->slowDown();
         }
         break;
-    case Qt::Key_Space:isShooting=false;//End of shots
+    case Qt::Key_Space:_userShip->setIsShooting(false);//End of shots
         break;
     }
 }

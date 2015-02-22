@@ -57,6 +57,11 @@ public:
     QPoint getCenter();
 
     Weapon* getWeapon();
+
+
+    bool getIsShooting();
+
+    void setIsShooting(bool result);
     /**
      * @brief incrementSpeed, used to increment ship speed
      */
@@ -65,10 +70,6 @@ public:
      * @brief shoot, used to make a shot
      */
     void shoot(/*QPainter &painter*/);
-    /**
-     * @brief _isShooting, used to know is the ship is shooting
-     */
-    bool _isShooting;
     /**
      * @brief reDrawShip used to re-draw the ship whan it's out of screen
      */
@@ -98,6 +99,7 @@ private:
      * @brief speed, ship speed
      */
     double speed;
+    bool _isShooting;
 };
 
 #endif // SHIP_H

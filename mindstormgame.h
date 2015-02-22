@@ -78,9 +78,9 @@ private:
      */
     void initialize();
     /**
-     * @brief shot
+     * @brief createShot
      */
-    void shot();
+    void createShot();
     /**
      * @brief disposeShot, used to draw shots
      * @param painter, the game painter

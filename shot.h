@@ -50,6 +50,7 @@ private:
      * @brief _centerShip QPoint center of Ship
      */
     QPoint _centerShip;
+    bool _isShooting=false;
 };
 
 #endif // SHOT_H
