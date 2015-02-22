@@ -108,7 +108,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> keyPressed( <span class="keywordtype">int</span> key );</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> keyReleased( QKeyEvent * event);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> hasCollision(QPolygon &amp;mine);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> isMineShot(QPolygon mine,QPolygon shot);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> isShot(QPolygon shot,QPolygon mineOrEnnemy);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> hatchMines(QPainter &amp;painter,<span class="keywordtype">int</span> counter);</div>
@@ -122,7 +122,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> showEndofGame(QPainter &amp;painter,QRect &amp;rect);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> resetPlace();</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> samePlayerPlayAgain();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> buildMines();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> buildMines(<span class="keywordtype">int</span> nbMines);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> moveMines(<span class="keywordtype">int</span> counter);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> blastPolygon(QPoint center);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="classShip.html">Ship</a> *_userShip;</div>
@@ -136,12 +136,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    QPolygon _explosion;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">int</span> loopCounter;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">int</span> loopCounterHatchMines;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">void</span> test();</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;};</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#endif // TESTGAME_H</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">int</span> loopCounterEnnemyShip;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">void</span> test();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#endif // TESTGAME_H</span></div>
 <div class="ttc" id="classShot_html"><div class="ttname"><a href="classShot.html">Shot</a></div><div class="ttdoc">The Shot class represents a shot. </div><div class="ttdef"><b>Definition:</b> <a href="shot_8h_source.html#l00009">shot.h:9</a></div></div>
 <div class="ttc" id="classEnnemySpaceShip_html"><div class="ttname"><a href="classEnnemySpaceShip.html">EnnemySpaceShip</a></div><div class="ttdoc">The EnnemySpaceShip class, represent the ennemy space ship which fill mines into gameboard. </div><div class="ttdef"><b>Definition:</b> <a href="ennemyspaceship_8h_source.html#l00009">ennemyspaceship.h:9</a></div></div>
 <div class="ttc" id="ennemyspaceship_8h_html"><div class="ttname"><a href="ennemyspaceship_8h.html">ennemyspaceship.h</a></div></div>
@@ -159,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 12:59:03 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 18:17:24 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

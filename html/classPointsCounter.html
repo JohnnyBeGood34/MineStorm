@@ -100,9 +100,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a24e526af36a350711bce1d2e3b51d0c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointsCounter.html#a24e526af36a350711bce1d2e3b51d0c4">PointsCounter</a> ()</td></tr>
 <tr class="memdesc:a24e526af36a350711bce1d2e3b51d0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classPointsCounter.html" title="The PointsCounter class represents the Point counter into the game board. ">PointsCounter</a>, constructor of <a class="el" href="classPointsCounter.html" title="The PointsCounter class represents the Point counter into the game board. ">PointsCounter</a> object.  <a href="#a24e526af36a350711bce1d2e3b51d0c4">More...</a><br/></td></tr>
 <tr class="separator:a24e526af36a350711bce1d2e3b51d0c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d8f09e392cbba696390e332d2babe63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointsCounter.html#a3d8f09e392cbba696390e332d2babe63">increment</a> ()</td></tr>
-<tr class="memdesc:a3d8f09e392cbba696390e332d2babe63"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment, used to increment the counter  <a href="#a3d8f09e392cbba696390e332d2babe63">More...</a><br/></td></tr>
-<tr class="separator:a3d8f09e392cbba696390e332d2babe63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a651f7ace297b4ec94740bf82837b57bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointsCounter.html#a651f7ace297b4ec94740bf82837b57bf">increment</a> (bool ennemyShip)</td></tr>
+<tr class="memdesc:a651f7ace297b4ec94740bf82837b57bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment, used to increment the counter  <a href="#a651f7ace297b4ec94740bf82837b57bf">More...</a><br/></td></tr>
+<tr class="separator:a651f7ace297b4ec94740bf82837b57bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff77b67544303548954973e353f0eafd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPointsCounter.html#aff77b67544303548954973e353f0eafd">drawPointsIntoGameBoard</a> (QPainter &amp;painter, const QSize &amp;size)</td></tr>
 <tr class="memdesc:aff77b67544303548954973e353f0eafd"><td class="mdescLeft">&#160;</td><td class="mdescRight">drawPointsIntoGameBoard, used to draw the counter into the gameboard  <a href="#aff77b67544303548954973e353f0eafd">More...</a><br/></td></tr>
 <tr class="separator:aff77b67544303548954973e353f0eafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,41 +172,53 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="pointscounter_8cpp_source.html#l00017">17</a> of file <a class="el" href="pointscounter_8cpp_source.html">pointscounter.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                                                                              {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">//Set font</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QFont font=painter.font() ;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    font.setPointSize (12);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    painter.setFont(font);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//Convert int to Qstring</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    QString qPoints = QString(<span class="stringliteral">&quot;Points : %1&quot;</span>).arg(_points);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//Then draw it into the gameboard</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    painter.drawText(QPoint(10,(size.height() - 20)),qPoints);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<p>Definition at line <a class="el" href="pointscounter_8cpp_source.html#l00022">22</a> of file <a class="el" href="pointscounter_8cpp_source.html">pointscounter.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                                                              {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">//Set font</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QFont font=painter.font() ;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    font.setPointSize (12);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    painter.setFont(font);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">//Convert int to Qstring</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QString qPoints = QString(<span class="stringliteral">&quot;Points : %1&quot;</span>).arg(_points);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//Then draw it into the gameboard</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    painter.drawText(QPoint(10,(size.height() - 20)),qPoints);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="a3d8f09e392cbba696390e332d2babe63"></a>
+<a class="anchor" id="a651f7ace297b4ec94740bf82837b57bf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void PointsCounter::increment </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ennemyShip</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>increment, used to increment the counter </p>
-<p><a class="el" href="classPointsCounter.html#a3d8f09e392cbba696390e332d2babe63" title="increment, used to increment the counter ">PointsCounter::increment</a>, increment the points counter. </p>
+<p><a class="el" href="classPointsCounter.html#a651f7ace297b4ec94740bf82837b57bf" title="increment, used to increment the counter ">PointsCounter::increment</a>, increment the points counter.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ennemyShip,used</td><td>to know if ennemyship is destroy </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="pointscounter_8cpp_source.html#l00013">13</a> of file <a class="el" href="pointscounter_8cpp_source.html">pointscounter.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                             {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    _points += 10;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                                            {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span>(ennemyShip==<span class="keyword">true</span>){</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        _points += 100;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        _points += 10;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -232,10 +244,10 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="pointscounter_8cpp_source.html#l00030">30</a> of file <a class="el" href="pointscounter_8cpp_source.html">pointscounter.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                      {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    _points=points;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<p>Definition at line <a class="el" href="pointscounter_8cpp_source.html#l00035">35</a> of file <a class="el" href="pointscounter_8cpp_source.html">pointscounter.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                      {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    _points=points;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -246,7 +258,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 12:59:03 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 18:17:24 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

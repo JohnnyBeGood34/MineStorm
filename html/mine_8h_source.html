@@ -105,31 +105,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> setCenter(QPoint center);</div>
 <div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classMine.html#a05e3ae69b655af5da667085eaf3ddc1c">   62</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classMine.html#a05e3ae69b655af5da667085eaf3ddc1c">state</a>;</div>
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classMine.html#a6b6687d7cfc0af0e885528e03f2ff592">   66</a></span>&#160;    QPoint <a class="code" href="classMine.html#a6b6687d7cfc0af0e885528e03f2ff592">_direction</a>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    QPolygon _points;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    QPoint _center;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    QPoint _sommet;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">int</span> _x;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">int</span> _y;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> mineType;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">enum</span> _mineType {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        small,</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        meduim,</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        large,</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        Num_Count</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    };</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">int</span> direction_x;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">int</span> direction_y;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif // MINE_H</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> getIsHatched();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> setIsHatched(<span class="keywordtype">bool</span> hatch);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> getRandomDirection();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    QPolygon _points;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    QPoint _center;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    QPoint _sommet;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">int</span> _x;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">int</span> _y;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">int</span> mineType;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">enum</span> _mineType {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        small,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        meduim,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        large,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        Num_Count</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    };</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">int</span> direction_x;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">int</span> direction_y;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">bool</span> isHatched;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;};</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif // MINE_H</span></div>
 <div class="ttc" id="classMine_html"><div class="ttname"><a href="classMine.html">Mine</a></div><div class="ttdoc">The Mine class represents mine objects. </div><div class="ttdef"><b>Definition:</b> <a href="mine_8h_source.html#l00010">mine.h:10</a></div></div>
 <div class="ttc" id="classMine_html_a05e3ae69b655af5da667085eaf3ddc1c"><div class="ttname"><a href="classMine.html#a05e3ae69b655af5da667085eaf3ddc1c">Mine::state</a></div><div class="ttdeci">string state</div><div class="ttdoc">state </div><div class="ttdef"><b>Definition:</b> <a href="mine_8h_source.html#l00062">mine.h:62</a></div></div>
 <div class="ttc" id="classMine_html_a6b6687d7cfc0af0e885528e03f2ff592"><div class="ttname"><a href="classMine.html#a6b6687d7cfc0af0e885528e03f2ff592">Mine::_direction</a></div><div class="ttdeci">QPoint _direction</div><div class="ttdoc">_direction, mine direction </div><div class="ttdef"><b>Definition:</b> <a href="mine_8h_source.html#l00066">mine.h:66</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 12:59:03 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 18:17:24 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

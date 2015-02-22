@@ -107,39 +107,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   _shotPoint &lt;&lt; qPoint1 &lt;&lt; qPoint2 &lt;&lt; qPoint3 &lt;&lt; qPoint4 &lt;&lt; qPoint5;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classShot.html#ab1f7d72e13476725f99e021404283d84">   24</a></span>&#160;QPoint* <a class="code" href="classShot.html#ab1f7d72e13476725f99e021404283d84">Shot::getShot</a>(){</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> &amp;_centerShot;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classShot.html#aea7d97c3dfd7da6fdd22d7cde52364ad">   28</a></span>&#160;QPolygon <a class="code" href="classShot.html#aea7d97c3dfd7da6fdd22d7cde52364ad">Shot::getPolygon</a>(){</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> _shotPoint;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classShot.html#a3c48c0006360aa6899b74fd3131fb276">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classShot.html#a3c48c0006360aa6899b74fd3131fb276">Shot::reDrawShot</a>(){</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QTransform transform;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> xShotPoint=_centerShot.x();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> yShotPoint=_centerShot.y();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> xCenterShip=_centerShip.x();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> yCenterShip=_centerShip.y();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    transform=transform.translate((xShotPoint-xCenterShip)*0.1,(yShotPoint-yCenterShip)*0.1);</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classShot.html#a8366cf3f6435535290905bc75805a0d8">   24</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classShot.html#a8366cf3f6435535290905bc75805a0d8">Shot::detectOutOfScreen</a>(<span class="keyword">const</span> QSize &amp;size){</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> isoutOfScreen = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//Right side</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(_centerShot.x() &gt; size.width()){</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        isoutOfScreen = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//Left side</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(_centerShot.x() &lt; 0){</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        isoutOfScreen = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">//Top side</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(_centerShot.y() &gt; size.height()){</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        isoutOfScreen = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//Bottom side</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(_centerShot.y() &lt; 0){</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;       isoutOfScreen = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    _shotPoint=transform.map(_shotPoint);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    _centerShot=transform.map(_centerShot);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> isoutOfScreen;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classShot.html#ab1f7d72e13476725f99e021404283d84">   46</a></span>&#160;QPoint* <a class="code" href="classShot.html#ab1f7d72e13476725f99e021404283d84">Shot::getShot</a>(){</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> &amp;_centerShot;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classShot.html#aea7d97c3dfd7da6fdd22d7cde52364ad">   50</a></span>&#160;QPolygon <a class="code" href="classShot.html#aea7d97c3dfd7da6fdd22d7cde52364ad">Shot::getPolygon</a>(){</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> _shotPoint;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classShot.html#a3c48c0006360aa6899b74fd3131fb276">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classShot.html#a3c48c0006360aa6899b74fd3131fb276">Shot::reDrawShot</a>(){</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QTransform transform;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">int</span> xShotPoint=_centerShot.x();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> yShotPoint=_centerShot.y();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">int</span> xCenterShip=_centerShip.x();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">int</span> yCenterShip=_centerShip.y();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    transform=transform.translate((xShotPoint-xCenterShip)*0.1,(yShotPoint-yCenterShip)*0.1);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    _shotPoint=transform.map(_shotPoint);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    _centerShot=transform.map(_centerShot);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 <div class="ttc" id="shot_8h_html"><div class="ttname"><a href="shot_8h.html">shot.h</a></div></div>
-<div class="ttc" id="classShot_html_ab1f7d72e13476725f99e021404283d84"><div class="ttname"><a href="classShot.html#ab1f7d72e13476725f99e021404283d84">Shot::getShot</a></div><div class="ttdeci">QPoint * getShot()</div><div class="ttdoc">getShot, get the Shot QPoint </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00024">shot.cpp:24</a></div></div>
+<div class="ttc" id="classShot_html_ab1f7d72e13476725f99e021404283d84"><div class="ttname"><a href="classShot.html#ab1f7d72e13476725f99e021404283d84">Shot::getShot</a></div><div class="ttdeci">QPoint * getShot()</div><div class="ttdoc">getShot, get the Shot QPoint </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00046">shot.cpp:46</a></div></div>
 <div class="ttc" id="classShot_html_a59851c6aa0a57a83a02e52379b7ae2bf"><div class="ttname"><a href="classShot.html#a59851c6aa0a57a83a02e52379b7ae2bf">Shot::hatch</a></div><div class="ttdeci">void hatch()</div><div class="ttdoc">hatch, used to hatch a shot </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00015">shot.cpp:15</a></div></div>
 <div class="ttc" id="classShot_html_a1a9a89aad5c95c0657a3fdd26a496ffd"><div class="ttname"><a href="classShot.html#a1a9a89aad5c95c0657a3fdd26a496ffd">Shot::Shot</a></div><div class="ttdeci">Shot(QPoint shotPoint, QPoint centerShip)</div><div class="ttdoc">Shot, Shot constructor. </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00004">shot.cpp:4</a></div></div>
-<div class="ttc" id="classShot_html_a3c48c0006360aa6899b74fd3131fb276"><div class="ttname"><a href="classShot.html#a3c48c0006360aa6899b74fd3131fb276">Shot::reDrawShot</a></div><div class="ttdeci">void reDrawShot()</div><div class="ttdoc">reDrawShot, used to re draw a shot </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00033">shot.cpp:33</a></div></div>
+<div class="ttc" id="classShot_html_a3c48c0006360aa6899b74fd3131fb276"><div class="ttname"><a href="classShot.html#a3c48c0006360aa6899b74fd3131fb276">Shot::reDrawShot</a></div><div class="ttdeci">void reDrawShot()</div><div class="ttdoc">reDrawShot, used to re draw a shot </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00054">shot.cpp:54</a></div></div>
 <div class="ttc" id="classShot_html_a9c3437fd84fa6178a5191ea040e7d837"><div class="ttname"><a href="classShot.html#a9c3437fd84fa6178a5191ea040e7d837">Shot::~Shot</a></div><div class="ttdeci">~Shot()</div><div class="ttdoc">~Shot, Shot destructor </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00012">shot.cpp:12</a></div></div>
-<div class="ttc" id="classShot_html_aea7d97c3dfd7da6fdd22d7cde52364ad"><div class="ttname"><a href="classShot.html#aea7d97c3dfd7da6fdd22d7cde52364ad">Shot::getPolygon</a></div><div class="ttdeci">QPolygon getPolygon()</div><div class="ttdoc">getPolygon, used to get the Shot QPolygon </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00028">shot.cpp:28</a></div></div>
+<div class="ttc" id="classShot_html_aea7d97c3dfd7da6fdd22d7cde52364ad"><div class="ttname"><a href="classShot.html#aea7d97c3dfd7da6fdd22d7cde52364ad">Shot::getPolygon</a></div><div class="ttdeci">QPolygon getPolygon()</div><div class="ttdoc">getPolygon, used to get the Shot QPolygon </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00050">shot.cpp:50</a></div></div>
+<div class="ttc" id="classShot_html_a8366cf3f6435535290905bc75805a0d8"><div class="ttname"><a href="classShot.html#a8366cf3f6435535290905bc75805a0d8">Shot::detectOutOfScreen</a></div><div class="ttdeci">bool detectOutOfScreen(const QSize &amp;size)</div><div class="ttdoc">detectOutOfScreen, used to know if a shot is out of screen </div><div class="ttdef"><b>Definition:</b> <a href="shot_8cpp_source.html#l00024">shot.cpp:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 12:59:03 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 18:17:24 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

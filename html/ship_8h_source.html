@@ -106,38 +106,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> slowDown();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QPoint* getSommet();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    QPoint getCenter();</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classShip.html#ac25e91d566c48b5dd4f0b0afc248202c">   65</a></span>&#160;    vector&lt;Shot*&gt; <a class="code" href="classShip.html#ac25e91d566c48b5dd4f0b0afc248202c">_shotQPoint</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> createShot();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classWeapon.html">Weapon</a>* getWeapon();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> getIsShooting();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> setIsShooting(<span class="keywordtype">bool</span> result);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> incrementSpeed();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> shoot(<span class="comment">/*QPainter &amp;painter*/</span>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> reDrawShip(<span class="keyword">const</span> QSize &amp;size);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> initShip();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    QPolygonF _points;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classWeapon.html">Weapon</a> *_shipWeapon;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    QPoint _sommet;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    QPoint _centerShip;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">double</span> speed;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">bool</span> _isShooting;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif // SHIP_H</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> createShot();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classWeapon.html">Weapon</a>* getWeapon();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> getIsShooting();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> setIsShooting(<span class="keywordtype">bool</span> result);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> incrementSpeed();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> shoot(<span class="comment">/*QPainter &amp;painter*/</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> reDrawShip(<span class="keyword">const</span> QSize &amp;size);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> initShip();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    vector&lt;Shot*&gt; getShotsVector();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> killShotOutOfScreen(<span class="keyword">const</span> QSize &amp;size);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    vector&lt;Shot*&gt; _shotQPoint;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    QPolygonF _points;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classWeapon.html">Weapon</a> *_shipWeapon;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    QPoint _sommet;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    QPoint _centerShip;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">double</span> speed;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">bool</span> _isShooting;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;};</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif // SHIP_H</span></div>
 <div class="ttc" id="shot_8h_html"><div class="ttname"><a href="shot_8h.html">shot.h</a></div></div>
 <div class="ttc" id="classShip_html"><div class="ttname"><a href="classShip.html">Ship</a></div><div class="ttdoc">The Ship class, represents the User Ship. </div><div class="ttdef"><b>Definition:</b> <a href="ship_8h_source.html#l00012">ship.h:12</a></div></div>
-<div class="ttc" id="classShip_html_ac25e91d566c48b5dd4f0b0afc248202c"><div class="ttname"><a href="classShip.html#ac25e91d566c48b5dd4f0b0afc248202c">Ship::_shotQPoint</a></div><div class="ttdeci">vector&lt; Shot * &gt; _shotQPoint</div><div class="ttdoc">createShot </div><div class="ttdef"><b>Definition:</b> <a href="ship_8h_source.html#l00065">ship.h:65</a></div></div>
 <div class="ttc" id="weapon_8h_html"><div class="ttname"><a href="weapon_8h.html">weapon.h</a></div></div>
 <div class="ttc" id="classWeapon_html"><div class="ttname"><a href="classWeapon.html">Weapon</a></div><div class="ttdef"><b>Definition:</b> <a href="weapon_8h_source.html#l00011">weapon.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 12:59:03 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 18:17:24 for Mine storm by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
