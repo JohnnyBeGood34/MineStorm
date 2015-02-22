@@ -79,6 +79,17 @@ void MindStormGame::draw(QPainter &painter, QRect &rect){
             ++loopCounter;
         }
 
+        //Increment the loop counter
+        if(loopCounterEnnemyShip <600){
+            ++loopCounterEnnemyShip;
+        }
+        if(loopCounterEnnemyShip == 600){
+            qDebug() << "vaisseau";
+            loopCounterEnnemyShip = 0;
+            //User space Ennemy ship initialization
+            _EnnemyShip=new EnnemySpaceShip();
+        }
+
         //Hatch each mines at 2.5 seconds (100 loops)
         if((loopCounter % 50 == 0)&&(loopCounterHatchMines<30)){
             ++loopCounterHatchMines;

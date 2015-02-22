@@ -167,6 +167,10 @@ private:
      * @brief loopCounterHatchMines, logical loop counter
      */
     int loopCounterHatchMines;
+    /**
+     * @brief loopCounterEnnemyShip, logical loop counter
+     */
+    int loopCounterEnnemyShip;
 
 private slots:
     void test();
