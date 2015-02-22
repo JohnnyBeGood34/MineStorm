@@ -25,7 +25,7 @@ public:
      * @brief getPolygon, used to get the Ship polygon
      * @return QPolygon
      */
-    QPolygon getPolygon();
+    QPolygonF getPolygon();
     /**
      * @brief connectSommet
      */
@@ -91,7 +91,7 @@ private:
     /**
      * @brief _points, represents the QPolygon of the ship
      */
-    QPolygon _points;
+    QPolygonF _points;
     /**
      * @brief _shipWeapon
      */

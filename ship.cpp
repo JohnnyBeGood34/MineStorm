@@ -21,41 +21,41 @@ void Ship::initShip(){
     //Create top of ship according to its center
     _sommet = QPoint(_centerShip.x(),_centerShip.y()-35);
 
-    QPoint qPoint1 = QPoint(_centerShip.x()+10,_centerShip.y());
-    QPoint qPoint2 = QPoint(_centerShip.x()+15,_centerShip.y());
-    QPoint qPoint3 = QPoint(_centerShip.x()+15,_centerShip.y()-15);
-    QPoint qPoint4 = QPoint(_centerShip.x()+15,_centerShip.y());
-    QPoint qPoint5 = QPoint(_centerShip.x()+20,_centerShip.y());
-    QPoint qPoint6 = QPoint(_centerShip.x()+20,_centerShip.y()-10);
-    QPoint qPoint7 = QPoint(_centerShip.x()+25,_centerShip.y()-10);
-    QPoint qPoint8 = QPoint(_centerShip.x()+25,_centerShip.y()-30);
-    QPoint qPoint9 = QPoint(_centerShip.x()+25,_centerShip.y()-10);
-    QPoint qPoint10 = QPoint(_centerShip.x()+30,_centerShip.y()-10);
-    QPoint qPoint11 = QPoint(_centerShip.x()+30,_centerShip.y()+10);
-    QPoint qPoint12 = QPoint(_centerShip.x()+20,_centerShip.y()+10);
-    QPoint qPoint13 = QPoint(_centerShip.x()+20,_centerShip.y()+5);
-    QPoint qPoint14 = QPoint(_centerShip.x()+10,_centerShip.y()+10);
-    QPoint qPoint15 = QPoint(_centerShip.x()+10,_centerShip.y()+15);
-    QPoint qPoint16 = QPoint(_centerShip.x()+5,_centerShip.y()+15);
-    QPoint qPoint17 = QPoint(_centerShip.x()+5,_centerShip.y()+10);
-    QPoint qPoint18 = QPoint(_centerShip.x()-5,_centerShip.y()+10);
-    QPoint qPoint19 = QPoint(_centerShip.x()-5,_centerShip.y()+15);
-    QPoint qPoint20 = QPoint(_centerShip.x()-10,_centerShip.y()+15);
-    QPoint qPoint21 = QPoint(_centerShip.x()-10,_centerShip.y()+10);
-    QPoint qPoint22 = QPoint(_centerShip.x()-20,_centerShip.y()+5);
-    QPoint qPoint23 = QPoint(_centerShip.x()-20,_centerShip.y()+10);
-    QPoint qPoint24 = QPoint(_centerShip.x()-30,_centerShip.y()+10);
-    QPoint qPoint25 = QPoint(_centerShip.x()-30,_centerShip.y()-10);
-    QPoint qPoint26 = QPoint(_centerShip.x()-25,_centerShip.y()-10);
-    QPoint qPoint27 = QPoint(_centerShip.x()-25,_centerShip.y()-30);
-    QPoint qPoint28 = QPoint(_centerShip.x()-25,_centerShip.y()-10);
-    QPoint qPoint29 = QPoint(_centerShip.x()-20,_centerShip.y()-10);
-    QPoint qPoint30 = QPoint(_centerShip.x()-20,_centerShip.y());
-    QPoint qPoint31 = QPoint(_centerShip.x()-15,_centerShip.y());
-    QPoint qPoint32 = QPoint(_centerShip.x()-15,_centerShip.y()-15);
-    QPoint qPoint33 = QPoint(_centerShip.x()-15,_centerShip.y());
-    QPoint qPoint34 = QPoint(_centerShip.x()-10,_centerShip.y());
-    QPoint qPoint35 = QPoint(_centerShip.x(),_centerShip.y()-35);
+    QPointF qPoint1 = QPointF(_centerShip.x()+10,_centerShip.y());
+    QPointF qPoint2 = QPointF(_centerShip.x()+15,_centerShip.y());
+    QPointF qPoint3 = QPointF(_centerShip.x()+15,_centerShip.y()-15);
+    QPointF qPoint4 = QPointF(_centerShip.x()+15,_centerShip.y());
+    QPointF qPoint5 = QPointF(_centerShip.x()+20,_centerShip.y());
+    QPointF qPoint6 = QPointF(_centerShip.x()+20,_centerShip.y()-10);
+    QPointF qPoint7 = QPointF(_centerShip.x()+25,_centerShip.y()-10);
+    QPointF qPoint8 = QPointF(_centerShip.x()+25,_centerShip.y()-30);
+    QPointF qPoint9 = QPointF(_centerShip.x()+25,_centerShip.y()-10);
+    QPointF qPoint10 = QPointF(_centerShip.x()+30,_centerShip.y()-10);
+    QPointF qPoint11 = QPointF(_centerShip.x()+30,_centerShip.y()+10);
+    QPointF qPoint12 = QPointF(_centerShip.x()+20,_centerShip.y()+10);
+    QPointF qPoint13 = QPointF(_centerShip.x()+20,_centerShip.y()+5);
+    QPointF qPoint14 = QPointF(_centerShip.x()+10,_centerShip.y()+10);
+    QPointF qPoint15 = QPointF(_centerShip.x()+10,_centerShip.y()+15);
+    QPointF qPoint16 = QPointF(_centerShip.x()+5,_centerShip.y()+15);
+    QPointF qPoint17 = QPointF(_centerShip.x()+5,_centerShip.y()+10);
+    QPointF qPoint18 = QPointF(_centerShip.x()-5,_centerShip.y()+10);
+    QPointF qPoint19 = QPointF(_centerShip.x()-5,_centerShip.y()+15);
+    QPointF qPoint20 = QPointF(_centerShip.x()-10,_centerShip.y()+15);
+    QPointF qPoint21 = QPointF(_centerShip.x()-10,_centerShip.y()+10);
+    QPointF qPoint22 = QPointF(_centerShip.x()-20,_centerShip.y()+5);
+    QPointF qPoint23 = QPointF(_centerShip.x()-20,_centerShip.y()+10);
+    QPointF qPoint24 = QPointF(_centerShip.x()-30,_centerShip.y()+10);
+    QPointF qPoint25 = QPointF(_centerShip.x()-30,_centerShip.y()-10);
+    QPointF qPoint26 = QPointF(_centerShip.x()-25,_centerShip.y()-10);
+    QPointF qPoint27 = QPointF(_centerShip.x()-25,_centerShip.y()-30);
+    QPointF qPoint28 = QPointF(_centerShip.x()-25,_centerShip.y()-10);
+    QPointF qPoint29 = QPointF(_centerShip.x()-20,_centerShip.y()-10);
+    QPointF qPoint30 = QPointF(_centerShip.x()-20,_centerShip.y());
+    QPointF qPoint31 = QPointF(_centerShip.x()-15,_centerShip.y());
+    QPointF qPoint32 = QPointF(_centerShip.x()-15,_centerShip.y()-15);
+    QPointF qPoint33 = QPointF(_centerShip.x()-15,_centerShip.y());
+    QPointF qPoint34 = QPointF(_centerShip.x()-10,_centerShip.y());
+    QPointF qPoint35 = QPointF(_centerShip.x(),_centerShip.y()-35);
 
 
     _points << _sommet << qPoint1 << qPoint2 << qPoint3 << qPoint4 << qPoint5 << qPoint6 << qPoint7 << qPoint8 << qPoint9 << qPoint10
@@ -166,7 +166,7 @@ Weapon* Ship::getWeapon(){
     return _shipWeapon;
 }
 
-QPolygon Ship::getPolygon(){
+QPolygonF Ship::getPolygon(){
     return _points;
 }
 

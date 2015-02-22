@@ -15,9 +15,6 @@ Mine::Mine(QPoint qPointRand, int &compteur)
     //qPointRand central point of a mine
     _center =qPointRand;
     //Determine the mine type (little, middle, great)
-
-
-
     if(compteur < 5){
         mineType = 1;
     }else if(compteur >= 5 && compteur < 25){
