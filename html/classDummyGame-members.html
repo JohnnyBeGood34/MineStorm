@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,20 +93,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr><td class="entry"><a class="el" href="classDummyGame.html#a5075c0a38577df6e26251d9e71c21875">draw</a>(QPainter &amp;painter, QRect &amp;rect)</td><td class="entry"><a class="el" href="classDummyGame.html">DummyGame</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classDummyGame.html#a90e9c8e8067e5063687f18286ff77aeb">DummyGame</a>(const QSize &amp;size, QObject *parent=nullptr)</td><td class="entry"><a class="el" href="classDummyGame.html">DummyGame</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classGame.html#a76646df3c285c17da275919046f3724b">Game</a>(const QSize &amp;size, QObject *parent)</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGame.html#a09be83cd3c0656eba9ed7fe1a596b15c">getSpeed</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classGame.html#a8ef394da6eedf82e5c73f8bed8773bc2">getTimer</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classGame.html#abb31098c8d016b98888fe9acac497fcb">isRunning</a>() const </td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classDummyGame.html#a45c9b35a5bc520dd612845b39a5d6196">keyPressed</a>(int key)</td><td class="entry"><a class="el" href="classDummyGame.html">DummyGame</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDummyGame.html#a9929b9dd6f31aa03701bd63c966e652e">keyReleased</a>(int key)</td><td class="entry"><a class="el" href="classDummyGame.html">DummyGame</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classDummyGame.html#a281588f498b1648ca0627d0660d5146f">mousePressed</a>(int x, int y)</td><td class="entry"><a class="el" href="classDummyGame.html">DummyGame</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classGame.html#a4b507ab6c09910b3a621cf1980d65604">pause</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classGame.html#a39bb2fd26b5ea6b164f28f9f6723582e">reset</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classGame.html#adb9239fdd7f7d67e4b28a22c274eb05e">setSpeed</a>(int speed)</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>() const </td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classGame.html#a40c5981d4dba47a9c4d5195380d9f9bf">speed</a>() const </td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classGame.html#a3d9b98f7c4a96ecf578f75b96c9f0e90">start</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDummyGame.html#a9929b9dd6f31aa03701bd63c966e652e">keyReleased</a>(int key)</td><td class="entry"><a class="el" href="classDummyGame.html">DummyGame</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classGame.html#ac9b2b4a31794697ac33814fd9bf53db7">Game::keyReleased</a>(QKeyEvent *event)=0</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDummyGame.html#a281588f498b1648ca0627d0660d5146f">mousePressed</a>(int x, int y)</td><td class="entry"><a class="el" href="classDummyGame.html">DummyGame</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classGame.html#a4b507ab6c09910b3a621cf1980d65604">pause</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGame.html#a39bb2fd26b5ea6b164f28f9f6723582e">reset</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classGame.html#adb9239fdd7f7d67e4b28a22c274eb05e">setSpeed</a>(int speed)</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGame.html#aef028fef77b6498c42f347400b1ebf55">size</a>() const </td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classGame.html#a40c5981d4dba47a9c4d5195380d9f9bf">speed</a>() const </td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGame.html#a3d9b98f7c4a96ecf578f75b96c9f0e90">start</a>()</td><td class="entry"><a class="el" href="classGame.html">Game</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 15 2014 08:14:53 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 12:10:48 for TD6 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

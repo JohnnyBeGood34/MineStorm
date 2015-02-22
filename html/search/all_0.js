@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['changed',['changed',['../classGame.html#aa56256a804a59c9031e6eb1fd9e70dc7',1,'Game']]],
-  ['controller',['Controller',['../classController.html',1,'Controller'],['../classController.html#ad55ce347b4cb45a9faf3ee55b4bf88b4',1,'Controller::Controller()']]],
-  ['controller_2ecpp',['controller.cpp',['../controller_8cpp.html',1,'']]],
-  ['controller_2eh',['controller.h',['../controller_8h.html',1,'']]]
+  ['_5fdirection',['_direction',['../classMine.html#a6b6687d7cfc0af0e885528e03f2ff592',1,'Mine']]],
+  ['_5fshotqpoint',['_shotQPoint',['../classShip.html#ac25e91d566c48b5dd4f0b0afc248202c',1,'Ship']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
-  ['mainwindow_2ecpp',['mainwindow.cpp',['../mainwindow_8cpp.html',1,'']]],
-  ['mainwindow_2eh',['mainwindow.h',['../mainwindow_8h.html',1,'']]]
+  ['game_2ecpp',['game.cpp',['../game_8cpp.html',1,'']]],
+  ['game_2eh',['game.h',['../game_8h.html',1,'']]],
+  ['gameboard_2ecpp',['gameboard.cpp',['../gameboard_8cpp.html',1,'']]],
+  ['gameboard_2eh',['gameboard.h',['../gameboard_8h.html',1,'']]]
 ];

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['setspeed',['setSpeed',['../classGame.html#adb9239fdd7f7d67e4b28a22c274eb05e',1,'Game']]],
-  ['size',['size',['../classGame.html#aef028fef77b6498c42f347400b1ebf55',1,'Game']]],
-  ['speed',['speed',['../classGame.html#a40c5981d4dba47a9c4d5195380d9f9bf',1,'Game']]],
-  ['start',['start',['../classGame.html#a3d9b98f7c4a96ecf578f75b96c9f0e90',1,'Game']]],
-  ['step',['step',['../classGame.html#a89e2a08b8d6f132c874b14de3cb50ab0',1,'Game']]]
+  ['keypressed',['keyPressed',['../classDummyGame.html#a45c9b35a5bc520dd612845b39a5d6196',1,'DummyGame::keyPressed()'],['../classGame.html#a90bb392d6ca1dd209388bf43a25ac0b2',1,'Game::keyPressed()'],['../classMindStormGame.html#a94a0a98adad32777ff22feba6a3b1dc8',1,'MindStormGame::keyPressed()']]],
+  ['keypressevent',['keyPressEvent',['../classGameBoard.html#a3fdf1e6bfcc24a0930196be5fc3150c1',1,'GameBoard']]],
+  ['keyreleased',['keyReleased',['../classDummyGame.html#a9929b9dd6f31aa03701bd63c966e652e',1,'DummyGame::keyReleased()'],['../classGame.html#ac9b2b4a31794697ac33814fd9bf53db7',1,'Game::keyReleased()'],['../classMindStormGame.html#a10b1d547af10a6106432bdd195d51bb9',1,'MindStormGame::keyReleased()']]],
+  ['keyreleaseevent',['keyReleaseEvent',['../classGameBoard.html#a65228d1bdb0e856cb3115fb171185636',1,'GameBoard']]]
 ];
