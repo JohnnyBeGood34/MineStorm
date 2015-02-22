@@ -52,14 +52,14 @@ public:
      * @param mine
      * @return
      */
-    bool hasCollision(QPolygon &mine);
+    bool hasCollision(QPolygon &poly);
     /**
      * @brief isMineShot, detect collision between mine and shot
      * @param mine, a mine QPolygon
      * @param shot, a Shot QPolygon
      * @return true if there is a collission, false if there isn't
      */
-    bool isShot(QPolygon shot,QPolygon mineOrEnnemy);
+    bool isShot(QPolygon shoot,QPolygon mineOrEnnemy);
 
 private:
     /**
@@ -140,10 +140,6 @@ private:
      */
     EnnemySpaceShip *_EnnemyShip;
     /**
-     * @brief _computerMine, mine object
-     */
-    Mine *_computerMine;
-    /**
      * @brief _mines array vector of mines present into gameboard
      */
     vector<Mine*> _mines;
@@ -171,8 +167,6 @@ private:
      * @brief loopCounterEnnemyShip, logical loop counter
      */
     int loopCounterEnnemyShip;
-private slots:
-    void test();
 };
 
 #endif // TESTGAME_H

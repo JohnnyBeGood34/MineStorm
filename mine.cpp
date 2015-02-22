@@ -4,8 +4,6 @@
 Mine::Mine(QPoint qPointRand, int &compteur)
 {
 
-    //initalize isHatched to false
-    this->isHatched = false;
     //Get a random direction
     getRandomDirection();
     //qPointRand central point of a mine
@@ -21,7 +19,6 @@ Mine::Mine(QPoint qPointRand, int &compteur)
 
     //Polygon initialize to a point
     _points << _center;
-    qDebug() << "CREATE A MINE WITH HATCHED TO : " << this->isHatched;
 }
 
 void Mine::getRandomDirection(){
@@ -40,7 +37,6 @@ void Mine::getRandomDirection(){
 }
 
 void Mine::hatch(){
-    if(!this->isHatched){
         switch ( mineType ) {
         case 1:
             _x = 7.5;
@@ -69,8 +65,6 @@ void Mine::hatch(){
         //Create the mine polygon
         _points << _sommet << qPointSommetMine2 << qPointSommetMine3 << qPointSommetMine4 << qPointSommetMine5 << qPointSommetMine6 << qPointSommetMine7 << qPointSommetMine8;
         _direction=QPoint(1,1);
-        this->isHatched = true;
-    }
 }
 
 void Mine::reDrawMine(const QSize &size){
@@ -93,14 +87,12 @@ void Mine::reDrawMine(const QSize &size){
         //qDebug() << "MINE LEFT OUT";
         transform=transform.translate(xSommet-xCenter+size.width(),ySommet-yCenter);
     }
-    //Top side
-    else if(_center.y() >= size.height()){
-        //qDebug() << "MINE TOP OUT";
-        transform=transform.translate(xSommet-xCenter,ySommet-yCenter - size.height());
-    }
     //Bottom side
-    else if(_center.y() <= 0){
-        //qDebug() << "MINE BOTTOM OUT";
+    else if(_center.y() > size.height()){
+        transform=transform.translate(xSommet-xCenter,ySommet-yCenter-size.height());
+    }
+    //Top side
+    else if(_center.y() < 0){
         transform=transform.translate(xSommet-xCenter,ySommet-yCenter+size.height());
     }
     //Map the polygon
@@ -140,12 +132,4 @@ QPoint* Mine::getCenter(){
 
 void Mine::setCenter(QPoint center){
     _center=center;
-}
-
-bool Mine::getIsHatched(){
-    return this->isHatched;
-}
-
-void Mine::setIsHatched(bool hatch){
-    this->isHatched = hatch;
 }
